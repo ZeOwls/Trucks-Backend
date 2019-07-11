@@ -1,1 +1,1 @@
-web: python manage.py run
+worker: python manage.py run
