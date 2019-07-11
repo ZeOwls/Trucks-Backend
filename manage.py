@@ -27,7 +27,8 @@ application.register_blueprint(api_bl)
 def run(port=5000):
     # ip = socket.gethostbyname(socket.getfqdn())
     # host = os.environ.get('IP', ip)
-    application.run()
+    port = os.environ.get('PORT',5000)
+    application.run(port=port)
 
 
 @manager.command
