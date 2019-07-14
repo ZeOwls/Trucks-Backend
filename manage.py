@@ -5,7 +5,6 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
 from app import app as application, db
-from app.api import blueprint as api_bl
 
 # import app.api.model
 # from app.api.model.car import Car
@@ -18,8 +17,6 @@ manager = Manager(application)
 migrate = Migrate(application, db)
 manager.add_command('db', MigrateCommand)
 
-# register blueprints
-application.register_blueprint(api_bl)
 
 
 @manager.command

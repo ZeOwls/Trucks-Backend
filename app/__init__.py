@@ -12,6 +12,7 @@ bcrypt = Bcrypt()
 login_manager = LoginManager()
 cors = CORS()
 
+from app.api import blueprint as api_bl
 
 def creat_app(config_name):
     app = Flask(__name__)
@@ -21,6 +22,8 @@ def creat_app(config_name):
     login_manager.init_app(app)
     bcrypt.init_app(app)
     # register blueprints
+    # register blueprints
+    app.register_blueprint(api_bl)
     return app
 
 
