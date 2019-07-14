@@ -1,20 +1,223 @@
-# from flask_login import login_required , current_user
-# from flask import request
-# from flask_restplus import Namespace, Resource, fields
-#
-# from app import db , login_manager
-# from app.api.model.user import User
-#
-# #TODO how will login, how will know which car is it know!
-#
-# truck_app = Namespace('Truck', description='All Truck related endpoints')
-# check_in = truck_app.model('check in', {
-#     'truck_location_latitude': fields.Float(required=True, description='truck location latitude'),
-#     'truck_location_longitude': fields.Float(required=True, description='truck location longitude')
-# })
-#
-#
-#
-# @truck_app.route('/CheckIn')
-# @login_required
-# class CheckIn:
+from flask_login import login_required, current_user, login_user
+from flask import request
+from flask_restplus import Namespace, Resource, fields
+
+from app import db
+from app.api.model.order import Order, OrderHistory
+from app.api.model.user import User
+from app.api.model.car import Car
+from app.api.model.order_driver_car import OrderCarsAndDrivers, orders_status
+
+truck_app = Namespace('Truck', description='All Truck related endpoints')
+
+check_in = truck_app.model('check in', {
+    'qr_code': fields.String(required=True, description='truck Qr code '),
+    'truck_location_latitude': fields.Float(required=True, description='truck location latitude'),
+    'truck_location_longitude': fields.Float(required=True, description='truck location longitude')
+})
+
+update_location = truck_app.model('update location', {
+    'truck_location_latitude': fields.Float(required=True, description='truck location latitude'),
+    'truck_location_longitude': fields.Float(required=True, description='truck location longitude')
+})
+
+device_token_model = truck_app.model('assign token to device', {
+    'device_token': fields.String(required=True, description='device token')
+
+})
+
+orderStatus_model = truck_app.model('update status of order', {
+    'status': fields.Integer(required=True, description='index of order status between 1 and 5 = done')
+
+})
+
+
+def truck_required(fun):
+    def decorator(*args, **kwargs):
+        user = User.query.get(current_user.id)
+        if not user.isTruck:
+            response_opj = {
+                'status': 'failed',
+                'message': 'you are not a Truck user!'
+            }
+            return response_opj, 401
+        return fun(*args, **kwargs)
+
+    return decorator
+
+
+@truck_app.route('/CheckIn')
+class CheckIn(Resource):
+    @truck_app.expect(check_in)
+    def post(self):
+        data = request.json
+        try:
+            qr_code = data.get('qr_code')
+            car = Car.query.filter_by(qr_code=qr_code).first()
+            if not car:
+                response_opj = {
+                    'status': 'failed',
+                    'message': 'QR code is wrong'
+                }
+                return response_opj, 401
+            user = User.query.get(car.user_id)
+            login_user(user)
+            car.location_latitude = data.get('truck_location_latitude')
+            car.location_longitude = data.get('truck_location_longitude')
+            db.session.commit()
+            response_opj = {
+                'status': 'success',
+                'message': 'Successfully logged in'
+            }
+            return response_opj, 200
+        except Exception as e:
+            print('exception in CheckIn Truck:', e)
+            response_opj = {
+                'status': 'failed',
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500
+
+
+@truck_app.route('/UpdateLocation')
+class UpdateLocation(Resource):
+    @login_required
+    @truck_app.expect(update_location)
+    @truck_required
+    def post(self):
+        data = request.json
+        try:
+            car = Car.query.filter_by(user_id=current_user.id).first()
+            car.location_latitude = data.get('truck_location_latitude')
+            car.location_longitude = data.get('truck_location_longitude')
+            db.session.commit()
+            response_opj = {
+                'status': 'success',
+                'message': 'Successfully Truck location updated',
+                'Location': {'location_latitude': car.location_latitude, 'location_longitude': car.location_longitude}
+            }
+            return response_opj, 200
+
+        except Exception as e:
+            print('exception in update Truck location:', e)
+            response_opj = {
+                'status': 'failed',
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500
+
+
+@truck_app.route('/RegisterDeviceToken')
+@truck_app.expect(device_token_model)
+class RegisterDeviceToken(Resource):
+    @login_required
+    @truck_required
+    def post(self):
+        data = request.json
+        try:
+            user = User.query.get(current_user.id)
+            token = data.get('device_token')
+            user.device_token = token
+            db.session.commit()
+            response_opj = {
+                'status': 'success',
+                'message': 'Successfully add Device token'
+            }
+            return response_opj, 201
+
+        except Exception as e:
+            print('exception in add device token:', e)
+            response_opj = {
+                'status': 'failed',
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500
+
+
+@truck_app.route('/UpdateOrderStatus')
+class UpdateOrderStatus(Resource):
+    @login_required
+    @truck_app.expect(orderStatus_model)
+    @truck_required
+    def post(self):
+        data = request.json
+        try:
+            car = Car.query.filter_by(user_id=current_user.id).first()  # get current user car
+            if not car.current_order_id:
+                response_opj = {
+                    'status': 'failed',
+                    'message': "This truck don't have current order!"
+                }
+                return response_opj, 400
+            order_car_driver = OrderCarsAndDrivers.query.filter_by(order_id=car.current_order_id).filter_by(
+                car_id=car.id).first()
+            current_status = order_car_driver.status
+            if current_status == 5:
+                response_opj = {
+                    'status': 'failed',
+                    'message': "This order is already finished!"
+                }
+                return response_opj, 400
+
+            new_status = data.get('status')
+            if new_status <= current_status:
+                response_opj = {
+                    'status': 'failed',
+                    'message': "new status is less than or equal to current status!"
+                }
+                return response_opj, 400
+            order_car_driver.status = new_status
+            db.session.commit()
+            # get all cars that assigned to same order, we check all cars status before we update order status
+            all_cars = OrderCarsAndDrivers.query.filter_by(order_id=car.current_order_id).all()
+            order = Order.query.get(car.current_order_id)
+            if len(all_cars) == 1:
+                order.status = new_status
+                db.session.commit()
+                response_opj = {
+                    'status': 'success',
+                    'message': f"order status updated successfully from {orders_status[current_status]} to"
+                               f" {orders_status[new_status]}"
+                }
+                return response_opj, 200
+            final_status = min([x.status for x in all_cars])
+            if final_status > order.status:
+                order.status = final_status
+                order_history = OrderHistory(order_id=car.current_order_id, old_state=current_status,
+                                             new_state=new_status)
+                db.session.add(order_history)
+            db.session.commit()
+            response_opj = {
+                'status': 'success',
+                'message': f"order status updated successfully from {orders_status[current_status]} to"
+                           f" {orders_status[new_status]}"
+            }
+            return response_opj, 200
+        except Exception as e:
+            print('Exception in update order status: ', e)
+            response_opj = {
+                'status': 'failed',
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500
+
+
+@truck_app.route('/CarProfile')
+class CarProfile(Resource):
+    @login_required
+    @truck_required
+    def get(self):
+        try:
+            car = Car.query.filter_by(user_id=current_user.id).first()
+            response_opj = {
+                'status': 'success',
+                'Car_info': car.serialize()
+            }
+            return response_opj, 200
+        except Exception as e:
+            print('Exception in get car profile: ', e)
+            response_opj = {
+                'status': 'failed',
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500

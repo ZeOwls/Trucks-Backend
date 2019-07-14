@@ -25,7 +25,7 @@ signup_model = fac_app.model('Factory sign up', {
 
 })
 
-profile_model = fac_app.model('Factory sign up', {
+profile_model = fac_app.model('Factory profile', {
     'factory_name': fields.String(required=True, description='Factory Name'),
     'delegate_name': fields.String(required=True, description='delegate Name'),
     'delegate_phone': fields.String(required=True, description='delegate Phone number'),
@@ -119,7 +119,7 @@ class SignUp(Resource):
             email = data.get('email')
             password = data.get('password')
             address = data.get('address')
-            factory_hotline = data.get('hotline')
+            factory_hotline = data.get('factory_hotline')
             delegate_phone = data.get('delegate_phone')
 
             role = 2
@@ -202,7 +202,7 @@ class OrderList(Resource):
 
 
 @fac_app.route('/OrderDetails<id>')
-class OrderList(Resource):
+class OrderDetails(Resource):
     @login_required
     def get(self, id):
         try:

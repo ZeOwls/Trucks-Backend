@@ -20,19 +20,19 @@ class Car(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     number = db.Column(db.String(255), unique=True, nullable=False)
-    # location_latitude = db.Column(db.Float)
-    location_x = db.Column(db.Float)
-    # location_longitude = db.Column(db.Float)
-    location_y = db.Column(db.Float)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    capacity = db.Column(db.Float, nullable=False)
+    location_latitude = db.Column(db.Float)
+    # location_x = db.Column(db.Float)
+    location_longitude = db.Column(db.Float)
+    # location_y = db.Column(db.Float)
     _owner = db.Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
     owner_object = db.relationship(Company)
     qr_code = db.Column(db.String, unique=True, nullable=False)
     _status = db.Column(db.Integer, nullable=False, default=0)  # 0 == free , 1 == busy
     _type = db.Column(db.Integer, nullable=False)  # 0 == trilla , 1 == maktura
-    orders = db.relationship('OrderCarsAndDrivers', backref='car', uselist=False)
-
-
-
+    orders = db.relationship('OrderCarsAndDrivers', backref='car')
+    current_order_id = db.Column(db.Integer,default=0)
     @property
     def owner(self):
         return self.owner_object
@@ -71,7 +71,7 @@ class Car(db.Model):
                 f"{typ} not avilable car type, Avilable types is :{available_type}")
 
     def __repr__(self):
-        return f"Car NO.:{self.number}, type: {self.car_type}, locatios is :{(self.location_x,self.location_y)}" \
+        return f"Car NO.:{self.number}, type: {self.car_type}, locatios is :{(self.location_latitude,self.location_longitude)}" \
                f" status:{available_status[self._status]},'Owner INFO:{self.owner_object}"
 
     @staticmethod
@@ -79,14 +79,16 @@ class Car(db.Model):
         return str(uuid.uuid4())
 
     def serialize(self):
+        from app.api.model.order_driver_car import OrderCarsAndDrivers
+        orders = OrderCarsAndDrivers.query.filter_by(car_id=self.id).all()
         return {
-            'car_id':self.id,
-            'car_plate_number':self.number,
-            'car_type':self._type,
-            'location':{
-                'location_latitude':self.location_x,
-                'location_longitude':self.location_y
+            'car_id': self.id,
+            'car_plate_number': self.number,
+            'car_type': available_type[self._type],
+            'location': {
+                'location_latitude': self.location_latitude,
+                'location_longitude': self.location_longitude
             },
-            'car_status':self.status
-
+            'car_status': self.status
+            # 'Cur:':[order.serialize() for order in orders]
         }

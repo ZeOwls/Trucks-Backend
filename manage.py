@@ -36,21 +36,16 @@ def insertData():
     # insert users
     from app.api.model.user import User
     # users = [{'username': 'factory', 'email': 'factory@test.com', 'password': 'factory', 'role': 2,'phone':123},
-    #     #          {'username': 'admin', 'email': 'admin@test.com', 'password': 'admin', 'role': 3,'phone':1234},
-    #     #          {'username': 'company', 'email': 'company@test.com', 'password': 'company', 'role': 1,'phone':1235}, ]
-    #     # for user in users:
-    #     #     user = User(username=user['username'],email=user['email'],password=user['password'],role=user['role']
-    #     #                 ,phone=user['phone'])
-    #     #     db.session.add(user)
-    #     #     db.session.commit()
-    #     # users = User.query.all()
-    #     # print('users is :',users)
-    #     #
-    #     # user = User(username='company2', email='company2@test.com', password='comapny', role=1,phone=1236)
-    #     # db.session.add(user)
-    #     # db.session.commit()
-    #     # users = User.query.all()
-    #     # print('users is :',users)
+    #          {'username': 'admin', 'email': 'admin@test.com', 'password': 'admin', 'role': 3,'phone':1234},
+    #          {'username': 'company', 'email': 'company@test.com', 'password': 'company', 'role': 1,'phone':1235}, ]
+    # for user in users:
+    #     user = User(username=user['username'],email=user['email'],password=user['password'],role=user['role']
+    #                 ,phone=user['phone'])
+    #     db.session.add(user)
+    #     db.session.commit()
+    # users = User.query.all()
+    # print('users is :',users)
+
     ####################################################
     # insert factory
     # name = '7ded and solb'
@@ -67,7 +62,7 @@ def insertData():
 
     # insert company
     from app.api.model.com import Company
-
+    #
     # try:
     #     comp = Company(name='new company', account=3,address='5 wall st')
     #     db.session.add(comp)
@@ -78,12 +73,18 @@ def insertData():
     # comps = Company.query.all()
     # print(comps)
 
-    ############################################
+    #############################################
     # insert cars to company
     # cars = [
-    #         ['11ss1', 1, Car.generate_qrcode(), 'trilla']]
+    #     ['car1', 1, Car.generate_qrcode(), 'trilla', 15],
+    #     ['car2', 1, Car.generate_qrcode(), 'maktura', 15]]
+    # role = 4
     # for car in cars:
-    #     new_car = Car(number=car[0],owner=car[1],qr_code=car[2],car_type=car[3])
+    #     car_user = User(username=car[0], email=car[0], password=car[2], phone=car[0], role=role)
+    #     db.session.add(car_user)
+    #     db.session.commit()
+    #     new_car = Car(user_id=car_user.id, number=car[0], owner=car[1], qr_code=car[2], car_type=car[3],
+    #                   capacity=car[4])
     #     db.session.add(new_car)
     #     db.session.commit()
     #
@@ -111,10 +112,12 @@ def insertData():
     # print(orders)
     #####################################33
     # assign driver and car for order
-    # new = OrderCarsAndDrivers(order_id=2,car_id=1,driver_id=1)
-    # db.session.add(new)
-    # db.session.commit()
-    pass
+    new = OrderCarsAndDrivers(order_id=2,car_id=1,driver_id=2)
+    car = Car.query.get(1)
+    car.current_order_id=2
+    db.session.add(new)
+    db.session.commit()
+    # pass
 
 
 if __name__ == "__main__":

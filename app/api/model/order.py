@@ -70,7 +70,7 @@ class OrderHistory(db.Model):
     old_state = db.Column(db.Integer, nullable=False, default=0)
     # from 1 to 5 where 0 == في الطريق الي نقطة الاستلام and 5 == done
     new_state = db.Column(db.Integer, nullable=False, default=1)
-    changed_on = db.Column(db.DateTime, nullable=False, default=datetime.timestamp(datetime.now()))
+    changed_on = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
 
 class OrderCarsTypes(db.Model):

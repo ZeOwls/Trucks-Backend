@@ -3,22 +3,21 @@ from flask_login import UserMixin
 from app import db, bcrypt, login_manager
 
 
-
 class User(db.Model, UserMixin):
     __tablename__ = "user"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(255), unique=True, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
-    phone = db.Column(db.String(11),unique=True,nullable=False)
-    # roles is == > 1 = cars company , 2 = factory , 3 = admin
+    phone = db.Column(db.String(11), unique=True, nullable=False)
+    # roles is == > 1 = cars company , 2 = factory , 3 = admin, 4 = Truck
     role = db.Column(db.Integer, nullable=False, default=1)
     device_token = db.Column(db.String, unique=True)
     hased_password = db.Column(db.String, nullable=False)
     # if user account for factory delegate
     factory = db.relationship('Factory', backref='user', uselist=False)
     company = db.relationship('Company', backref='user', uselist=False)
-
+    car = db.relationship('Car', backref='user', uselist=False)
 
     @property
     def password(self):
@@ -44,6 +43,10 @@ class User(db.Model, UserMixin):
     @property
     def isCompany(self):
         return True if self.role == 1 else False
+
+    @property
+    def isTruck(self):
+        return True if self.role == 4 else False
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.hased_password, password)

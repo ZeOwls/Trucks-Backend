@@ -219,8 +219,8 @@ class CarLocation(Resource):
             car = Car.query.get(id)
             response_opj = {
                 'status': 'success',
-                'car_location_latitude': car.location_x,
-                'car_location_longitude': car.location_y
+                'car_location_latitude': car.location_latitude,
+                'car_location_longitude': car.location_longitude
             }
             return response_opj, 200
 
