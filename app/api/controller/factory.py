@@ -195,7 +195,7 @@ class OrderList(Resource):
                 'status': 'success',
                 'orders-Info': orders_opj
             }
-            return response_opj, 2000
+            return response_opj, 200
         except Exception as e:
             print(e)
             return 500
