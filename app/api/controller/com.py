@@ -173,14 +173,23 @@ class CompanyCarsList(Resource):
     @login_required
     @company_required
     def get(self):
-        company = Company.query.filter_by(_user_id=current_user.id).first()
-        cars = Car.query.filter_by(_owner=company.id).all()
-        print(cars)
-        response_opj = {
-            'status': 'success',
-            'cars_list': [car.serialize() for car in cars]
-        }
-        return response_opj, 200
+        try:
+            company = Company.query.filter_by(_user_id=current_user.id).first()
+            cars = Car.query.filter_by(_owner=company.id).all()
+            print(cars)
+            response_opj = {
+                'status': 'success',
+                'cars_list': [car.serialize() for car in cars]
+            }
+            return response_opj, 200
+
+        except Exception as e:
+            print('Exception in company cars list:', e)
+            response_opj = {
+                'status': 'failed',
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500
 
 
 @com_app.route('/RegisterDeviceToken')

@@ -198,7 +198,11 @@ class OrderList(Resource):
             return response_opj, 200
         except Exception as e:
             print(e)
-            return 500
+            response_opj = {
+                'status': 'failed',
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500
 
 
 @fac_app.route('/OrderDetails<id>')
