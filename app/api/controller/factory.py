@@ -19,7 +19,7 @@ signup_model = fac_app.model('Factory sign up', {
     'username': fields.String(required=True, description='Factory Name'),
     'address': fields.String(required=True, description='Factory address'),
     'email': fields.String(required=True, description='Factory Name'),
-    'password': fields.String(required=True, description='Factory Name'),
+    # 'password': fields.String(required=True, description='Factory Name'),
     'factory_hotline': fields.String(required=True, description='Factory Hotline'),
     'delegate_phone': fields.String(required=True, description='delegate Phone number'),
 
@@ -117,7 +117,7 @@ class SignUp(Resource):
             factory_name = data.get('factory_name')
             username = data.get('username')
             email = data.get('email')
-            password = data.get('password')
+            password = 'factory'  # data.get('password')
             address = data.get('address')
             factory_hotline = data.get('factory_hotline')
             delegate_phone = data.get('delegate_phone')
@@ -195,7 +195,8 @@ class OrderList(Resource):
                     'message': "you are not A factory so can't access this data!"
                 }
                 return response_opj, 401
-            orders = Order.query.filter_by(factory_id=Factory.query.filter_by(_delegate_id=current_user.id).first().id).all()
+            orders = Order.query.filter_by(
+                factory_id=Factory.query.filter_by(_delegate_id=current_user.id).first().id).all()
             orders_opj = [order.small_serialize() for order in orders]
             response_opj = {
                 'status': 'success',
