@@ -14,7 +14,7 @@ cors = CORS()
 
 from app.api import blueprint as api_bl
 from app.adminDashboard.base.routes import blueprint as base_admin
-from app.adminDashboard.home.routes import blueprint as home_admin
+# from app.adminDashboard.home.routes import blueprint as home_admin
 
 @login_manager.unauthorized_handler
 def unauthorized():
