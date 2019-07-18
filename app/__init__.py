@@ -13,17 +13,28 @@ login_manager = LoginManager()
 cors = CORS()
 
 from app.api import blueprint as api_bl
+from app.adminDashboard.base.routes import blueprint as base_admin
+from app.adminDashboard.home.routes import blueprint as home_admin
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    response_opj = {
+            'status': 'failed',
+            'message': 'unauthorized, please log in first'
+        }
+    return response_opj
 
 def creat_app(config_name):
-    app = Flask(__name__)
+    app = Flask(__name__,static_folder='adminDashboard/base/static')
     app.config.from_object(config_by_name[config_name])
     db.init_app(app)
     cors.init_app(app)
     login_manager.init_app(app)
     bcrypt.init_app(app)
     # register blueprints
-    # register blueprints
     app.register_blueprint(api_bl)
+    app.register_blueprint(base_admin)
+    app.register_blueprint(home_admin)
     return app
 
 

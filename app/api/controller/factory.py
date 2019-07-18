@@ -189,7 +189,7 @@ class OrderList(Resource):
     @login_required
     def get(self):
         try:
-            orders = Order.query.filter_by(factory_id=current_user.id).all()
+            orders = Order.query.filter_by(factory_id=Factory.query.filter_by(_delegate_id=current_user.id).first().id).all()
             orders_opj = [order.small_serialize() for order in orders]
             response_opj = {
                 'status': 'success',
@@ -211,7 +211,7 @@ class OrderDetails(Resource):
     def get(self, id):
         try:
             order = Order.query.get(id)
-            if order.factory_id != current_user.id:
+            if order.factory_id != Factory.query.filter_by(_delegate_id=current_user.id).first().id:
                 response_opj = {
                     'status': 'failed',
                     'message': "You can't access this order!"
@@ -253,7 +253,7 @@ class NewOrder(Resource):
             to_longitude = data.get('to_longitude')  # خطوط الطول
             pickup_location = data.get('pickup_location')
             dropoff_location = data.get('dropoff_location')
-            factory_id = current_user.id
+            factory_id = Factory.query.filter_by(_delegate_id=current_user.id).first().id
             num_of_trilla = data.get('trilla')
             num_of_maktura = data.get('maktura')
             num_of_cars = num_of_maktura + num_of_trilla
