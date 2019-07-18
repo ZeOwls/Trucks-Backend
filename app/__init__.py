@@ -13,7 +13,7 @@ login_manager = LoginManager()
 cors = CORS()
 
 from app.api import blueprint as api_bl
-from app.adminDashboard.base.routes import blueprint as base_admin
+# from app.adminDashboard.base.routes import blueprint as base_admin
 # from app.adminDashboard.home.routes import blueprint as home_admin
 
 @login_manager.unauthorized_handler
@@ -33,8 +33,8 @@ def creat_app(config_name):
     bcrypt.init_app(app)
     # register blueprints
     app.register_blueprint(api_bl)
-    app.register_blueprint(base_admin)
-    app.register_blueprint(home_admin)
+    # app.register_blueprint(base_admin)
+    # app.register_blueprint(home_admin)
     return app
 
 
