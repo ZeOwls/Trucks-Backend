@@ -193,7 +193,7 @@ class OrderList(Resource):
             orders_opj = [order.small_serialize() for order in orders]
             response_opj = {
                 'status': 'success',
-                'orders-Info': orders_opj
+                'orders_Info': orders_opj
             }
             return response_opj, 200
         except Exception as e:
