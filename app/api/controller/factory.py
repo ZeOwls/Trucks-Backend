@@ -189,6 +189,12 @@ class OrderList(Resource):
     @login_required
     def get(self):
         try:
+            if not current_user.isFactory:
+                response_opj = {
+                    'status': 'failed',
+                    'message': "you are not A factory so can't access this data!"
+                }
+                return response_opj, 401
             orders = Order.query.filter_by(factory_id=Factory.query.filter_by(_delegate_id=current_user.id).first().id).all()
             orders_opj = [order.small_serialize() for order in orders]
             response_opj = {
@@ -197,7 +203,7 @@ class OrderList(Resource):
             }
             return response_opj, 200
         except Exception as e:
-            print(e)
+            print('Exception in get orders list', e)
             response_opj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
@@ -228,7 +234,7 @@ class OrderDetails(Resource):
             order_opj = order.serialize()
             response_opj = {
                 'status': 'success',
-                'order-Info': order_opj
+                'order_Info': order_opj
             }
             return response_opj, 200
         except Exception as e:
