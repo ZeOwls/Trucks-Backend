@@ -1,5 +1,7 @@
 from app import db
 from datetime import datetime
+import time
+from flask_login import current_user
 
 from .factory import Factory
 from .car import available_type
@@ -27,14 +29,16 @@ class Order(db.Model):
     status = db.Column(db.Integer, nullable=False, default=0)
     ordered_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     num_of_cars = db.Column(db.Integer, nullable=False)
-    history = db.relationship('OrderHistory', backref='order')
-    cars_type = db.relationship('OrderCarsTypes', backref='order')
-    cars_and_drivers = db.relationship('OrderCarsAndDrivers', backref='order')
+    history = db.relationship('OrderHistory', backref='order', cascade="all,delete")
+    cars_type = db.relationship('OrderCarsTypes', backref='order',  cascade="all,delete")
+    cars_and_drivers = db.relationship('OrderCarsAndDrivers', backref='order',  cascade="all,delete")
 
     def small_serialize(self):
+        print("here")
+        print(self.id)
         return {'order_number': self.id,
                 'order_status': orders_status[self.status],
-                'order_date': datetime.timestamp(self.ordered_at),
+                'order_date': time.mktime(self.ordered_at.timetuple()),
                 'cars_number': self.num_of_cars
                 }
 
@@ -43,9 +47,10 @@ class Order(db.Model):
         cars_type = [car.serialize() for car in cars_type]
         cars_and_drivers = OrderCarsAndDrivers.query.filter_by(order_id=self.id).all()
         cars_and_drivers = [car_and_driver.serialize() for car_and_driver in cars_and_drivers]
+        assigned_trucks = OrderCarsAndDrivers.query.filter_by(order_id=self.id).count()
         return {'order_number': self.id,
                 'order_status': orders_status[self.status],
-                'order_date': datetime.timestamp(self.ordered_at),
+                'order_date':time.mktime(self.ordered_at.timetuple()),
                 'from': {'latitude': self.from_latitude, 'longitude': self.from_longitude,
                          'address': self.pickup_location},
                 'to': {'latitude': self.to_latitude, 'longitude': self.to_longitude, 'address': self.dropoff_location},
@@ -53,6 +58,8 @@ class Order(db.Model):
                 'num_of_cars': self.num_of_cars,
                 'cars_type_info': cars_type,
                 'drivers_cars_info': cars_and_drivers,
+                'factory_name': self.factory_object.name,
+                'assigned_trucks': assigned_trucks if current_user.role == 3 else ""
                 }
 
     def __repr__(self):
