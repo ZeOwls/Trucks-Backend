@@ -269,7 +269,6 @@ class NewOrder(Resource):
                           factory_id=factory_id, num_of_cars=num_of_cars)
             db.session.add(order)
             db.session.commit()
-            print(order)
             for car_type in available_type:
                 car = OrderCarsTypes(order_id=order.id, cars_num=data.get(car_type) or 0, car_type=car_type)
                 db.session.add(car)
@@ -277,7 +276,8 @@ class NewOrder(Resource):
             db.session.commit()
             response_opj = {
                 'status': 'success',
-                'message': 'Successfully crate new order'
+                'message': 'Successfully crate new order',
+                'order_id': order.id
             }
             return response_opj, 201
         except Exception as e:
