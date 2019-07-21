@@ -32,10 +32,9 @@ class Order(db.Model):
     history = db.relationship('OrderHistory', backref='order', cascade="all,delete")
     cars_type = db.relationship('OrderCarsTypes', backref='order',  cascade="all,delete")
     cars_and_drivers = db.relationship('OrderCarsAndDrivers', backref='order',  cascade="all,delete")
+    cars_and_drivers_object = db.relationship(OrderCarsAndDrivers)
 
     def small_serialize(self):
-        print("here")
-        print(self.id)
         return {'order_number': self.id,
                 'order_status': orders_status[self.status],
                 'order_date': time.mktime(self.ordered_at.timetuple()),
@@ -61,6 +60,10 @@ class Order(db.Model):
                 'factory_name': self.factory_object.name,
                 'assigned_trucks': assigned_trucks if current_user.role == 3 else ""
                 }
+
+    @property
+    def string_status(self):
+        return orders_status[self.status]
 
     def __repr__(self):
         return f"id:{self.id}, From:{(self.from_latitude,self.from_longitude)}, To:{(self.to_latitude,self.to_longitude)}" \

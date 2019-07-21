@@ -10,7 +10,7 @@ class Company(db.Model):
     _user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     address = db.Column(db.String, unique=True, nullable=False)
     user_object = db.relationship(User)
-    cars = db.relationship('Car', backref='company')
+    cars = db.relationship('Car', backref='company',  cascade="all,delete")
 
     @property
     def account(self):

@@ -31,7 +31,7 @@ class Car(db.Model):
     qr_code = db.Column(db.String, unique=True, nullable=False)
     _status = db.Column(db.Integer, nullable=False, default=0)  # 0 == free , 1 == busy
     _type = db.Column(db.Integer, nullable=False)  # 0 == trilla , 1 == maktura
-    orders = db.relationship('OrderCarsAndDrivers', backref='car')
+    orders = db.relationship('OrderCarsAndDrivers', backref='car',  cascade="all,delete")
     current_order_id = db.Column(db.Integer,default=0)
     @property
     def owner(self):
@@ -80,7 +80,7 @@ class Car(db.Model):
 
     def serialize(self):
         from app.api.model.order_driver_car import OrderCarsAndDrivers
-        orders = OrderCarsAndDrivers.query.filter_by(car_id=self.id).all()
+        order = OrderCarsAndDrivers.query.filter_by(order_id=self.current_order_id).filter_by(car_id=self.id).first()
         return {
             'car_id': self.id,
             'car_plate_number': self.number,
@@ -89,6 +89,6 @@ class Car(db.Model):
                 'location_latitude': self.location_latitude,
                 'location_longitude': self.location_longitude
             },
-            'car_status': self.status
-            # 'Cur:':[order.serialize() for order in orders]
+            'car_status': self.status,
+            'Current_order_id:': self.current_order_id if self.current_order_id !=0 else "Car is free right now"
         }

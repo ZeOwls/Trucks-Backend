@@ -15,9 +15,9 @@ class User(db.Model, UserMixin):
     device_token = db.Column(db.String, unique=True)
     hased_password = db.Column(db.String, nullable=False)
     # if user account for factory delegate
-    factory = db.relationship('Factory', backref='user', uselist=False)
-    company = db.relationship('Company', backref='user', uselist=False)
-    car = db.relationship('Car', backref='user', uselist=False)
+    factory = db.relationship('Factory', backref='user', cascade="all,delete", uselist=False)
+    company = db.relationship('Company', backref='user', cascade="all,delete", uselist=False)
+    car = db.relationship('Car', backref='user', uselist=False,  cascade="all,delete")
 
     @property
     def password(self):
@@ -31,6 +31,16 @@ class User(db.Model, UserMixin):
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.filter_by(id=user_id).first()
+
+    # @staticmethod
+
+    # @login_manager.unauthorized_handler
+    # def unauth_handler():
+    #     response_opj = {
+    #         'status': 'failed',
+    #         'message': 'unauthorized, please log in first'
+    #     }
+    #     return response_opj, 401
 
     @property
     def isAdmin(self):

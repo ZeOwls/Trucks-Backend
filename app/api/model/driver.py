@@ -10,7 +10,7 @@ class Driver(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(255), unique=True, nullable=False)
     phone = db.Column(db.String(11), unique=True, nullable=False)
-    orders = db.relationship('OrderCarsAndDrivers', backref='driver', uselist=False)
+    orders = db.relationship('OrderCarsAndDrivers', backref='driver', cascade="all,delete", uselist=False)
 
     def __repr__(self):
         return f"ID :{self.id}, name:{self.name}, phone:{self.phone}"

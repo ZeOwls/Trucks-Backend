@@ -20,8 +20,8 @@ class OrderCarsAndDrivers(db.Model):
     status = db.Column(db.Integer, nullable=False, default=0)
 
     def serialize(self):
-        from .order import Order
-        order = Order.query.get(id = self.order_id)
+        # from .order import Order
+        # order = Order.query.get(id = self.order_id)
         return {'car_id': self.car_id,
                 'status': orders_status[self.status],
                 'car_plate_number': self.car_opj.number,
