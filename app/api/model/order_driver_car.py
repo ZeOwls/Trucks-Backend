@@ -26,7 +26,7 @@ class OrderCarsAndDrivers(db.Model):
                 'status': orders_status[self.status],
                 'car_plate_number': self.car_opj.number,
                 'car_type': self.car_opj.car_type,
-                'driver-id': self.driver_id,
+                'driver_id': self.driver_id,
                 'driver_name': self.driver_opj.name,
                 'driver_phonenumber': self.driver_opj.phone
                 }
