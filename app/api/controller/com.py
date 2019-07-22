@@ -16,10 +16,10 @@ auth_model = com_app.model('authentication and authorization', {
 
 signup_model = com_app.model('Company sign up', {
     'company_name': fields.String(required=True, description='Factory Name'),
-    'username': fields.String(required=True, description='Factory Name'),
+    # 'username': fields.String(required=True, description='Factory Name'),
     'address': fields.String(required=True, description='Factory address'),
     'email': fields.String(required=True, description='Factory Name'),
-    'password': fields.String(required=True, description='Factory Name'),
+    # 'password': fields.String(required=True, description='Factory Name'),
     'phone': fields.String(required=True, description='delegate Phone number')
 
 })
@@ -105,9 +105,9 @@ class SignUp(Resource):
         data = request.json
         try:
             company_name = data.get('company_name')
-            username = data.get('username')
+            username = company_name  #data.get('username')
             email = data.get('email')
-            password = data.get('password')
+            password = 'company' #data.get('password')
             address = data.get('address')
             phone = data.get('phone')
 
