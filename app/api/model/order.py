@@ -63,6 +63,17 @@ class Order(db.Model):
                 'assigned_trucks': assigned_trucks if current_user.role == 3 else ""
                 }
 
+    def serialize_for_company(self):
+        return {'order_number': self.id,
+                'order_status': orders_status[self.status],
+                'string_date': self.ordered_at.strftime("%A, %d. %B %Y %I:%M %p"),
+                'from': {'latitude': self.from_latitude, 'longitude': self.from_longitude,
+                         'address': self.pickup_location},
+                'to': {'latitude': self.to_latitude, 'longitude': self.to_longitude, 'address': self.dropoff_location},
+
+
+                }
+
     @property
     def string_status(self):
         return orders_status[self.status]

@@ -33,6 +33,7 @@ class Car(db.Model):
     _type = db.Column(db.Integer, nullable=False)  # 0 == trilla , 1 == maktura
     orders = db.relationship('OrderCarsAndDrivers', backref='car',  cascade="all,delete")
     current_order_id = db.Column(db.Integer,default=0)
+    color = db.Column(db.String(100),nullable=False)
     @property
     def owner(self):
         return self.owner_object
@@ -79,8 +80,8 @@ class Car(db.Model):
         return str(uuid.uuid4())
 
     def serialize(self):
-        from app.api.model.order_driver_car import OrderCarsAndDrivers
-        order = OrderCarsAndDrivers.query.filter_by(order_id=self.current_order_id).filter_by(car_id=self.id).first()
+        # from app.api.model.order_driver_car import OrderCarsAndDrivers
+        # order = OrderCarsAndDrivers.query.filter_by(order_id=self.current_order_id).filter_by(car_id=self.id).first()
         return {
             'car_id': self.id,
             'car_plate_number': self.number,
@@ -90,5 +91,8 @@ class Car(db.Model):
                 'location_longitude': self.location_longitude
             },
             'car_status': self.status,
-            'Current_order_id:': self.current_order_id if self.current_order_id !=0 else "Car is free right now"
+            'Current_order_id:': self.current_order_id if self.current_order_id !=0 else "Car is free right now",
+            'company':self.owner_object.name,
+            'car_capacity': self.capacity,
+            'car_color': self.color
         }

@@ -10,6 +10,7 @@ class Factory(db.Model):
     address = db.Column(db.String(255),unique=True,nullable=False)
     hotline = db.Column(db.String,unique=True,nullable=False)
     _delegate_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    delegate_opj = db.relationship(User)
     orders = db.relationship('Order', backref='factory',  cascade="all,delete")
 
     @property

@@ -3,6 +3,8 @@ from flask_restplus import Namespace, Resource, fields
 from flask_login import login_required, login_user, logout_user, current_user
 
 from app import db
+from app.api.model.order import Order
+from app.api.model.order_driver_car import OrderCarsAndDrivers
 from app.api.model.user import User
 from app.api.model.com import Company
 from app.api.model.car import Car
@@ -105,9 +107,9 @@ class SignUp(Resource):
         data = request.json
         try:
             company_name = data.get('company_name')
-            username = company_name  #data.get('username')
+            username = company_name  # data.get('username')
             email = data.get('email')
-            password = 'company' #data.get('password')
+            password = 'company'  # data.get('password')
             address = data.get('address')
             phone = data.get('phone')
 
@@ -176,7 +178,6 @@ class CompanyCarsList(Resource):
         try:
             company = Company.query.filter_by(_user_id=current_user.id).first()
             cars = Car.query.filter_by(_owner=company.id).all()
-            print(cars)
             response_opj = {
                 'status': 'success',
                 'cars_list': [car.serialize() for car in cars]
@@ -237,6 +238,30 @@ class CarLocation(Resource):
             print('Exception in car location :', e)
             response_opj = {
                 'status': 'failed',
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500
+
+
+@com_app.route('/CarOrders<car_id>')
+class CarOrders(Resource):
+    @login_required
+    @company_required
+    def get(self, car_id):
+        try:
+            orders_id = [row.order_id for row in OrderCarsAndDrivers.query.filter_by(car_id=car_id).all()]
+            orders = [Order.query.get(order_id) for order_id in orders_id]
+            response_opj = {
+                'status': "success",
+                'car_orders': [
+                    order.serialize_for_company()
+                    for order in orders]
+            }
+            return response_opj, 200
+        except Exception as e:
+            print("Exception in car orders:", e)
+            response_opj = {
+                "status": "failed",
                 'message': 'Something Wrong, please try again later'
             }
             return response_opj, 500
