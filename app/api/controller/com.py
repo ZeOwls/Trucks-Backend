@@ -265,3 +265,26 @@ class CarOrders(Resource):
                 'message': 'Something Wrong, please try again later'
             }
             return response_opj, 500
+
+
+@com_app.route('/CompanyProfile')
+class CompanyProfile(Resource):
+    @login_required
+    @company_required
+    def get(self):
+        try:
+            company = Company.query.filter_by(_user_id=current_user.id).first()
+            response_obj = {
+                'status': "success",
+                "company_name": company.name,
+                "company_phone": current_user.phone,
+                'code': company.id
+            }
+            return response_obj, 200
+        except Exception as e:
+            print("Exception in Company profile:", e)
+            response_opj = {
+                "status": "failed",
+                'message': 'Something Wrong, please try again later'
+            }
+            return response_opj, 500
