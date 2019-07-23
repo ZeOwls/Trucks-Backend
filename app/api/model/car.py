@@ -94,5 +94,7 @@ class Car(db.Model):
             'Current_order_id:': self.current_order_id if self.current_order_id !=0 else "Car is free right now",
             'company':self.owner_object.name,
             'car_capacity': self.capacity,
-            'car_color': self.color
+            'car_color': self.color,
+            'company_code':self.owner_object.id,
+            'company_phone': self.owner_object.user_object.phone
         }
