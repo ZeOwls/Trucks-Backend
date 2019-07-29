@@ -19,7 +19,6 @@ signup_model = fac_app.model('Factory sign up', {
     'username': fields.String(required=True, description='Factory Name'),
     'address': fields.String(required=True, description='Factory address'),
     'email': fields.String(required=True, description='Factory Name'),
-    # 'password': fields.String(required=True, description='Factory Name'),
     'factory_hotline': fields.String(required=True, description='Factory Hotline'),
     'delegate_phone': fields.String(required=True, description='delegate Phone number'),
 
@@ -63,28 +62,34 @@ class Login(Resource):
         password = data.get('password')
         try:
             user = User.query.filter_by(email=email).first()
-            if not (user and user.check_password(password) and user.isFactory):
-                response_opj = {
+            if not (user and user.check_password(password) and user.isFactory and user.account_status != -1):
+                response_obj = {
                     'status': 'failed',
                     'message': 'Email or password is wrong'
                 }
-                return response_opj, 401
+                return response_obj, 401
 
-            response_opj = {
+            if user.account_status == 0:
+                response_obj = {
+                    'status': 'failed',
+                    'message': "Admin didn't approve this account yet!"
+                }
+                return response_obj, 401
+            response_obj = {
                 'status': 'success',
                 'message': 'Successfully logged in'
 
             }
             login_user(user)
-            return response_opj, 200
+            return response_obj, 200
 
         except Exception as e:
             print("exception at login:", e)
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
 
 
 @fac_app.route('/Logout')
@@ -93,21 +98,20 @@ class Logout(Resource):
     def get(self):
         try:
             logout_user()
-            response_opj = {
+            response_obj = {
                 "status": "success",
                 "message": "Successfully logged out"
             }
-            return response_opj, 200
+            return response_obj, 200
         except Exception as e:
             print("Exception at logout:", str(e))
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
 
 
-# TODO Admin only ?? ask arafa ?
 @fac_app.route('/SignUp')
 class SignUp(Resource):
     @fac_app.expect(signup_model)
@@ -125,63 +129,63 @@ class SignUp(Resource):
             role = 2
             user = User.query.filter_by(email=email).first()
             if user:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': 'user with entered E-mail already exist!'
                 }
-                return response_opj, 409
+                return response_obj, 409
             user = User.query.filter_by(username=username).first()
             if user:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': 'user with entered name already exist!'
                 }
-                return response_opj, 409
+                return response_obj, 409
             user = User.query.filter_by(phone=delegate_phone).first()
             if user:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': 'user with entered phone already exist!'
                 }
-                return response_opj, 409
+                return response_obj, 409
             user = User(username=username, email=email, role=role, password=password, phone=delegate_phone)
             db.session.add(user)
             fac = Factory.query.filter_by(name=factory_name).first()
             if fac:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': 'factory with entered name already exist!'
                 }
-                return response_opj, 409
+                return response_obj, 409
             fac = Factory.query.filter_by(address=address).first()
             if fac:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': 'factory with entered address already exist!'
                 }
-                return response_opj, 409
+                return response_obj, 409
             fac = Factory.query.filter_by(hotline=factory_hotline).first()
             if fac:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': 'factory with entered hot line already exist!'
                 }
-                return response_opj, 409
+                return response_obj, 409
             fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
             db.session.add(fac)
             db.session.commit()
-            response_opj = {
+            response_obj = {
                 'status': 'success',
                 'message': 'Successfully Signed up'
             }
-            return response_opj, 201
+            return response_obj, 201
         except Exception as e:
             print('Exception in factory sign up:', e)
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
 
 
 @fac_app.route('/FactoryOrdersList')
@@ -190,26 +194,26 @@ class OrderList(Resource):
     def get(self):
         try:
             if not current_user.isFactory:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': "you are not A factory so can't access this data!"
                 }
-                return response_opj, 401
+                return response_obj, 401
             orders = Order.query.filter_by(
                 factory_id=Factory.query.filter_by(_delegate_id=current_user.id).first().id).all()
             orders_opj = [order.small_serialize() for order in orders]
-            response_opj = {
+            response_obj = {
                 'status': 'success',
                 'orders_Info': orders_opj
             }
-            return response_opj, 200
+            return response_obj, 200
         except Exception as e:
             print('Exception in get orders list', e)
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
 
 
 @fac_app.route('/OrderDetails<id>')
@@ -219,32 +223,32 @@ class OrderDetails(Resource):
         try:
             order = Order.query.get(id)
             if order.factory_id != Factory.query.filter_by(_delegate_id=current_user.id).first().id:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': "You can't access this order!"
                 }
-                return response_opj, 401
+                return response_obj, 401
 
             if not order:
-                response_opj = {
+                response_obj = {
                     'status': 'failed',
                     'message': 'Wrong order ID!'
                 }
-                return response_opj, 422
+                return response_obj, 422
 
             order_opj = order.serialize()
-            response_opj = {
+            response_obj = {
                 'status': 'success',
                 'order_Info': order_opj
             }
-            return response_opj, 200
+            return response_obj, 200
         except Exception as e:
             print(e)
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
 
 
 @fac_app.route('/NewOrder')
@@ -263,7 +267,7 @@ class NewOrder(Resource):
             factory_id = Factory.query.filter_by(_delegate_id=current_user.id).first().id
             num_of_trilla = data.get('trilla')
             num_of_maktura = data.get('maktura')
-            num_of_cars = num_of_maktura + num_of_trilla
+            num_of_cars = int(num_of_maktura) + int(num_of_trilla)
             order = Order(from_latitude=from_latitude, from_longitude=from_longitude, to_latitude=to_latitude,
                           to_longitude=to_longitude, pickup_location=pickup_location, dropoff_location=dropoff_location,
                           factory_id=factory_id, num_of_cars=num_of_cars)
@@ -274,19 +278,19 @@ class NewOrder(Resource):
                 db.session.add(car)
 
             db.session.commit()
-            response_opj = {
+            response_obj = {
                 'status': 'success',
                 'message': 'Successfully crate new order',
                 'order_id': order.id
             }
-            return response_opj, 201
+            return response_obj, 201
         except Exception as e:
             print("Exception in new order:", e)
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
 
 
 @fac_app.route('/RegisterDeviceToken')
@@ -300,19 +304,19 @@ class RegisterDeviceToken(Resource):
             token = data.get('device_token')
             user.device_token = token
             db.session.commit()
-            response_opj = {
+            response_obj = {
                 'status': 'success',
                 'message': 'Successfully add Device token'
             }
-            return response_opj, 201
+            return response_obj, 201
 
         except Exception as e:
             print('exception in add device token:', e)
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
 
 
 @fac_app.route('/FactoryProfile')
@@ -327,7 +331,7 @@ class FactoryProfile(Resource):
             factory = Factory.query.filter_by(_delegate_id=user.id).first()
             factory_name = factory.name
             factory_address = factory.address
-            response_opj = {
+            response_obj = {
                 'status': 'success',
                 'factory_code': factory.id,
                 'delegate_name': delegate_name,
@@ -338,15 +342,15 @@ class FactoryProfile(Resource):
                 'factory_image': factory_name + '.png',
                 'factory_hotline': factory.hotline
             }
-            return response_opj, 200
+            return response_obj, 200
 
         except Exception as e:
             print('Exception in get profile Info', e)
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
 
     @fac_app.expect(profile_model)
     def put(self):
@@ -367,7 +371,7 @@ class FactoryProfile(Resource):
             factory.factory_address = factory_address
             factory.hotline = factory_hotline
             db.session.commit()
-            response_opj = {
+            response_obj = {
                 'status': 'success',
                 'delegate_name': delegate_name,
                 'delegate_phone': delegate_phone,
@@ -376,12 +380,12 @@ class FactoryProfile(Resource):
                 'factory_address': factory_address,
                 'factory_hotline': factory_hotline
             }
-            return response_opj, 200
+            return response_obj, 200
 
         except Exception as e:
             print('Exception in put profile Info', e)
-            response_opj = {
+            response_obj = {
                 'status': 'failed',
                 'message': 'Something Wrong, please try again later'
             }
-            return response_opj, 500
+            return response_obj, 500
