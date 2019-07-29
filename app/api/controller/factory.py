@@ -87,7 +87,8 @@ class Login(Resource):
             print("exception at login:", e)
             response_obj = {
                 'status': 'failed',
-                'message': 'Something Wrong, please try again later'
+                'message': str(e)
+
             }
             return response_obj, 500
 
