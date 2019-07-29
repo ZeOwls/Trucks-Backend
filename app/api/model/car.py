@@ -7,7 +7,7 @@ from app import db
 # if we want to add new status we just add it in this list
 # NOTE : we mapped status to it's index when we store it in database
 from app.api.model.com import Company
-
+from app.api.model.user import User
 available_status = ['free', 'busy']
 
 # if we want to add new type we just add it in this list
@@ -21,6 +21,7 @@ class Car(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     number = db.Column(db.String(255), unique=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_obj = db.relationship(User)
     capacity = db.Column(db.Float, nullable=False)
     location_latitude = db.Column(db.Float)
     # location_x = db.Column(db.Float)

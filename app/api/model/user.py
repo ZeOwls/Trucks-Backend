@@ -13,11 +13,13 @@ class User(db.Model, UserMixin):
     # roles is == > 1 = cars company , 2 = factory , 3 = admin, 4 = Truck
     role = db.Column(db.Integer, nullable=False, default=1)
     device_token = db.Column(db.String, unique=True)
+    account_status = db.Column(db.Integer, nullable=False,
+                               default=0)  # 0 = pending admin approve, 1 - Active, -1 = Deleted
     hased_password = db.Column(db.String, nullable=False)
     # if user account for factory delegate
     factory = db.relationship('Factory', backref='user', cascade="all,delete", uselist=False)
     company = db.relationship('Company', backref='user', cascade="all,delete", uselist=False)
-    car = db.relationship('Car', backref='user', uselist=False,  cascade="all,delete")
+    car = db.relationship('Car', backref='user', uselist=False, cascade="all,delete")
 
     @property
     def password(self):
@@ -36,11 +38,11 @@ class User(db.Model, UserMixin):
 
     # @login_manager.unauthorized_handler
     # def unauth_handler():
-    #     response_opj = {
+    #     response_obj = {
     #         'status': 'failed',
     #         'message': 'unauthorized, please log in first'
     #     }
-    #     return response_opj, 401
+    #     return response_obj, 401
 
     @property
     def isAdmin(self):

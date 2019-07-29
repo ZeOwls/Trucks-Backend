@@ -7,11 +7,11 @@ from app.api.model.user import User
 class Company(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(255), unique=True, nullable=False)
-    _user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    _user_id = db.Column(db.Integer, db.ForeignKey('user.id'),nullable=False)
     address = db.Column(db.String, unique=True, nullable=False)
     user_object = db.relationship(User)
     cars = db.relationship('Car', backref='company',  cascade="all,delete")
-
+    drivers = db.relationship('Driver',backref='company', cascade="all,delete")
     @property
     def account(self):
         return self.user_object

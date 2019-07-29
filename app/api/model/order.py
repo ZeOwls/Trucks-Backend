@@ -30,9 +30,10 @@ class Order(db.Model):
     ordered_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     num_of_cars = db.Column(db.Integer, nullable=False)
     history = db.relationship('OrderHistory', backref='order', cascade="all,delete")
-    cars_type = db.relationship('OrderCarsTypes', backref='order',  cascade="all,delete")
-    cars_and_drivers = db.relationship('OrderCarsAndDrivers', backref='order',  cascade="all,delete")
+    cars_type = db.relationship('OrderCarsTypes', backref='order', cascade="all,delete")
+    cars_and_drivers = db.relationship('OrderCarsAndDrivers', backref='order', cascade="all,delete")
     cars_and_drivers_object = db.relationship(OrderCarsAndDrivers)
+    drivers = db.relationship('Driver', backref='order')
 
     def small_serialize(self):
         return {'order_number': self.id,
@@ -50,7 +51,7 @@ class Order(db.Model):
         assigned_trucks = OrderCarsAndDrivers.query.filter_by(order_id=self.id).count()
         return {'order_number': self.id,
                 'order_status': orders_status[self.status],
-                'order_date':time.mktime(self.ordered_at.timetuple()),
+                'order_date': time.mktime(self.ordered_at.timetuple()),
                 'string_date': self.ordered_at.strftime("%A, %d. %B %Y %I:%M %p"),
                 'from': {'latitude': self.from_latitude, 'longitude': self.from_longitude,
                          'address': self.pickup_location},
@@ -70,7 +71,6 @@ class Order(db.Model):
                 'from': {'latitude': self.from_latitude, 'longitude': self.from_longitude,
                          'address': self.pickup_location},
                 'to': {'latitude': self.to_latitude, 'longitude': self.to_longitude, 'address': self.dropoff_location},
-
 
                 }
 

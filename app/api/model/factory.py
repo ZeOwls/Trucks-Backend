@@ -9,7 +9,7 @@ class Factory(db.Model):
     name = db.Column(db.String(255), unique=True, nullable=False)
     address = db.Column(db.String(255),unique=True,nullable=False)
     hotline = db.Column(db.String,unique=True,nullable=False)
-    _delegate_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    _delegate_id = db.Column(db.Integer, db.ForeignKey('user.id'),nullable=False)
     delegate_opj = db.relationship(User)
     orders = db.relationship('Order', backref='factory',  cascade="all,delete")
 
