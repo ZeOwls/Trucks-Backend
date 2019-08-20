@@ -247,6 +247,16 @@ class CheckPendingOrder(Resource):
                 }
                 return response_obj, 200
             order = Order.query.get(car.current_order_id)
+            # car status for this order, if car already work on it
+            order_status_for_car = "new"
+            try:
+                current_status = OrderCarsAndDrivers.query.filter_by(order_id=car.current_order_id).filter_by(
+                    car_id=car.id).first().status
+                order_status_for_car = current_status
+
+            except Exception:
+                pass
+
             response_obj = {
                 'status': 'success',
                 'has_order': "1",
