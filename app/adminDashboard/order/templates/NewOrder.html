@@ -1,0 +1,266 @@
+{% extends "base_site.html" %}
+
+{% block title %} Create New Order {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+
+
+  <link href="{{ url_for('static', filename='vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+
+{% block content %}
+<div class="right_col" role="main">
+
+<div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>New Order   </h2>
+
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <form id="newOrder" data-parsley-validate class="form-horizontal form-label-left" action="/admin/NewOrder" method="post">
+                {% if current_user.isAdmin %}
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="factory_id">Factory ID <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="factory_id" name="factory_id" required="required" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+                {% endif %}
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="trilla">عدد التريلات <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="trilla" name="trilla" class="date-picker form-control col-md-7 col-xs-12" required="required" min="0" type="number">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="maktura" class="control-label col-md-3 col-sm-3 col-xs-12">عدد المقطورات <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="maktura" required="required" class="form-control col-md-7 col-xs-12" type="number" min="0" name="maktura">
+                  </div>
+                </div>
+                <div  style="display: none"  class="form-group">
+                  <label for="from_lat" class="control-label col-md-3 col-sm-3 col-xs-12">from Lat<span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="from_lat" required="required" class="form-control col-md-7 col-xs-12"  name="from_lat" >
+                  </div>
+                </div>
+                <div style="display: none"  class="form-group">
+                  <label for="from_lng" class="control-label col-md-3 col-sm-3 col-xs-12">from lng <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="from_lng" required="required" class="form-control col-md-7 col-xs-12"  name="from_lng">
+                  </div>
+                </div>
+                <div  style="display: none" class="form-group">
+                  <label  for="to_lat" class="control-label col-md-3 col-sm-3 col-xs-12">to Lat<span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="to_lat" required="required" class="form-control col-md-7 col-xs-12"  name="to_lat" >
+                  </div>
+                </div>
+                <div style="display: none" class="form-group">
+                  <label for="to_lng" class="control-label col-md-3 col-sm-3 col-xs-12">to lng <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="to_lng" required="required" class="form-control col-md-7 col-xs-12"  name="to_lng">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pickup_location">Pickup Location <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input readonly="readonly" type="text" id="pickup_location" name="pickup_location" required="required" class="form-control col-md-7 col-xs-12">
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <label for="dropoff_location" class="control-label col-md-3 col-sm-3 col-xs-12">Drop off Location <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input readonly="readonly" id="dropoff_location" required="required" class="form-control col-md-7 col-xs-12" type="text" name="dropoff_location">
+                  </div>
+                </div>
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    {% if current_user.isAdmin %}
+                    <a class="btn btn-primary" href="/AdminDashboard/factory" type="button">Cancel</a>
+                    {% endif %}
+  		            <button class="btn btn-primary" type="reset">Reset</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+<div class="text-center" style="display: flex; justify-content: space-between">
+  <div style="width: 48%">
+      <h2>From</h2>
+      <div id="map-from" style="width:100%;height:480px"></div>
+  </div>
+  <div style="width: 48%">
+      <h2>To</h2>
+      <div id="map-to" style="width:100%;height:480px"></div>
+  </div>
+</div>
+
+
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super() }}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E&callback=initMap"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E&callback=initMap2"></script>
+
+<script>
+if ("{{error}}"){
+    alert("{{error}}")
+}
+
+
+var map; //Will contain map object.
+var map2; //Will contain map object.
+var marker = false; ////Has the user plotted their location marker?var map; //Will contain map object.
+var marker2 = false; ////Has the user plotted their location marker?
+
+//Function called to initialize / create the map.
+//This is called when the page has loaded.
+function initMap() {
+
+    //The center location of our map.
+    var centerOfMap = new google.maps.LatLng(30.787065,  30.999184);
+
+    //Map options.
+    var options = {
+      center: centerOfMap, //Set center.
+      zoom: 7 //The zoom value.
+    };
+
+    //Create the map object.
+    map = new google.maps.Map(document.getElementById('map-from'), options);
+
+    //Listen for any clicks on the map.
+    google.maps.event.addListener(map, 'click', function(event) {
+        //Get the location that the user clicked.
+        var clickedLocation = event.latLng;
+        //If the marker hasn't been added.
+        if(marker === false){
+            //Create the marker.
+            marker = new google.maps.Marker({
+                position: clickedLocation,
+                map: map,
+                draggable: true //make it draggable
+            });
+            //Listen for drag events!
+            google.maps.event.addListener(marker, 'dragend', function(event){
+                markerLocation();
+            });
+        } else{
+            //Marker has already been added, so just change its location.
+            marker.setPosition(clickedLocation);
+        }
+        //Get the marker's location.
+        markerLocation();
+    });
+}
+function initMap2() {
+
+    //The center location of our map.
+    var centerOfMap = new google.maps.LatLng(30.787065,  30.999184);
+
+    //Map options.
+    var options = {
+      center: centerOfMap, //Set center.
+      zoom: 7 //The zoom value.
+    };
+
+    //Create the map object.
+    map2 = new google.maps.Map(document.getElementById('map-to'), options);
+
+    //Listen for any clicks on the map.
+    google.maps.event.addListener(map2, 'click', function(event) {
+        //Get the location that the user clicked.
+        var clickedLocation = event.latLng;
+        //If the marker hasn't been added.
+        if(marker2 === false){
+            //Create the marker.
+            marker2 = new google.maps.Marker({
+                position: clickedLocation,
+                map: map2,
+                draggable: true //make it draggable
+            });
+            //Listen for drag events!
+            google.maps.event.addListener(marker2, 'dragend', function(event){
+                markerLocation();
+            });
+        } else{
+            //Marker has already been added, so just change its location.
+            marker2.setPosition(clickedLocation);
+        }
+        //Get the marker's location.
+        markerLocation2();
+    });
+}
+
+//This function will get the marker's current location and then add the lat/long
+//values to our textfields so that we can save the location.
+function markerLocation(){
+    //Get location.
+    var currentLocation = marker.getPosition();
+    //Add lat and lng values to a field that we can save.
+    document.getElementById('from_lat').value = currentLocation.lat(); //latitude
+    document.getElementById('from_lng').value = currentLocation.lng(); //longitude
+    fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+document.getElementById('from_lat').value +','+document.getElementById('from_lng').value+'&key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E')
+       .then(response => response.json())
+       .then(res => {
+               console.log(res.results[0].formatted_address);
+               document.getElementById('pickup_location').value = res.results[0].formatted_address;
+                   })
+       .catch(error => {
+           alert('GeoCoding Failed');})
+}
+function markerLocation2(){
+    //Get location.
+    var currentLocation = marker2.getPosition();
+    //Add lat and lng values to a field that we can save.
+    document.getElementById('to_lat').value = currentLocation.lat(); //latitude
+    document.getElementById('to_lng').value = currentLocation.lng(); //longitude
+    fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+document.getElementById('to_lat').value +','+document.getElementById('to_lng').value+'&key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E')
+       .then(response => response.json())
+       .then(res => {
+               console.log(res.results[0].formatted_address);
+               document.getElementById('dropoff_location').value = res.results[0].formatted_address;
+                   })
+       .catch(error => {
+           alert('GeoCoding Failed');})
+}
+
+
+//Load the map when the page has finished loading.
+google.maps.event.addDomListener(window, 'load', initMap)
+google.maps.event.addDomListener(window, 'load', initMap2)
+
+
+
+</script>
+
+
+
+{% endblock javascripts %}
+
+
+

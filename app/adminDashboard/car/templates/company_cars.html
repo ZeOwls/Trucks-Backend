@@ -1,0 +1,166 @@
+{% extends "base_site.html" %}
+
+{% block title %} Cars List {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+
+<style>
+  input[type="file"] {
+        display: none;
+    }
+    .custom-file-upload {
+        /*border: 1px solid #ccc;*/
+        /*display: inline-block;*/
+        /*padding: 6px 12px;*/
+        cursor: pointer;
+    }
+
+</style>
+  <link href="{{ url_for('static', filename='vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+
+</script>
+
+{% block content %}
+<div class="right_col" role="main">
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Cars List </h2>
+                <a type="button" class="btn btn-success navbar-right" href="/CompanyDashboard/cars/NewCar">Add New Car</a>
+                <buttonb style="margin-right: 10px" type="button" class="btn btn-primary navbar-right" onclick="downloadFile(this)" >Export</buttonb>
+              <!--<label style="margin-right: 10px" for="import_cars" class="btn btn-success custom-file-upload navbar-right">-->
+                <!--<i class="fa fa-cloud-upload"></i> Import-->
+            <!--</label>-->
+            <!--<input  id="import_cars" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" name="import_cars"/>-->
+                <!--<input style="margin-right: 10px" type="file" class="btn btn-primary navbar-right" >import</input>-->
+
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <table id="companyCarsList" class="table table-striped table-bordered">
+
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super() }}
+ <script src="{{ url_for('static', filename='vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script>
+
+
+
+
+     downloadFile=function () {
+      $.ajax({
+            type: "GET",
+            url: "/company/ExportCars",
+
+            success: function (data) {
+                // your callback here
+                alert("We will send Data to your mail after we collect it")
+            },
+            error: function (error) {
+                  alert("Some thing wrong happened, please try again later!")
+
+            },
+
+        });
+    };
+
+      // *******  Upload file part ****************
+
+    var Upload = function (file) {
+    this.file = file;
+    };
+
+    Upload.prototype.getType = function() {
+        return this.file.type;
+    };
+    Upload.prototype.getSize = function() {
+        return this.file.size;
+    };
+    Upload.prototype.getName = function() {
+        return this.file.name;
+    };
+    Upload.prototype.doUpload = function () {
+        var that = this;
+        var formData = new FormData();
+
+        // add assoc key values, this will be posts values
+        formData.append("file", this.file, this.getName());
+        formData.append("upload_file", true);
+
+        $.ajax({
+            type: "POST",
+            url: "/company/ImportCars",
+            xhr: function () {
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) {
+                    myXhr.upload.addEventListener('progress', that.progressHandling, false);
+                }
+                return myXhr;
+            },
+            success: function (data) {
+                // your callback here
+            },
+            error: function (error) {
+                // handle error
+            },
+            async: true,
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            timeout: 60000
+        });
+    };
+
+    Upload.prototype.progressHandling = function (event) {
+        var percent = 0;
+        var position = event.loaded || event.position;
+        var total = event.total;
+        var progress_bar_id = "#progress-wrp";
+        if (event.lengthComputable) {
+            percent = Math.ceil(position / total * 100);
+        }
+        // update progressbars classes so it fits your code
+        $(progress_bar_id + " .progress-bar").css("width", +percent + "%");
+        $(progress_bar_id + " .status").text(percent + "%");
+    };
+
+    $("#import_cars").on("change", function (e) {
+      var file = $(this)[0].files[0];
+      var upload = new Upload(file);
+      alert("File uploaded, we will update data as soon as we finished")
+    // maby check size or type here with upload.getSize() and upload.getType()
+
+    // execute upload
+    upload.doUpload();
+    });
+
+</script>
+
+
+{% endblock javascripts %}
+
+
+

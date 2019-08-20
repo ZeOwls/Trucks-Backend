@@ -1,0 +1,111 @@
+{% extends "base_site.html" %}
+
+{% block title %} Add New Driver {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+    <link href="{{ url_for('static', filename='vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+
+{% block content %}
+<div class="right_col" role="main">
+
+<div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>New Driver   </h2>
+
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              {% if current_user.isAdmin %}
+              <form id="newDriver" data-parsley-validate class="form-horizontal form-label-left" action="/admin/NewDriver" method="post">
+              {% else %}
+              <form id="newDriver" data-parsley-validate class="form-horizontal form-label-left" action="/company/NewDriver" method="post">
+              {% endif %}
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="driver_name">Driver Name <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="driver_name" name="driver_name" required="required" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone" class="control-label col-md-3 col-sm-3 col-xs-12">Driver Phone <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="phone" required="required" class="form-control col-md-7 col-xs-12" type="tel" name="phone">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="license_number" class="control-label col-md-3 col-sm-3 col-xs-12">License Number <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="license_number" required="required" class="form-control col-md-7 col-xs-12" type="tel" name="license_number">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="license_type" class="control-label col-md-3 col-sm-3 col-xs-12">License Type <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="license_type" required="required" class="form-control col-md-7 col-xs-12" type="tel" name="license_type">
+                  </div>
+                </div>
+                {% if current_user.isAdmin %}
+                <div class="form-group">
+                  <label for="company_id" class="control-label col-md-3 col-sm-3 col-xs-12">Company Code<span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="company_id" required="required" class="form-control col-md-7 col-xs-12" type="tel" name="company_id">
+                  </div>
+                </div>
+                {% endif %}
+                <div class="form-group">
+                  <label for="driver_image" class="control-label col-md-3 col-sm-3 col-xs-12">Driver Image<span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="driver_image" required="required" class="form-control col-md-7 col-xs-12" type="file" accept="image/jpeg, image/png" name="driver_image">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="license_image" class="control-label col-md-3 col-sm-3 col-xs-12">License Image<span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="license_image" required="required" class="form-control col-md-7 col-xs-12" type="file" accept="image/jpeg, image/png" name="license_image">
+                  </div>
+                </div>
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <a class="btn btn-primary" href="/AdminDashboard/driver " type="button">Cancel</a>
+  		  <button class="btn btn-primary" type="reset">Reset</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super() }}
+<script>
+if ("{{error}}"){
+    alert("{{error}}")
+}
+</script>
+{% endblock javascripts %}
+
+
+

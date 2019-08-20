@@ -1,0 +1,130 @@
+{% extends "base_site.html" %}
+
+{% block title %} Home {% endblock title %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <!-- jQuery custom content scroller -->
+  <link href="{{ url_for('static', filename='vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
+{% endblock stylesheets %}
+
+{% block body_class %}nav-md footer_fixed{% endblock body_class %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <!-- counter -->
+    <div class="row tile_count">
+      <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Drivers Count</span>
+        <div class="count">{{data['drivers_num']}}</div>
+        <!--<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-automobile"></i> Cars Count</span>
+        <div class="count">{{data['cars_num']}}</div>
+        <!--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>-->
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-dashboard"></i> Assigned Order To your company Count</span>
+        <div class="count">{{data['orders_num']}}</div>
+        <!--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>-->
+      </div>
+    </div>
+
+      <!------- Cars status counter ------>
+     <div class="row tile_count">
+      <div class="col-md-6 col-sm-6 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-automobile"></i> Free Cars</span>
+        <div class="count">{{data['free_cars_num']}}</div>
+      </div>
+
+      <div class="col-md-6 col-sm-6 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-automobile"></i> Busy Cars</span>
+        <div class="count">{{data['busy_cars_num']}}</div>
+      </div>
+
+
+    </div>
+      <!----- Cars preview table ------>
+        <div style="margin-top: 20px" class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Cars Preview </h2>
+                <a type="button" class="btn btn-success navbar-right" href="/CompanyDashboard/cars/NewCar">New Car</a>
+                <a style="margin-right: 10px" type="button" class="btn btn-primary navbar-right" href="/CompanyDashboard/cars">See More</a>
+
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <table id="cars_preview" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>car plate NO.</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                      <th>Capacity</th>
+                      <th>Color</th>
+                    </tr>
+                  </thead>
+
+                <tbody>
+                  {% for car in data["cars_preview"] %}
+                  <tr>
+                    <td>{{car.car_id}}</td>
+                    <td>{{car.car_plate_number}}</td>
+                    <td>{{car.car_type}}</td>
+                    <td>{{car.car_status}}</td>
+                    <td>{{car.car_capacity}}</td>
+                    <td>{{car.car_color}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+    <!----- Drivers preview table ------>
+        <div style="margin-top: 20px" class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Drivers Preview </h2>
+                <a type="button" class="btn btn-success navbar-right" href="/CompanyDashboard/drivers/NewDriver">New Driver</a>
+                <a style="margin-right: 10px" type="button" class="btn btn-primary navbar-right" href="/CompanyDashboard/drivers">See More</a>
+
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <table id="drivers_preview" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Num. Of Orders</th>
+                    </tr>
+                  </thead>
+
+                <tbody>
+                  {% for driver in data["drivers_preview"] %}
+                  <tr>
+                    <td>{{driver.driver_id}}</td>
+                    <td>{{driver.name}}</td>
+                    <td>{{driver.phone}}</td>
+                    <td>{{driver.num_of_orders}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ super() }}
+  <!-- jQuery custom content scroller -->
+  <script src="{{ url_for('static', filename='vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+{% endblock javascripts %}

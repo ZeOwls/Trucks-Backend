@@ -1,0 +1,174 @@
+{% extends "base_site.html" %}
+
+{% block title %} Factory Details {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+    <link href="{{ url_for('static', filename='vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+
+</script>
+
+{% block content %}
+<div class="right_col" role="main">
+    <!--driver basic info -->
+    <div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Driver base Info</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table id= "basicDriverInfo" class="table table-striped table-bordered ">
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--Driver orders info -->
+    <div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Driver orders list</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                        <table id="driverOrdersInfo" class="table " >
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super() }}
+ <script src="{{ url_for('static', filename='vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script>
+
+    // ----- Driver Base Info Table -----
+    var driver_base_info = $('#basicDriverInfo').DataTable({
+        ajax: {
+            type: 'GET',
+            url: "/admin/DriverProfile{{data['driver_id']}}",
+            dataSrc: "driver_info"
+
+        },
+        columns: [
+            {
+                title: 'Image',
+                render: function(data,type,row){
+                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                }
+            },
+            {
+                title:"ID",
+                data:"driver_id"
+            },
+            {
+                title:"Name",
+                data:'name'
+            },
+            {
+                title:"Driver Phone",
+                data:'phone'
+            },
+
+            {
+                title:'Company Title',
+                data:'company_name'
+            },
+            {
+                title:'License Image',
+                render: function(data,type,row){
+                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                }
+            },
+            {
+                title: "License Type",
+                data: "license_type"
+            }
+        ]
+    });
+
+    // ----- Driver Orders Info Table -----
+    var driver_orders_info = $('#driverOrdersInfo').DataTable({
+        ajax: {
+            type: 'GET',
+            url: "/admin/DriverOrders{{data['driver_id']}}",
+            dataSrc: "orders_info"
+
+        },
+        columns: [
+
+            {
+                title:"ID",
+                data:"order_id"
+            },
+            {
+                title:"Status",
+                data:'status'
+            },
+            {
+                title:"NO. of trucks",
+                data:'num_of_cars'
+            },
+            {
+                title: "View",
+                render: function (data, type, row) {
+                    return '<div><a class="btn btn-info btn-sm" href=/AdminDashboard/OrderDetailsPage'+row.order_id+'>View</div>'
+                }
+            },
+        ]
+    });
+
+
+
+
+</script>
+
+
+{% endblock javascripts %}
+
+
+

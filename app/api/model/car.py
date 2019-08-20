@@ -97,5 +97,6 @@ class Car(db.Model):
             'car_capacity': self.capacity,
             'car_color': self.color,
             'company_code':self.owner_object.id,
-            'company_phone': self.owner_object.user_object.phone
+            'company_phone': self.owner_object.user_object.phone,
+            'doc_img': "/static/images/factory.png"
         }

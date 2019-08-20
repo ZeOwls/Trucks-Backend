@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, redirect, url_for
 from flask_restplus import Namespace, Resource, fields
 from flask_login import login_required, login_user, logout_user, current_user
 
@@ -87,7 +87,7 @@ class Login(Resource):
             print("exception at login:", e)
             response_obj = {
                 'status': 'failed',
-                'message': str(e)
+                'message': 'Something Wrong, please try again later'
 
             }
             return response_obj, 500
@@ -188,6 +188,54 @@ class SignUp(Resource):
             }
             return response_obj, 500
 
+@fac_app.route('/NewFactory')
+class NewFactory(Resource):
+    def post(self):
+        data = request.form
+        factory_name = data["factory_name"]
+        username = data["logistic_name"]
+        address = data["address"]
+        email = data["email"]
+        factory_hotline = data["factory_hotline"]
+        delegate_phone = data["delegate_phone"]
+        password = "factory"
+        role = 2
+        user = User.query.filter_by(email=email).first()
+        if user:
+            return redirect(
+                url_for('base_blueprint.SignupFactory', error="FAILED: user with entered E-mail already exist!"))
+
+        user = User.query.filter_by(username=username).first()
+        if user:
+            return redirect(url_for('base_blueprint.SignupFactory', error="user with entered name already exist!"))
+
+        user = User.query.filter_by(phone=delegate_phone).first()
+        if user:
+            return redirect(url_for('base_blueprint.SignupFactory', error="user with entered phone already exist!"))
+
+        user = User(username=username, email=email, role=role, password=password, phone=delegate_phone,)
+        db.session.add(user)
+
+        fac = Factory.query.filter_by(name=factory_name).first()
+        if fac:
+            return redirect(url_for('base_blueprint.SignupFactory', error="factory with entered name already exist!"))
+
+        fac = Factory.query.filter_by(address=address).first()
+        if fac:
+            return redirect(
+                url_for('base_blueprint.SignupFactory', error="factory with entered address already exist!"))
+
+        fac = Factory.query.filter_by(hotline=factory_hotline).first()
+        if fac:
+            return redirect(
+                url_for('base_blueprint.SignupFactory', error="factory with entered hot line already exist!"))
+
+        fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
+        db.session.add(fac)
+        db.session.commit()
+        return redirect(url_for('base_blueprint.login',
+                                message="Successfully Signed up, waiting for Admin approve then you will "
+                                        "receive Accepted E-mail from us"))
 
 @fac_app.route('/FactoryOrdersList')
 class OrderList(Resource):

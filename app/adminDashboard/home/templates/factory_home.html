@@ -1,0 +1,94 @@
+{% extends "base_site.html" %}
+
+{% block title %} Home {% endblock title %}
+
+{% block stylesheets %}
+  {{ super() }}
+  <!-- jQuery custom content scroller -->
+  <link href="{{ url_for('static', filename='vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
+{% endblock stylesheets %}
+
+{% block body_class %}nav-md footer_fixed{% endblock body_class %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <h3>Orders</h3>
+    <!-- Orders counts -->
+    <div class="row tile_count">
+      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> طلب جديد</span>
+        <div class="count">{{data['status0']}}</div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> جاري الوصول لإستلام الشحنة</span>
+        <div class="count">{{data['status1']}}</div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> جاري إستلام الشحنة</span>
+        <div class="count">{{data['status2']}}</div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> جاري توصيل الشحنة</span>
+        <div class="count">{{data['status3']}}</div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> تم الوصول للهدف</span>
+        <div class="count">{{data['status4']}}</div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> تم توصيل الشحنة بنجاح</span>
+        <div class="count">{{data['status5']}}</div>
+      </div>
+
+    <!--</div>-->
+    <!--<div >-->
+     <!--<a style="margin-top: 30px; " type="button" class="btn btn-success center-block" href="/AdminDashboard/orders/NewOrder">New Order</a>-->
+    <!--</div>-->
+    <!----- Orders preview table ------>
+        <div style="margin-top: 20px" class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Orders Preview </h2>
+                <a type="button" class="btn btn-success navbar-right" href="/FactoryDashboard/NewOrder">New Order</a>
+                <a style="margin-right: 10px" type="button" class="btn btn-primary navbar-right" href="/FactoryDashboard/OrdersList">See More</a>
+
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <table id="order_preview" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Status</th>
+                      <th>Total Trucks</th>
+                      <th>Ordered Date</th>
+                    </tr>
+                  </thead>
+
+                <tbody>
+                  {% for order in data["orders_preview"] %}
+                  <tr>
+                    <td>{{order["order_number"]}}</td>
+                    <td>{{order.order_status}}</td>
+                    <td>{{order.num_of_cars}}</td>
+                    <td>{{order.string_date}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ super() }}
+  <!-- jQuery custom content scroller -->
+  <script src="{{ url_for('static', filename='vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+{% endblock javascripts %}

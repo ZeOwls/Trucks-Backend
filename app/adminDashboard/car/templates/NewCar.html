@@ -1,0 +1,96 @@
+{% extends "base_site.html" %}
+
+{% block title %} Add New Car {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+    <link href="{{ url_for('static', filename='vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+
+{% block content %}
+<div class="right_col" role="main">
+
+<div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>New Car   </h2>
+
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br />
+              <form id="newCar" data-parsley-validate class="form-horizontal form-label-left" action="/company/NewCar" method="post">
+
+
+
+                <div class="form-group">
+                  <label for="plate_number" class="control-label col-md-3 col-sm-3 col-xs-12">Plate Number <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="plate_number" required="required" class="form-control col-md-7 col-xs-12" type="text" name="plate_number">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="car_type">Type <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select id="car_type" class="form-control col-md-7 col-xs-12" name="car_type">
+                    <option value="0">تريلا</option>
+                    <option value="1">مقطورة</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="car_capacity" class="control-label col-md-3 col-sm-3 col-xs-12">Capacity <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="car_capacity" required="required" class="form-control col-md-7 col-xs-12" type="tel" name="car_capacity">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="car_color" class="control-label col-md-3 col-sm-3 col-xs-12">Color <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="car_color" required="required" class="form-control col-md-7 col-xs-12" type="tel" name="car_color">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="doc_image" class="control-label col-md-3 col-sm-3 col-xs-12">Doc. Image<span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="doc_image" required="required" class="form-control col-md-7 col-xs-12" type="file" accept="image/jpeg, image/png" name="doc_image">
+                  </div>
+                </div>
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <a class="btn btn-primary" href="/CompanyDashboard/cars" type="button">Cancel</a>
+  		  <button class="btn btn-primary" type="reset">Reset</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super() }}
+<script>
+if ("{{error}}"){
+    alert("{{error}}")
+}
+</script>
+{% endblock javascripts %}
+
+
+

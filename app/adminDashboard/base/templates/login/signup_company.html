@@ -1,0 +1,94 @@
+{% extends "base_site.html" %}
+
+{% block title %} New Company {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+<!-- Animate.css -->
+<link href="{{ url_for('static', filename='vendors/animate.css/animate.min.css') }}" rel="stylesheet">
+<!-- Alertify -->
+<link href="{{ url_for('static', filename='vendors/alertifyjs/css/alertify.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/alertifyjs/css/custom.alertify.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+
+<!--{% block body_class %}login{% endblock body_class %}-->
+
+{% block body %}
+<!-- jQuery -->
+<script src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script>
+<!-- Alertify -->
+<script src="{{ url_for('static', filename='vendors/alertifyjs/alertify.min.js') }}"></script>
+<!-- Parsley -->
+<script src="{{ url_for('static', filename='vendors/parsleyjs/dist/parsley.min.js') }}"></script>
+<!-- Login -->
+<script src="{{ url_for('static', filename='build/js/login.js') }}"></script>
+<div>
+    <div style="text-align: center; right: 0px;margin: 0px auto;margin-top: 10%;position: relative">
+        <h1 style="margin-bottom: 25px">Create New Company Account</h1>
+
+        <form id="newCompany" data-parsley-validate class="form-horizontal form-label-left"action="/company/NewCompany" method="post">
+            <div class="ln_solid"></div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company_name">Company Name <span
+                        class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="company_name" name="company_name" required="required"
+                           class="form-control col-md-7 col-xs-12">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="control-label col-md-3 col-sm-3 col-xs-12">address <span
+                        class="required">*</span></label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="address" required="required" class="form-control col-md-7 col-xs-12" type="text"
+                           name="address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span
+                        class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="email" name="email" class="date-picker form-control col-md-7 col-xs-12"
+                           required="required" type="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="company_phone" class="control-label col-md-3 col-sm-3 col-xs-12">Company Phone <span
+                        class="required">*</span></label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="company_phone" required="required" class="form-control col-md-7 col-xs-12"
+                           type="tel" name="company_phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="company_logo" class="control-label col-md-3 col-sm-3 col-xs-12">Company Logo<span
+                        class="required">*</span></label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="company_logo" required="required" class="form-control col-md-7 col-xs-12"
+                           type="file" accept="image/jpeg, image/png" name="company_logo">
+                </div>
+            </div>
+            <div class="ln_solid"></div>
+            <div style="margin-top: 50px" class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <a class="btn btn-primary" href="/AdminDashboard" type="button">Cancel</a>
+                    <button class="btn btn-primary" type="reset">Reset</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script>
+if ("{{error}}"!=""){
+    alert("{{error}}")
+}
+</script>
+{% endblock body %}
+
+{% block javascripts %}
+
+{% endblock javascripts %}

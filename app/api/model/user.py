@@ -1,4 +1,5 @@
 from flask_login import UserMixin
+import uuid
 
 from app import db, bcrypt, login_manager
 
@@ -34,15 +35,12 @@ class User(db.Model, UserMixin):
     def load_user(user_id):
         return User.query.filter_by(id=user_id).first()
 
-    # @staticmethod
-
-    # @login_manager.unauthorized_handler
-    # def unauth_handler():
-    #     response_obj = {
-    #         'status': 'failed',
-    #         'message': 'unauthorized, please log in first'
-    #     }
-    #     return response_obj, 401
+    @staticmethod
+    def generate_pass():
+        string_length = 10
+        random_string = uuid.uuid4().hex  # get a random string in a UUID fromat
+        random_string = random_string.upper()[0:string_length]  # convert it in a uppercase letter and trim to your size.
+        return random_string
 
     @property
     def isAdmin(self):

@@ -1,17 +1,12 @@
 import os
-import socket
 
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
+from dotenv import load_dotenv
 
 from app import app as application, db
 
-# import app.api.model
-# from app.api.model.car import Car
-# from app.api.model.company import Company
-# from app.api.model.user import User
-from app.api.model.car import Car
-from app.api.model.order_driver_car import OrderCarsAndDrivers
+from app.api.model.factory import Factory
 
 manager = Manager(application)
 migrate = Migrate(application, db)
@@ -25,6 +20,7 @@ def run(port=5000):
     # ip = socket.gethostbyname(socket.getfqdn())
     # host = os.environ.get('IP', ip)
     port = int(os.environ.get('PORT', 5000))
+    load_dotenv('./.env')
     application.run(port=port)
 
 
@@ -73,18 +69,22 @@ def insertData():
     #############################################
     # insert cars to company
     # cars = [
-    #     ['car1', 1, Car.generate_qrcode(), 'trilla', 15],
-    #     ['car2', 1, Car.generate_qrcode(), 'maktura', 15]]
+    #     ['car4', 1, Car.generate_qrcode(), 'trilla', 15,"ازرق"],
+    #     ['car5', 2, Car.generate_qrcode(), 'maktura', 15,"ابيض"],
+    #     ['car6', 2, Car.generate_qrcode(), 'maktura', 15,"اسود"],
+    #     ['car7', 2, Car.generate_qrcode(), 'maktura', 15,"ابيض"],
+    #     ['car8', 2, Car.generate_qrcode(), 'maktura', 15,"اخضر"],
+    # ]
     # role = 4
     # for car in cars:
     #     car_user = User(username=car[0], email=car[0], password=car[2], phone=car[0], role=role)
     #     db.session.add(car_user)
     #     db.session.commit()
     #     new_car = Car(user_id=car_user.id, number=car[0], owner=car[1], qr_code=car[2], car_type=car[3],
-    #                   capacity=car[4])
+    #                   capacity=car[4],color=car[5])
     #     db.session.add(new_car)
     #     db.session.commit()
-    #
+
     # cars = Car.query.all()
     # [print(car) for car in cars]
     ##############################################
@@ -109,12 +109,31 @@ def insertData():
     # print(orders)
     #####################################33
     # assign driver and car for order
-    new = OrderCarsAndDrivers(order_id=2,car_id=1,driver_id=2)
-    car = Car.query.get(1)
-    car.current_order_id=2
-    db.session.add(new)
-    db.session.commit()
-    # pass
+    # new = OrderCarsAndDrivers(order_id=25,car_id=2,driver_id=2)
+    # car = Car.query.get(2)
+    # car.current_order_id = 25
+    # car.status = 'busy'
+    # db.session.add(new)
+    # db.session.commit()
+    ###################################3
+    # add admin account
+    # admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin")
+    # db.session.add(admin)
+    # db.session.commit()
+    # import pandas as pd
+    # factories = Factory.query.all()
+    # f_list = [{
+    #     'ID': factory.id,
+    #     'Name': factory.name,
+    #     'Hot line': factory.hotline,
+    #     'username': factory.delegate_opj.username,
+    #     'email': factory.delegate_opj.email,
+    #     'user phone': factory.delegate_opj.phone
+    # } for factory in factories]
+    # df = pd.DataFrame.from_dict(f_list)
+    # df.to_csv('file1.csv')
+
+    pass
 
 
 if __name__ == "__main__":

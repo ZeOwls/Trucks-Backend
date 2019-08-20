@@ -1,0 +1,136 @@
+{% extends "base_site.html" %}
+
+{% block title %} Drivers {% endblock title %}
+
+{% block stylesheets %}
+{{ super() }}
+<link href="{{ url_for('static', filename='vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}"
+      rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}"
+      rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}"
+      rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}"
+      rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}"
+      rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="right_col" role="main">
+    <div class="">
+
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <!----- Free drivers list table ------>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Free Drivers List </h2>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                            <table id="free_drivers" class="table  table-bordered">
+                            </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script>
+    var free_drivers = $("#free_drivers").DataTable({
+        ajax: {
+            type: 'get',
+            url: '/admin/FreeDrivers',
+            dataSrc: 'driver_list'
+        },
+        columns: [
+
+            {
+                title: 'IMAGE',
+                render: function (data, type, row) {
+                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                }
+            },
+            {
+                title: "ID",
+                data: "driver_id"
+            },
+            {
+                title: "Name",
+                data: 'name'
+            },
+            {
+                title: "Company Title",
+                data: "company_name"
+            },
+            {
+                title: "Phone",
+                data: 'phone'
+            },
+            {
+                title: 'Orders Count',
+                data: 'num_of_orders'
+            },
+            {
+                title: "Select",
+                render: function (data, type, row) {
+                    return '<div style="text-align: center"><button class="btn btn-success" onclick="assign(this,' + row.driver_id + ')">Select Driver</button></div>'
+                }
+            },
+
+        ]
+    });
+
+    assign = function (self,driver_id) {
+        console.log("in assign");
+        var row = free_drivers.row(self.closest('tr'));
+        $.ajax({
+                url: "/admin/AssignCarToOrder",
+                type: "POST",
+
+                data: JSON.stringify({
+                    'order_id':"{{data['order_id']}}",
+                    'car_id':"{{data['car_id']}}",
+                    'driver_id': driver_id
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    row.remove().draw();
+                    alert(response);
+                    setTimeout(
+                      function()
+                      {
+                        window.location.href = "/AdminDashboard/OrderDetailsPage{{data['order_id']}}";
+                      }, 1000);
+
+                },
+                error: function (err) {
+                    if (err.responseJSON.status==="failed"){
+                        alert(err.responseJSON.message);
+                    }
+                    else{
+                        alert("Error!")
+                    }
+
+                }
+            })
+    };
+
+</script>
+{% endblock javascripts %}
