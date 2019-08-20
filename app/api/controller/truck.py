@@ -268,7 +268,8 @@ class CheckPendingOrder(Resource):
                 'from_latitude': order.from_latitude,
                 'from_longitude': order.from_longitude,
                 'to_latitude': order.to_latitude,
-                'to_longitude': order.to_longitude
+                'to_longitude': order.to_longitude,
+                'order_status_for_car': order_status_for_car
             }
             return response_obj, 200
         except Exception as e:
