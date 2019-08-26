@@ -95,12 +95,7 @@
 
         },
         columns: [
-            {
-                title: 'Image',
-                render: function(data,type,row){
-                    return '<img src="/static/images/factory.png" class="img-responsive">'
-                }
-            },
+
             {
                 title:"ID",
                 data:"driver_id"
@@ -121,7 +116,7 @@
             {
                 title:'License Image',
                 render: function(data,type,row){
-                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                    return '<img src='+row.license_img+' class="img-responsive">'
                 }
             },
             {

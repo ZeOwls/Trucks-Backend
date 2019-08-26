@@ -29,7 +29,6 @@ def export_factories():
         } for factory in factories]
         df = pd.DataFrame.from_dict(f_list)
         df.to_excel("app/utils/sentfiles/factories.xlsx", encoding='utf8')
-        # TODO we should send data via email here
         print("sending data via email...")
         file_mail('factories.xlsx', 'factories')
         return 'done'
@@ -37,7 +36,6 @@ def export_factories():
 
 @rq.job()
 def import_factories(file):
-    # TODO we sould send mails for all new factories with there pass
     from app import app
     full_path = 'app/utils/uploadedfiles/' + file
     dataFrame = pd.read_excel(full_path)
@@ -86,7 +84,6 @@ def export_companies():
 
 @rq.job()
 def import_companies(file):
-    # TODO we sould send mails for all new factories with there pass
     from app import app
     full_path = 'app/utils/uploadedfiles/' + file
     dataFrame = pd.read_excel(full_path)

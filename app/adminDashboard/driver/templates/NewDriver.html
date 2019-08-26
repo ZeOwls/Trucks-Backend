@@ -28,9 +28,9 @@
             <div class="x_content">
               <br />
               {% if current_user.isAdmin %}
-              <form id="newDriver" data-parsley-validate class="form-horizontal form-label-left" action="/admin/NewDriver" method="post">
+              <form id="newDriver" data-parsley-validate class="form-horizontal form-label-left" action="/admin/NewDriver" enctype="multipart/form-data" method="post">
               {% else %}
-              <form id="newDriver" data-parsley-validate class="form-horizontal form-label-left" action="/company/NewDriver" method="post">
+              <form id="newDriver" data-parsley-validate class="form-horizontal form-label-left" action="/company/NewDriver"  enctype="multipart/form-data" method="post">
               {% endif %}
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="driver_name">Driver Name <span class="required">*</span>
@@ -69,12 +69,6 @@
                 </div>
                 {% endif %}
                 <div class="form-group">
-                  <label for="driver_image" class="control-label col-md-3 col-sm-3 col-xs-12">Driver Image<span class="required">*</span></label>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="driver_image" required="required" class="form-control col-md-7 col-xs-12" type="file" accept="image/jpeg, image/png" name="driver_image">
-                  </div>
-                </div>
-                <div class="form-group">
                   <label for="license_image" class="control-label col-md-3 col-sm-3 col-xs-12">License Image<span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <input id="license_image" required="required" class="form-control col-md-7 col-xs-12" type="file" accept="image/jpeg, image/png" name="license_image">
@@ -83,8 +77,12 @@
                 <div class="ln_solid"></div>
                 <div class="form-group">
                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    {% if current_user.isAdmin %}
                     <a class="btn btn-primary" href="/AdminDashboard/driver " type="button">Cancel</a>
-  		  <button class="btn btn-primary" type="reset">Reset</button>
+                    {% else %}
+                    <a class="btn btn-primary" href="/CompanyDashboard/drivers" type="button">Cancel</a>
+                    {% endif %}
+  		            <button class="btn btn-primary" type="reset">Reset</button>
                     <button type="submit" class="btn btn-success">Submit</button>
                   </div>
                 </div>

@@ -1,11 +1,15 @@
+import os
+# from firebase_admin import messaging
+
 from flask import request, redirect, url_for
 from flask_restplus import Namespace, Resource, fields
 from flask_login import login_required, login_user, logout_user, current_user
 from functools import wraps
 
+from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 
-from app import db
+from app import db, notf_service
 from app.api.model.driver import Driver
 from app.utils.login import company_required
 from app.utils.background_jobs import export_cars, import_cars
@@ -14,6 +18,7 @@ from app.api.model.order_driver_car import OrderCarsAndDrivers
 from app.api.model.user import User
 from app.api.model.com import Company
 from app.api.model.car import Car
+from app.utils.upload_images import upload_file_to_s3
 
 com_app = Namespace('Company', description='All Company related endpoints')
 
@@ -111,7 +116,7 @@ class SignUp(Resource):
             password = 'company'  # data.get('password')
             address = data.get('address')
             phone = data.get('phone')
-
+            img = request.files['company_logo']
             role = 1
             user = User.query.filter_by(email=email).first()
             if user:
@@ -151,7 +156,9 @@ class SignUp(Resource):
                 }
                 return response_obj, 409
 
-            com = Company(name=company_name, account=user.id, address=address)
+            _, file_extension = os.path.splitext(img.filename)
+            url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
+            com = Company(name=company_name, account=user.id, address=address, logo=url)
             db.session.add(com)
             db.session.commit()
             response_obj = {
@@ -180,6 +187,7 @@ class NewCompany(Resource):
         phone = data.get('company_phone')
         role = 1
         user = User.query.filter_by(email=email).first()
+        img = request.files['company_logo']
         if user:
             return redirect(
                 url_for('base_blueprint.SignupCompany', error="FAILED: user with entered E-mail already exist!"))
@@ -205,13 +213,20 @@ class NewCompany(Resource):
         if com:
             return redirect(
                 url_for('base_blueprint.SignupCompany', error="FAILED: company with entered address already exist!"))
-
-        com = Company(name=company_name, account=user.id, address=address)
+        _, file_extension = os.path.splitext(img.filename)
+        url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
+        com = Company(name=company_name, account=user.id, address=address, logo=url)
         db.session.add(com)
         db.session.commit()
+        message_title = "New Company"
+        message_body = "You have new order, click to view details!"
+        device_token = "ele9ERDn6GQ:APA91bHyPfHyEalh7kvDYK67WvfqZ3AQbgqPDkbLSabplHFl-3f1bd-oQNQ_lIX-j88nL0Z_8deldxzaXhwaebbFTXoLraHrZG76JP9oUGh9SoaXVa2PMzlKJBmTCLHTVzevx1ycg-2d"
+        result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
+                                                   message_body=message_body,click_action="/AdminDashboard/company")
+        print(result)
         return redirect(url_for('base_blueprint.login',
                                 message="Successfully Signed up, waiting for Admin approve then you will "
-                                "receive Accepted E-mail from us"))
+                                        "receive Accepted E-mail from us"))
 
 
 @com_app.route('/CompanyCarsList')
@@ -351,14 +366,17 @@ class NewCar(Resource):
             car_type = int(data['car_type'])
             car_capacity = data['car_capacity']
             car_color = data['car_color']
+            doc_img = request.files['doc_image']
             qr_code = Car.generate_qrcode()
             owner = Company.query.filter_by(_user_id=current_user.id).first()
             car_user = User(username=plate_number, email=plate_number, password=qr_code, phone=plate_number, role=role,
                             account_status=1)
             db.session.add(car_user)
             db.session.commit()
+            _, file_extension = os.path.splitext(doc_img.filename)
+            url = upload_file_to_s3(doc_img, file_name=plate_number + file_extension, folder='cars_doc')
             new_car = Car(user_id=car_user.id, number=plate_number, owner=owner.id, qr_code=qr_code, _type=car_type,
-                          capacity=car_capacity, color=car_color)
+                          capacity=car_capacity, color=car_color, doc_img=url)
             db.session.add(new_car)
             db.session.commit()
             return redirect(url_for('cars_blueprint_company.company_cars'))
@@ -392,6 +410,7 @@ class NewDriver(Resource):
         phone = data["phone"]
         license_number = data["license_number"]
         license_type = data["license_type"]
+        img = request.files['license_image']
         company_id = Company.query.filter_by(_user_id=current_user.id).first().id
         driver = Driver.query.filter_by(name=driver_name).first()
         if driver:
@@ -408,9 +427,10 @@ class NewDriver(Resource):
             return redirect(
                 url_for('driver_blueprint_company.route_error',
                         error=f"FAILED: license number: {license_number} already exist!!"))
-
+        _, file_extension = os.path.splitext(img.filename)
+        url = upload_file_to_s3(img, file_name=driver_name + file_extension, folder='drivers_license')
         new_driver = Driver(name=driver_name, phone=phone, company_id=company_id, license_number=license_number,
-                            license_type=license_type)
+                            license_type=license_type, license_img=url)
         db.session.add(new_driver)
         db.session.commit()
         return redirect(url_for('driver_blueprint_company.index'))

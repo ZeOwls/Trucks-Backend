@@ -207,6 +207,12 @@
                 data: "company"
             },
             {
+                title:"Doc.",
+                render:function (data,type,row) {
+                    return '<img src='+row.doc_img+' class="img-responsive">'
+                }
+            },
+            {
                 title: "Distance / Km",
                 render: function (data,type,row) {
                     if (row.location.location_latitude)

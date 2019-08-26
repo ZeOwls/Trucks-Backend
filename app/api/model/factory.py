@@ -12,7 +12,7 @@ class Factory(db.Model):
     _delegate_id = db.Column(db.Integer, db.ForeignKey('user.id'),nullable=False)
     delegate_opj = db.relationship(User)
     orders = db.relationship('Order', backref='factory',  cascade="all,delete")
-
+    logo = db.Column(db.String,nullable=False,default="/static/images/factory.png")
     @property
     def delegate(self):
         return self._delegate_id

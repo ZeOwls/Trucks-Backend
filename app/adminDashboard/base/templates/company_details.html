@@ -23,7 +23,7 @@
 
 {% block content %}
 <div class="right_col" role="main">
-    {% if current_user.isAdmin %}}
+    {% if current_user.isAdmin %}
     <!--company basic info -->
     <div class="row">
         <div class="col-md-12 col-sm-6 col-xs-12">
@@ -109,7 +109,7 @@
             {
                 title: 'LOGO',
                 render: function(data,type,row){
-                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                    return '<img src='+row.logo+' class="img-responsive">'
                 }
             },
             {

@@ -20,6 +20,7 @@ from app.api.model.user import User
 
 from app.utils.background_jobs import import_factories, import_companies, import_drivers, export_orders, \
     export_companies, export_factories, export_drivers
+from app.utils.upload_images import upload_file_to_s3
 
 admin_app = Namespace('Admin', description='All Admin dashboard related endpoints')
 
@@ -111,7 +112,7 @@ class DeleteOrder(Resource):
             if assignedCars:
                 response_obj = {
                     'status': 'failed',
-                    'message':"Failed: Admin already assigned cars to this order, ask him to cancel your order!"
+                    'message': "Failed: Admin already assigned cars to this order, ask him to cancel your order!"
                 }
             return response_obj
         response_obj = {
@@ -185,26 +186,27 @@ class AssignCarToOrder(Resource):
         driver.current_order_id = order_id
         db.session.commit()
         # Send notification to truck device
-        device_token = "edbIyzGHfww:APA91bFou5xjZ4DJKTokHzukmpCZmPPlOA13D43MLrMUe41uCesUmcSEP3JWyftR2qNXcTbveDnoJKeigtuM1Y94a5OPxqcGaTdJH-oevIprVgpVz9lXP9GI6ZHivH1-aeDkoyYYl0Zu" #car.user_obj.device_token
+        # TODO remove token
+        device_token = "edbIyzGHfww:APA91bFou5xjZ4DJKTokHzukmpCZmPPlOA13D43MLrMUe41uCesUmcSEP3JWyftR2qNXcTbveDnoJKeigtuM1Y94a5OPxqcGaTdJH-oevIprVgpVz9lXP9GI6ZHivH1-aeDkoyYYl0Zu"  # car.user_obj.device_token
         message_title = "New Order"
         message_body = "You have new order, click to view details!"
         message_data = {
-            'factory_name':order.factory_object.name,
-            'notf_type':"new_order",
-            "order_id":order.id,
-            "pickup_location":{
-                'lat':order.from_latitude,
+            'factory_name': order.factory_object.name,
+            'notf_type': "new_order",
+            "order_id": order.id,
+            "pickup_location": {
+                'lat': order.from_latitude,
                 'lng': order.from_longitude,
                 'str': order.pickup_location
             },
-            'dropoff_location':{
-                'lat':order.to_latitude,
+            'dropoff_location': {
+                'lat': order.to_latitude,
                 'lng': order.to_longitude,
                 'str': order.dropoff_location
             }
         }
         result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
-                                                   message_body=message_body,data_message=message_data)
+                                                   message_body=message_body, data_message=message_data)
 
         return 'Car assigned successfully', 200
 
@@ -272,7 +274,8 @@ class FactoryList(Resource):
                 'name': factory.name,
                 'address': factory.address,
                 'phone': factory.hotline,
-                'num_of_orders': Order.query.filter_by(factory_id=factory.id).count()
+                'num_of_orders': Order.query.filter_by(factory_id=factory.id).count(),
+                'logo': factory.logo
             } for factory in factories]
         }
 
@@ -291,7 +294,8 @@ class FactoryDeatails(Resource):
                 'phone': factory.hotline,
                 'delegate_phone': factory.delegate_opj.phone,
                 'email': factory.delegate_opj.email,
-                'delegate_name': factory.delegate_opj.username
+                'delegate_name': factory.delegate_opj.username,
+                'logo': factory.logo
             }]
         }
 
@@ -342,6 +346,7 @@ class NewFactory(Resource):
         factory_hotline = data["factory_hotline"]
         delegate_phone = data["delegate_phone"]
         password = "factory"
+        img = request.files['factory_logo']
         role = 2
         user = User.query.filter_by(email=email).first()
         if user:
@@ -373,8 +378,9 @@ class NewFactory(Resource):
         if fac:
             return redirect(
                 url_for('factory_blueprint.route_error', error="factory with entered hot line already exist!"))
-
-        fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
+        _, file_extension = os.path.splitext(img.filename)
+        url = upload_file_to_s3(img, file_name=factory_name + file_extension, folder='factory_logo')
+        fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline, logo=url)
         db.session.add(fac)
         db.session.commit()
         return redirect(url_for('factory_blueprint.index'))
@@ -391,7 +397,8 @@ class PendingFactoryList(Resource):
                 'name': factory.name,
                 'address': factory.address,
                 'phone': factory.hotline,
-                'num_of_orders': Order.query.filter_by(factory_id=factory.id).count()
+                'num_of_orders': Order.query.filter_by(factory_id=factory.id).count(),
+                'logo': factory.logo
             } for factory in factories]
         }
 
@@ -460,6 +467,7 @@ class CompanyList(Resource):
                 'name': company.name,
                 'address': company.address,
                 'phone': User.query.get(company._user_id).phone,
+                'logo': company.logo,
                 'num_of_orders': OrderCarsAndDrivers.query.filter(
                     OrderCarsAndDrivers.company_id == company.id).group_by(OrderCarsAndDrivers.order_id).count()
             } for company in companies]
@@ -479,7 +487,8 @@ class CompanyDeatails(Resource):
                 'name': company.name,
                 'phone': company.user_object.phone,
                 'email': company.user_object.email,
-                'delegate_name': company.user_object.username
+                'delegate_name': company.user_object.username,
+                'logo': company.logo
             }]
         }
 
@@ -517,7 +526,7 @@ class NewCompany(Resource):
         password = 'company'  # data.get('password')
         address = data.get('address')
         phone = data.get('company_phone')
-
+        img = request.files['company_logo']
         role = 1
         user = User.query.filter_by(email=email).first()
         if user:
@@ -545,8 +554,9 @@ class NewCompany(Resource):
         if com:
             return redirect(
                 url_for('company_blueprint.route_error', error="FAILED: company with entered address already exist!"))
-
-        com = Company(name=company_name, account=user.id, address=address)
+        _, file_extension = os.path.splitext(img.filename)
+        url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
+        com = Company(name=company_name, account=user.id, address=address, logo=url)
         db.session.add(com)
         db.session.commit()
         return redirect(url_for('company_blueprint.index'))
@@ -604,6 +614,7 @@ class PendingCompanyList(Resource):
                 'name': company.name,
                 'address': company.address,
                 'phone': company.user_object.phone,
+                'logo': company.logo
             } for company in companies]
         }
 
@@ -707,6 +718,7 @@ class NewDriver(Resource):
         license_number = data["license_number"]
         license_type = data["license_type"]
         company_id = data["company_id"]
+        img = request.files['license_image']
         driver = Driver.query.filter_by(name=driver_name).first()
         if driver:
             return redirect(
@@ -727,9 +739,10 @@ class NewDriver(Resource):
         if not company:
             return redirect(
                 url_for('driver_blueprint.route_error', error=f"FAILED: Company with code: {company_id} not exist!"))
-
+        _, file_extension = os.path.splitext(img.filename)
+        url = upload_file_to_s3(img, file_name=driver_name + file_extension, folder='drivers_license')
         new_driver = Driver(name=driver_name, phone=phone, company_id=company_id, license_number=license_number,
-                            license_type=license_type)
+                            license_type=license_type,license_img=url)
         db.session.add(new_driver)
         db.session.commit()
         return redirect(url_for('driver_blueprint.index'))
@@ -853,7 +866,8 @@ class NewOrder(Resource):
                 return redirect(
                     url_for('orders_blueprint.route_error', error="Some thing wrong happened please try again later"))
             return redirect(
-                url_for('factory_newOrder_blueprint.factory_route_error', error="Some thing wrong happened please try again later"))
+                url_for('factory_newOrder_blueprint.factory_route_error',
+                        error="Some thing wrong happened please try again later"))
 
 
 @admin_app.route('/ExportOrders')

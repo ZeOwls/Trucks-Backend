@@ -2,7 +2,7 @@ from flask_login import login_required, current_user, login_user
 from flask import request
 from flask_restplus import Namespace, Resource, fields
 
-from app import db
+from app import db, notf_service
 from app.api.model.order import Order, OrderHistory
 from app.api.model.user import User
 from app.api.model.car import Car
@@ -176,26 +176,41 @@ class UpdateOrderStatus(Resource):
             # get all cars that assigned to same order, we check all cars status before we update order status
             all_cars = OrderCarsAndDrivers.query.filter_by(order_id=car.current_order_id).all()
             order = Order.query.get(car.current_order_id)
-            if len(all_cars) == 1:
-                order.status = new_status
-                db.session.commit()
-                response_obj = {
-                    'status': 'success',
-                    'message': f"order status updated successfully from {orders_status[current_status]} to"
-                               f" {orders_status[new_status]}"
-                }
-                return response_obj, 200
+            # if len(all_cars) == 1:
+            #     order.status = new_status
+            #     db.session.commit()
+            #     response_obj = {
+            #         'status': 'success',
+            #         'message': f"order status updated successfully from {orders_status[current_status]} to"
+            #                    f" {orders_status[new_status]}"
+            #     }
+            #     return response_obj, 200
             final_status = min([x.status for x in all_cars])
             if final_status > order.status:
                 order.status = final_status
                 order_history = OrderHistory(order_id=car.current_order_id, old_state=current_status,
                                              new_state=new_status)
                 db.session.add(order_history)
+                # TODO remove token
+                device_token = "edbIyzGHfww:APA91bFou5xjZ4DJKTokHzukmpCZmPPlOA13D43MLrMUe41uCesUmcSEP3JWyftR2qNXcTbveDnoJKeigtuM1Y94a5OPxqcGaTdJH-oevIprVgpVz9lXP9GI6ZHivH1-aeDkoyYYl0Zu"  # car.user_obj.device_token
+                message_title = "Order Status Update"
+                message_body = "Your Order status has been updated,click for details!"
+                message_data = {
+                    'order_id': order.id,
+                    'notf_type': "order_status_update",
+
+                }
+                result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
+                                                           message_body=message_body, data_message=message_data)
+            if new_status == 5:
+                car.status = 'free',
+                car.current_order_id = 0
+
             # set cars free if order is finished
-            if order.status == 5:
-                for car in all_cars:
-                    car.status = 'free'
-                    car.current_order_id = 0
+            # if order.status == 5:
+            #     for car in all_cars:
+            #         car.status = 'free'
+            #         car.current_order_id = 0
             db.session.commit()
             response_obj = {
                 'status': 'success',

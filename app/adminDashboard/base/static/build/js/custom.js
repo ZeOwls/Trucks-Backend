@@ -3217,7 +3217,7 @@ function init_DataTables() {
             {
                 title: 'LOGO',
                 render: function (data, type, row) {
-                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                    return '<img src='+row.logo+' class="img-responsive">'
                 }
             },
             {
@@ -3262,7 +3262,7 @@ function init_DataTables() {
             {
                 title: 'LOGO',
                 render: function (data, type, row) {
-                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                    return '<img src='+row.logo+' class="img-responsive">'
                 }
             },
             {
@@ -3304,7 +3304,7 @@ function init_DataTables() {
             {
                 title: 'LOGO',
                 render: function (data, type, row) {
-                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                    return '<img src='+row.logo+' class="img-responsive">'
                 }
             },
             {
@@ -3344,7 +3344,7 @@ function init_DataTables() {
             {
                 title: 'LOGO',
                 render: function (data, type, row) {
-                    return '<img src="/static/images/factory.png" class="img-responsive">'
+                    return '<img src='+row.logo+' class="img-responsive">'
                 }
             },
             {
@@ -3385,12 +3385,7 @@ function init_DataTables() {
             dataSrc: 'driver_list'
         },
         columns: [
-            {
-                title: 'IMAGE',
-                render: function (data, type, row) {
-                    return '<img src="/static/images/factory.png" class="img-responsive">'
-                }
-            },
+
             {
                 title: "ID",
                 data: "driver_id"
@@ -3406,6 +3401,12 @@ function init_DataTables() {
             {
                 title: "Phone",
                 data: 'phone'
+            },
+            {
+                title:'License Image',
+                render: function(data,type,row){
+                    return '<img src='+row.license_img+' class="img-responsive">'
+                    }
             },
             {
                 title: 'Orders Count',
@@ -3480,12 +3481,7 @@ function init_DataTables() {
                     dataSrc: 'driver_list'
                 },
                 columns: [
-                    {
-                        title: 'IMAGE',
-                        render: function (data, type, row) {
-                            return '<img src="/static/images/factory.png" class="img-responsive">'
-                        }
-                    },
+
                     {
                         title: "ID",
                         data: "driver_id"
@@ -3501,6 +3497,12 @@ function init_DataTables() {
                     {
                         title: "Phone",
                         data: 'phone'
+                    },
+                    {
+                    title:'License Image',
+                    render: function(data,type,row){
+                        return '<img src='+row.license_img+' class="img-responsive">'
+                        }
                     },
                     {
                         title: 'Orders Count',
@@ -3549,6 +3551,12 @@ function init_DataTables() {
             {
                 title:"Color",
                 data:'car_color'
+            },
+            {
+                title:'Doc.',
+                render: function(data,type,row){
+                    return '<img src='+row.doc_img+' class="img-responsive">'
+                }
             },
             {
                 title: "",

@@ -35,6 +35,7 @@ class Car(db.Model):
     orders = db.relationship('OrderCarsAndDrivers', backref='car',  cascade="all,delete")
     current_order_id = db.Column(db.Integer,default=0)
     color = db.Column(db.String(100),nullable=False)
+    doc_img = db.Column(db.String,nullable=False)
     @property
     def owner(self):
         return self.owner_object
@@ -98,5 +99,5 @@ class Car(db.Model):
             'car_color': self.color,
             'company_code':self.owner_object.id,
             'company_phone': self.owner_object.user_object.phone,
-            'doc_img': "/static/images/factory.png"
+            'doc_img': self.doc_img
         }

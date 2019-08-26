@@ -1,3 +1,5 @@
+import os
+
 from flask import request, redirect, url_for
 from flask_restplus import Namespace, Resource, fields
 from flask_login import login_required, login_user, logout_user, current_user
@@ -7,6 +9,7 @@ from app import db
 from app.api.model.factory import Factory
 from app.api.model.order import Order, OrderCarsTypes
 from app.api.model.car import available_type
+from app.utils.upload_images import upload_file_to_s3
 
 fac_app = Namespace('Factory', description='All Factory related endpoints')
 auth_model = fac_app.model('authentication and authorization', {
@@ -21,7 +24,6 @@ signup_model = fac_app.model('Factory sign up', {
     'email': fields.String(required=True, description='Factory Name'),
     'factory_hotline': fields.String(required=True, description='Factory Hotline'),
     'delegate_phone': fields.String(required=True, description='delegate Phone number'),
-
 })
 
 profile_model = fac_app.model('Factory profile', {
@@ -119,6 +121,7 @@ class SignUp(Resource):
     def post(self):
         data = request.json
         try:
+            # img = request.files['factory_logo']
             factory_name = data.get('factory_name')
             username = data.get('username')
             email = data.get('email')
@@ -126,9 +129,9 @@ class SignUp(Resource):
             address = data.get('address')
             factory_hotline = data.get('factory_hotline')
             delegate_phone = data.get('delegate_phone')
-
             role = 2
             user = User.query.filter_by(email=email).first()
+            img = request.files['factory_logo']
             if user:
                 response_obj = {
                     'status': 'failed',
@@ -172,7 +175,10 @@ class SignUp(Resource):
                     'message': 'factory with entered hot line already exist!'
                 }
                 return response_obj, 409
-            fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
+            _, file_extension = os.path.splitext(img.filename)
+            url = upload_file_to_s3(img, file_name=factory_name + file_extension, folder='factory_logo')
+
+            fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline,logo=url)
             db.session.add(fac)
             db.session.commit()
             response_obj = {
@@ -188,6 +194,7 @@ class SignUp(Resource):
             }
             return response_obj, 500
 
+
 @fac_app.route('/NewFactory')
 class NewFactory(Resource):
     def post(self):
@@ -200,6 +207,7 @@ class NewFactory(Resource):
         delegate_phone = data["delegate_phone"]
         password = "factory"
         role = 2
+        img = request.files['factory_logo']
         user = User.query.filter_by(email=email).first()
         if user:
             return redirect(
@@ -213,7 +221,7 @@ class NewFactory(Resource):
         if user:
             return redirect(url_for('base_blueprint.SignupFactory', error="user with entered phone already exist!"))
 
-        user = User(username=username, email=email, role=role, password=password, phone=delegate_phone,)
+        user = User(username=username, email=email, role=role, password=password, phone=delegate_phone, )
         db.session.add(user)
 
         fac = Factory.query.filter_by(name=factory_name).first()
@@ -229,13 +237,16 @@ class NewFactory(Resource):
         if fac:
             return redirect(
                 url_for('base_blueprint.SignupFactory', error="factory with entered hot line already exist!"))
-
-        fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
+        _, file_extension = os.path.splitext(img.filename)
+        url = upload_file_to_s3(img, file_name=factory_name+file_extension,folder='factory_logo')
+        fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline, logo=url)
         db.session.add(fac)
         db.session.commit()
+        print(url)
         return redirect(url_for('base_blueprint.login',
                                 message="Successfully Signed up, waiting for Admin approve then you will "
                                         "receive Accepted E-mail from us"))
+
 
 @fac_app.route('/FactoryOrdersList')
 class OrderList(Resource):
