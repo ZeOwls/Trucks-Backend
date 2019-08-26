@@ -198,6 +198,9 @@ class SignUp(Resource):
 @fac_app.route('/NewFactory')
 class NewFactory(Resource):
     def post(self):
+        print(request.headers)
+        print(request.form)
+        print(request.files)
         data = request.form
         factory_name = data["factory_name"]
         username = data["logistic_name"]
