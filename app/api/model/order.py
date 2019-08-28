@@ -71,7 +71,7 @@ class Order(db.Model):
                 'from': {'latitude': self.from_latitude, 'longitude': self.from_longitude,
                          'address': self.pickup_location},
                 'to': {'latitude': self.to_latitude, 'longitude': self.to_longitude, 'address': self.dropoff_location},
-
+                'order_date': time.mktime(self.ordered_at.timetuple())
                 }
 
     @property
