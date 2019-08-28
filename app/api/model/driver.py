@@ -16,7 +16,7 @@ class Driver(db.Model):
     license_img = db.Column(db.String, nullable=False)
     company_obj = db.relationship(Company)
     driver_status = db.Column(db.Integer, default=1, nullable=False)  # 1 - Active, -1 - Deleted
-    current_order_id = db.Column(db.Integer, db.ForeignKey('order.id'), default=0)
+    current_order_id = db.Column(db.Integer, db.ForeignKey('order.id'))
     orders = db.relationship('OrderCarsAndDrivers', backref='driver', cascade="all,delete", uselist=False)
 
     def __repr__(self):
