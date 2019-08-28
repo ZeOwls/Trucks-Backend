@@ -28,7 +28,7 @@ class User(db.Model, UserMixin):
 
     @password.setter
     def password(self, password):
-        self.hased_password = bcrypt.generate_password_hash(password.encode('utf8'))
+        self.hased_password = bcrypt.generate_password_hash(password).encode('utf8')
         self.temp_pass = password
 
     @staticmethod
@@ -60,7 +60,7 @@ class User(db.Model, UserMixin):
         return True if self.role == 4 else False
 
     def check_password(self, password):
-        return bcrypt.check_password_hash(self.hased_password.encode("utf8"), password)
+        return bcrypt.check_password_hash(self.hased_password, password)
 
     def __repr__(self):
         if not self.isAdmin:
