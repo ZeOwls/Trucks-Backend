@@ -17,11 +17,11 @@ class User(db.Model, UserMixin):
     account_status = db.Column(db.Integer, nullable=False,
                                default=0)  # 0 = pending admin approve, 1 - Active, -1 = Deleted
     hased_password = db.Column(db.String, nullable=False)
+    temp_pass = db.Column(db.String, nullable=False,default="sent")
     # if user account for factory delegate
     factory = db.relationship('Factory', backref='user', cascade="all,delete", uselist=False)
     company = db.relationship('Company', backref='user', cascade="all,delete", uselist=False)
     car = db.relationship('Car', backref='user', uselist=False, cascade="all,delete")
-
     @property
     def password(self):
         raise AttributeError('password: write-only field')
@@ -29,6 +29,7 @@ class User(db.Model, UserMixin):
     @password.setter
     def password(self, password):
         self.hased_password = bcrypt.generate_password_hash(password)
+        self.temp_pass = password
 
     @staticmethod
     @login_manager.user_loader

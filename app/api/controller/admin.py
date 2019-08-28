@@ -415,8 +415,9 @@ class AcceptFactory(Resource):
         user = User.query.get(factory._delegate_id)
         print(user)
         user.account_status = 1
+        pass_mail(user.temp_pass, user.email, user.username)
+        user.temp_pass = "sent"
         db.session.commit()
-        pass_mail(user.password,user.email,user.username)
         return "success", 200
 
 
@@ -631,8 +632,9 @@ class AcceptCompany(Resource):
         company = Company.query.get(id)
         user = User.query.get(company._user_id)
         user.account_status = 1
+        pass_mail(user.temp_pass, user.email, user.username)
+        user.temp_pass = "sent"
         db.session.commit()
-        pass_mail(user.password,user.email,user.username)
         return "success", 200
 
 
@@ -746,7 +748,7 @@ class NewDriver(Resource):
         _, file_extension = os.path.splitext(img.filename)
         url = upload_file_to_s3(img, file_name=driver_name + file_extension, folder='drivers_license')
         new_driver = Driver(name=driver_name, phone=phone, company_id=company_id, license_number=license_number,
-                            license_type=license_type,license_img=url)
+                            license_type=license_type, license_img=url)
         db.session.add(new_driver)
         db.session.commit()
         return redirect(url_for('driver_blueprint.index'))
