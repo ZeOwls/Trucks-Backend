@@ -4,11 +4,13 @@ from flask import request, redirect, url_for
 from flask_restplus import Namespace, Resource, fields
 from flask_login import login_required, login_user, logout_user, current_user
 
+from app.api.model.driver import Driver
+from app.api.model.order_driver_car import OrderCarsAndDrivers
 from app.api.model.user import User
 from app import db
 from app.api.model.factory import Factory
 from app.api.model.order import Order, OrderCarsTypes
-from app.api.model.car import available_type
+from app.api.model.car import available_type, Car
 from app.utils.upload_images import upload_file_to_s3
 
 fac_app = Namespace('Factory', description='All Factory related endpoints')
@@ -340,8 +342,25 @@ class NewOrder(Resource):
             for car_type in available_type:
                 car = OrderCarsTypes(order_id=order.id, cars_num=data.get(car_type) or 0, car_type=car_type)
                 db.session.add(car)
-
+            # TODO REmove this todaay
+            """ For Test Only """
+            # ------------------
+            # ------------------
+            car = Car.query.get(1)
+            order_id = order.id
+            new = OrderCarsAndDrivers(order_id=order_id, car_id=1, driver_id=1, company_id=car._owner)
+            car.current_order_id = order_id
+            car.status = 'busy'
+            db.session.add(new)
+            num_of_assigned_cars = OrderCarsAndDrivers.query.filter_by(order_id=order_id).count()
+            if order.num_of_cars == num_of_assigned_cars:
+                order.status += 1
+            driver = Driver.query.get(1)
+            driver.current_order_id = order_id
             db.session.commit()
+            ###### End Of Test Part
+            #####################
+            
             response_obj = {
                 'status': 'success',
                 'message': 'Successfully crate new order',
