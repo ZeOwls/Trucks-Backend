@@ -26,7 +26,6 @@ def index():
             'longitude': car.location_longitude
         }
         for car in cars]  # long list of coordinates
-    print(locations[0]['latitude'])
     map = Map(
         lat=locations[0]['latitude'],
         lng=locations[0]['longitude'],
