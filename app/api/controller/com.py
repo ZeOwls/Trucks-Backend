@@ -105,7 +105,6 @@ class Logout(Resource):
 @com_app.route('/SignUp')
 class SignUp(Resource):
     @com_app.expect(signup_model)
-    @company_required
     def post(self):
         data = request.json
         try:
