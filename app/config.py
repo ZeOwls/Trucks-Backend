@@ -10,8 +10,9 @@ class Config:
 
 class DevConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + \
-        os.path.join(basedir, 'dev_trankat.db')
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + \
+    #     os.path.join(basedir, 'dev_trankat.db')
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
