@@ -46,8 +46,8 @@ device_token_model = com_app.model('assign token to device', {
 @com_app.route('/Login')
 class Login(Resource):
     @com_app.expect(auth_model)
-    @company_required
     def post(self):
+        print("we are here")
         data = request.json
         email = data.get('email')
         password = data.get('password')
@@ -219,8 +219,8 @@ class NewCompany(Resource):
         db.session.add(com)
         db.session.commit()
         message_title = "New Company"
-        message_body = "You have new order, click to view details!"
-        device_token = "ele9ERDn6GQ:APA91bHyPfHyEalh7kvDYK67WvfqZ3AQbgqPDkbLSabplHFl-3f1bd-oQNQ_lIX-j88nL0Z_8deldxzaXhwaebbFTXoLraHrZG76JP9oUGh9SoaXVa2PMzlKJBmTCLHTVzevx1ycg-2d"
+        message_body = "There are New company signed up, check pending companies!"
+        device_token = "eE6il8rw7Wk:APA91bFjVL4wzLpifxM23_Gh6d5y0HECKP3a8yGWtyBiNid_AAmu4B8C_Mxg9Z3qJP6DydxPnOuAu4nQu38BF4fDhcncdPajkizsTqEiL9sKwB-9iC7vh2M8ss3r8e-l4fSuqadNnOsH"
         result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
                                                    message_body=message_body,click_action="/AdminDashboard/company")
         print(result)
