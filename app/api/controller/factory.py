@@ -131,7 +131,7 @@ class SignUp(Resource):
             delegate_phone = data.get('delegate_phone')
             role = 2
             user = User.query.filter_by(email=email).first()
-            img = request.files['factory_logo']
+            # img = request.files['factory_logo']
             if user:
                 response_obj = {
                     'status': 'failed',
@@ -175,10 +175,11 @@ class SignUp(Resource):
                     'message': 'factory with entered hot line already exist!'
                 }
                 return response_obj, 409
-            _, file_extension = os.path.splitext(img.filename)
-            url = upload_file_to_s3(img, file_name=factory_name + file_extension, folder='factory_logo')
+            # _, file_extension = os.path.splitext(img.filename)
+            # url = upload_file_to_s3(img, file_name=factory_name + file_extension, folder='factory_logo')
 
-            fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline,logo=url)
+            # fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline,logo=url)
+            fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
             db.session.add(fac)
             db.session.commit()
             response_obj = {

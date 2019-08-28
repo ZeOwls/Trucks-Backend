@@ -116,7 +116,7 @@ class SignUp(Resource):
             password = User.generate_pass() # 'company'  # data.get('password')
             address = data.get('address')
             phone = data.get('phone')
-            img = request.files['company_logo']
+            # img = request.files['company_logo']
             role = 1
             user = User.query.filter_by(email=email).first()
             if user:
@@ -156,9 +156,10 @@ class SignUp(Resource):
                 }
                 return response_obj, 409
 
-            _, file_extension = os.path.splitext(img.filename)
-            url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
-            com = Company(name=company_name, account=user.id, address=address, logo=url)
+            # _, file_extension = os.path.splitext(img.filename)
+            # url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
+            # com = Company(name=company_name, account=user.id, address=address, logo=url)
+            com = Company(name=company_name, account=user.id, address=address)
             db.session.add(com)
             db.session.commit()
             response_obj = {
