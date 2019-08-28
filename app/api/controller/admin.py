@@ -476,7 +476,7 @@ class CompanyList(Resource):
                 'address': company.address,
                 'phone': User.query.get(company._user_id).phone,
                 'logo': company.logo,
-                'num_of_orders': OrderCarsAndDrivers.query.filter(
+                'num_of_orders': OrderCarsAndDrivers.query(OrderCarsAndDrivers.order_id).filter(
                     OrderCarsAndDrivers.company_id == company.id).group_by(OrderCarsAndDrivers.order_id).count()
             } for company in companies]
         }
