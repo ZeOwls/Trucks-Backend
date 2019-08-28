@@ -117,9 +117,9 @@ def insertData():
     # db.session.commit()
     ###################################3
     # add admin account
-    # admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin")
-    # db.session.add(admin)
-    # db.session.commit()
+    admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin")
+    db.session.add(admin)
+    db.session.commit()
     # import pandas as pd
     # factories = Factory.query.all()
     # f_list = [{
@@ -133,7 +133,7 @@ def insertData():
     # df = pd.DataFrame.from_dict(f_list)
     # df.to_csv('file1.csv')
 
-    pass
+    # pass
 
 
 if __name__ == "__main__":

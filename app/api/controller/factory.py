@@ -360,7 +360,7 @@ class NewOrder(Resource):
             db.session.commit()
             ###### End Of Test Part
             #####################
-            
+
             response_obj = {
                 'status': 'success',
                 'message': 'Successfully crate new order',
