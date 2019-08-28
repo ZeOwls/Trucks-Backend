@@ -411,15 +411,19 @@ class PendingFactoryList(Resource):
 class AcceptFactory(Resource):
     @login_required
     def get(self, id):
-        factory = Factory.query.get(id)
-        user = User.query.get(factory._delegate_id)
-        print(user)
-        user.account_status = 1
-        pass_mail(user.temp_pass, user.email, user.username)
-        user.temp_pass = "sent"
-        db.session.commit()
-        return "success", 200
+        try:
+            factory = Factory.query.get(id)
+            user = User.query.get(factory._delegate_id)
+            print(user)
+            user.account_status = 1
+            pass_mail(user.temp_pass, user.email, user.username)
+            user.temp_pass = "sent"
+            db.session.commit()
+            return "success", 200
 
+        except Exception as e:
+            print("Exception in accept factory: ",e)
+            return "Some thong go wrong, please try again later", 500
 
 @admin_app.route('/RefuseFactory<id>')
 class RefuseFactory(Resource):
@@ -629,13 +633,16 @@ class PendingCompanyList(Resource):
 class AcceptCompany(Resource):
     @login_required
     def get(self, id):
-        company = Company.query.get(id)
-        user = User.query.get(company._user_id)
-        user.account_status = 1
-        pass_mail(user.temp_pass, user.email, user.username)
-        user.temp_pass = "sent"
-        db.session.commit()
-        return "success", 200
+        try:
+            company = Company.query.get(id)
+            user = User.query.get(company._user_id)
+            user.account_status = 1
+            pass_mail(user.temp_pass, user.email, user.username)
+            user.temp_pass = "sent"
+            db.session.commit()
+            return "success", 200
+        except Exception as e:
+            print("Exception in accept company: ",e)
 
 
 @admin_app.route('/RefuseCompany<id>')
