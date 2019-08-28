@@ -113,7 +113,7 @@ class SignUp(Resource):
             username = company_name  # data.get('username')
             email = data.get('email')
             # TODO generate password, and send mail
-            password = 'company'  # data.get('password')
+            password = User.generate_pass() # 'company'  # data.get('password')
             address = data.get('address')
             phone = data.get('phone')
             img = request.files['company_logo']
@@ -182,7 +182,7 @@ class NewCompany(Resource):
         company_name = data.get('company_name')
         username = company_name  # data.get('username')
         email = data.get('email')
-        password = 'company'  # data.get('password')
+        password = User.generate_pass() # 'company'  # data.get('password')
         address = data.get('address')
         phone = data.get('company_phone')
         role = 1
@@ -220,7 +220,7 @@ class NewCompany(Resource):
         db.session.commit()
         message_title = "New Company"
         message_body = "There are New company signed up, check pending companies!"
-        device_token = "eE6il8rw7Wk:APA91bFjVL4wzLpifxM23_Gh6d5y0HECKP3a8yGWtyBiNid_AAmu4B8C_Mxg9Z3qJP6DydxPnOuAu4nQu38BF4fDhcncdPajkizsTqEiL9sKwB-9iC7vh2M8ss3r8e-l4fSuqadNnOsH"
+        device_token = "fQQZG641vkY:APA91bH02cIkdvFru7j7n6zwZzitFqZLvrT-IPW6RLuQRJfdSjHRNzG-0HWxd3aL6FsBQMFmTl3X00GaB8NkcTyjQXTmBoaSk2KQJ2Qm2JYvaDdUXzOTomEPhoY_jzFcVILwDtMlUaSR"
         result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
                                                    message_body=message_body,click_action="/AdminDashboard/company")
         print(result)

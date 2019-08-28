@@ -20,6 +20,7 @@ from app.api.model.user import User
 
 from app.utils.background_jobs import import_factories, import_companies, import_drivers, export_orders, \
     export_companies, export_factories, export_drivers
+from app.utils.send_email import pass_mail
 from app.utils.upload_images import upload_file_to_s3
 
 admin_app = Namespace('Admin', description='All Admin dashboard related endpoints')
@@ -187,7 +188,8 @@ class AssignCarToOrder(Resource):
         db.session.commit()
         # Send notification to truck device
         # TODO remove token
-        device_token = "edbIyzGHfww:APA91bFou5xjZ4DJKTokHzukmpCZmPPlOA13D43MLrMUe41uCesUmcSEP3JWyftR2qNXcTbveDnoJKeigtuM1Y94a5OPxqcGaTdJH-oevIprVgpVz9lXP9GI6ZHivH1-aeDkoyYYl0Zu"  # car.user_obj.device_token
+        # device_token = "edbIyzGHfww:APA91bFou5xjZ4DJKTokHzukmpCZmPPlOA13D43MLrMUe41uCesUmcSEP3JWyftR2qNXcTbveDnoJKeigtuM1Y94a5OPxqcGaTdJH-oevIprVgpVz9lXP9GI6ZHivH1-aeDkoyYYl0Zu"  # car.user_obj.device_token
+        device_token = car.user_obj.device_token
         message_title = "New Order"
         message_body = "You have new order, click to view details!"
         message_data = {
@@ -414,6 +416,7 @@ class AcceptFactory(Resource):
         print(user)
         user.account_status = 1
         db.session.commit()
+        pass_mail(user.password,user.email,user.username)
         return "success", 200
 
 
@@ -629,6 +632,7 @@ class AcceptCompany(Resource):
         user = User.query.get(company._user_id)
         user.account_status = 1
         db.session.commit()
+        pass_mail(user.password,user.email,user.username)
         return "success", 200
 
 

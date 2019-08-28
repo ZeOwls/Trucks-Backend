@@ -13,15 +13,28 @@ importScripts('https://www.gstatic.com/firebasejs/6.3.4/firebase-messaging.js');
 //   'messagingSenderId': '381198843122'
 // });
 var firebaseConfig = {
-        apiKey: "AIzaSyAr4HwW7ISVnZf_3xP7FZuZ1X9Fs_J_HbA",
-       authDomain: "trunkatdriver.firebaseapp.com",
-       databaseURL: "https://trunkatdriver.firebaseio.com",
-       projectId: "trunkatdriver",
-       storageBucket: "",
        messagingSenderId: "381198843122",
-       appId: "1:381198843122:web:6170940620fc77f5"
     };
     // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+const messaging = firebase.messaging();
+
+
+// If you would like to customize notifications that are received in the
+// background (Web app is closed or not in browser focus) then you should
+// implement this optional method.
+// [START background_handler]
+messaging.setBackgroundMessageHandler(function(payload) {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  // Customize notification here
+  const notificationTitle = 'Background Message Title';
+  const notificationOptions = {
+    body: 'Background Message body.',
+    icon: '/firebase-logo.png'
+  };
+
+  return self.registration.showNotification(notificationTitle,
+    notificationOptions);
+});
 // Retrieve an instance of Firebase Messaging so that it can handle background
 // messages.

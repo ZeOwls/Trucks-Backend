@@ -14,6 +14,7 @@
     <title>Trucks! | {% block title %}{% endblock %}</title>
 
     {% block stylesheets %}
+    <!--<link href="{{ url_for('static', filename='build/js/pnotify/dist/PNotifyBrightTheme.css') }}" rel="stylesheet" type="text/css" />-->
     <!-- Bootstrap -->
     <link href="{{ url_for('static', filename='vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -68,6 +69,8 @@
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.4.1/firebase-messaging.js"></script>
+<!--<script src="{{ url_for('static', filename='build/js/pnotify/src/PNotifyCompat.js') }}"></script>-->
+
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
@@ -101,14 +104,39 @@
                 })
                 .catch(function (err) {
                     console.log(err)
-                })
+                });
+
         });
 
-
+    // [START refresh_token]
+      // Callback fired if Instance ID token is updated.
+      messaging.onTokenRefresh(() => {
+        messaging.getToken().then((refreshedToken) => {
+          console.log('Token refreshed.');
+          console.log(refreshedToken);
+          // Indicate that the new Instance ID token has not yet been sent to the
+          // app server.
+          // setTokenSentToServer(false);
+          // Send Instance ID token to app server.
+          // sendTokenToServer(refreshedToken);
+          // [START_EXCLUDE]
+          // Display new Instance ID token and clear UI of all previous messages.
+          // resetUI();
+          // [END_EXCLU DE]
+        }).catch((err) => {
+          console.log('Unable to retrieve refreshed token ', err);
+          showToken('Unable to retrieve refreshed token ', err);
+        });
+      });
+      // [END refresh_token]
     messaging.onMessage((payload) => {
-      console.log("we ara in message")
+      console.log("we ara in message");
       console.log('Message received. ', payload);
-      // ...
+      // PNotify.info({
+      //     title: 'New Thing',
+      //     text: 'Just to let you know, something happened.'
+      // });
+      // // ...
     });
 
 
@@ -116,18 +144,7 @@
     // background (Web app is closed or not in browser focus) then you should
     // implement this optional method.
     // [START background_handler]
-    messaging.setBackgroundMessageHandler(function(payload) {
-      console.log('[firebase-messaging-sw.js] Received background message ', payload);
-      // Customize notification here
-      const notificationTitle = 'Background Message Title';
-      const notificationOptions = {
-        body: 'Background Message body.',
-        icon: '/firebase-logo.png'
-      };
 
-      return self.registration.showNotification(notificationTitle,
-        notificationOptions);
-    });
 // [END background_handler]
 
 </script>
