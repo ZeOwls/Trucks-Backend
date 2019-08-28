@@ -125,7 +125,7 @@ class SignUp(Resource):
             factory_name = data.get('factory_name')
             username = data.get('username')
             email = data.get('email')
-            password = 'factory'  # data.get('password')
+            password = User.generate_pass() #'factory'
             address = data.get('address')
             factory_hotline = data.get('factory_hotline')
             delegate_phone = data.get('delegate_phone')
