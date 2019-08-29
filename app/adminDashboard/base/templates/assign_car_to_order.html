@@ -52,11 +52,11 @@
 <script src="{{ url_for('static', filename='vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendors/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 <script>
-    console.log("{{data[car_id]}}");
+    console.log("{{data['car_id']}}");
     var free_drivers = $("#free_drivers").DataTable({
         ajax: {
             type: 'get',
-            url: "/admin/FreeDrivers{{data[car_id]}}",
+            url: "/admin/FreeDrivers{{data['car_id']}}",
             dataSrc: 'driver_list'
         },
         columns: [

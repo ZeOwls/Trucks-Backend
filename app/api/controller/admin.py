@@ -766,6 +766,7 @@ class NewDriver(Resource):
 class FreeDrivers(Resource):
     @login_required
     def get(self,car_id):
+        print(car_id)
         car = Car.query.get(car_id)
         company_id = car._owner
         drivers = Driver.query.filter_by(current_order_id=None).filter_by(company_id=company_id).filter_by(driver_status=1).all()
