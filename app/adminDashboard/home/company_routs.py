@@ -16,8 +16,8 @@ from app.utils.login import company_required
 def company_index():
     data = {}
     company_id = Company.query.filter_by(_user_id=current_user.id).first().id
-    orders_num = OrderCarsAndDrivers.query.filter_by(company_id=company_id).group_by(
-        OrderCarsAndDrivers.order_id).count()
+    orders_num = OrderCarsAndDrivers.query.filter_by(company_id=company_id).group_by(OrderCarsAndDrivers.id,
+                                                                                     OrderCarsAndDrivers.order_id).count()
     drivers = Driver.query.filter(Driver.company_id == company_id, Driver.driver_status == 1).all()
     drivers_num = len(drivers)
     drivers = [driver.serialize() for driver in drivers[0:min(drivers_num, 5)]]
