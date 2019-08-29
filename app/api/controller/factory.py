@@ -342,22 +342,22 @@ class NewOrder(Resource):
             for car_type in available_type:
                 car = OrderCarsTypes(order_id=order.id, cars_num=data.get(car_type) or 0, car_type=car_type)
                 db.session.add(car)
-            # TODO REmove this todaay
-            """ For Test Only """
-            # ------------------
-            # ------------------
-            car = Car.query.get(1)
-            order_id = order.id
-            new = OrderCarsAndDrivers(order_id=order_id, car_id=1, driver_id=1, company_id=car._owner)
-            car.current_order_id = order_id
-            car.status = 'busy'
-            db.session.add(new)
-            num_of_assigned_cars = OrderCarsAndDrivers.query.filter_by(order_id=order_id).count()
-            if order.num_of_cars == num_of_assigned_cars:
-                order.status += 1
-            driver = Driver.query.get(1)
-            driver.current_order_id = order_id
-            db.session.commit()
+            # # TODO REmove this todaay
+            # """ For Test Only """
+            # # ------------------
+            # # ------------------
+            # car = Car.query.get(1)
+            # order_id = order.id
+            # new = OrderCarsAndDrivers(order_id=order_id, car_id=1, driver_id=1, company_id=car._owner)
+            # car.current_order_id = order_id
+            # car.status = 'busy'
+            # db.session.add(new)
+            # num_of_assigned_cars = OrderCarsAndDrivers.query.filter_by(order_id=order_id).count()
+            # if order.num_of_cars == num_of_assigned_cars:
+            #     order.status += 1
+            # driver = Driver.query.get(1)
+            # driver.current_order_id = order_id
+            # db.session.commit()
             ###### End Of Test Part
             #####################
 
