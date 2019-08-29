@@ -422,8 +422,9 @@ class AcceptFactory(Resource):
             return "success", 200
 
         except Exception as e:
-            print("Exception in accept factory: ",e)
+            print("Exception in accept factory: ", e)
             return "Some thong go wrong, please try again later", 500
+
 
 @admin_app.route('/RefuseFactory<id>')
 class RefuseFactory(Resource):
@@ -597,7 +598,8 @@ class CompanyOrders(Resource):
     @login_required
     def get(self, id):
         orders_id = [x.order_id for x in
-                     OrderCarsAndDrivers.query.filter_by(company_id=id).group_by(OrderCarsAndDrivers.order_id).all()]
+                     OrderCarsAndDrivers.query.filter_by(company_id=id).group_by(OrderCarsAndDrivers.id,
+                                                                                 OrderCarsAndDrivers.order_id).all()]
         orders = [Order.query.get(id) for id in orders_id]
         data = {
             'orders_info': [{
@@ -641,7 +643,7 @@ class AcceptCompany(Resource):
             db.session.commit()
             return "success", 200
         except Exception as e:
-            print("Exception in accept company: ",e)
+            print("Exception in accept company: ", e)
 
 
 @admin_app.route('/RefuseCompany<id>')

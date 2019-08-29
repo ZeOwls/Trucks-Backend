@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/controller/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/controller/factory.py" afterDir="false" />
-    </list>
+    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +55,7 @@
           <entry key="js" value="5526" />
           <entry key="json" value="8" />
           <entry key="pt" value="9" />
-          <entry key="py" value="34986" />
+          <entry key="py" value="34990" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
@@ -71,7 +68,7 @@
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="5523" />
           <entry key="PLAIN_TEXT" value="111" />
-          <entry key="Python" value="34985" />
+          <entry key="Python" value="34989" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -87,7 +84,7 @@
           <entry key="json" value="2" />
           <entry key="log" value="1" />
           <entry key="pt" value="1" />
-          <entry key="py" value="414" />
+          <entry key="py" value="416" />
           <entry key="rnc" value="1" />
           <entry key="txt" value="5" />
         </counts>
@@ -101,7 +98,7 @@
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="24" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="409" />
+          <entry key="Python" value="411" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -151,30 +148,9 @@
     <favorites_list name="." />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6168046">
+    <splitter split-orientation="horizontal" split-proportion="0.7085459">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/manage.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1938">
-                  <caret line="122" column="25" selection-start-line="122" selection-start-column="25" selection-end-line="122" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/.env">
               <provider selected="true" editor-type-id="text-editor">
@@ -205,8 +181,26 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="7548">
-                  <caret line="467" column="28" selection-start-line="467" selection-start-column="28" selection-end-line="467" selection-end-column="28" />
+                <state relative-caret-position="272">
+                  <caret line="599" column="32" selection-start-line="599" selection-start-column="32" selection-end-line="599" selection-end-column="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/api/model/order_driver_car.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="102">
+                  <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/sqlalchemy/sql/selectable.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="220">
+                  <caret line="2170" column="8" selection-start-line="2170" selection-start-column="8" selection-end-line="2170" selection-end-column="8" />
                 </state>
               </provider>
             </entry>
@@ -238,11 +232,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="469">
-                  <caret line="358" column="48" lean-forward="true" selection-start-line="358" selection-start-column="48" selection-end-line="358" selection-end-column="48" />
+                <state relative-caret-position="424">
+                  <caret line="359" column="33" lean-forward="true" selection-start-line="359" selection-start-column="33" selection-end-line="359" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -422,9 +416,9 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/app/api/model/user.py" />
         <option value="$PROJECT_DIR$/app/config.py" />
-        <option value="$PROJECT_DIR$/app/api/controller/admin.py" />
         <option value="$PROJECT_DIR$/app/api/model/driver.py" />
         <option value="$PROJECT_DIR$/app/api/controller/factory.py" />
+        <option value="$PROJECT_DIR$/app/api/controller/admin.py" />
       </list>
     </option>
   </component>
@@ -534,7 +528,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="admi&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;mana&#9;null&#9;null&#10;User&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py" />
+    <property name="SearchEverywhereHistoryKey" value="CompanyOr&#9;null&#9;null&#10;admi&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;mana&#9;null&#9;null&#10;User&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -592,7 +586,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.1641791" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
       <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -606,7 +600,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.17167382" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.26287553" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -651,20 +645,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/factory_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="120" column="30" lean-forward="true" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/login/signup_factory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="28" column="166" selection-start-line="28" selection-start-column="137" selection-end-line="28" selection-end-column="166" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/templates/NewCompany.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -799,6 +779,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -888,13 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7548">
-          <caret line="467" column="28" selection-start-line="467" selection-start-column="28" selection-end-line="467" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -963,11 +939,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="358" column="48" lean-forward="true" selection-start-line="358" selection-start-column="48" selection-end-line="358" selection-end-column="48" />
+        <state relative-caret-position="424">
+          <caret line="359" column="33" lean-forward="true" selection-start-line="359" selection-start-column="33" selection-end-line="359" selection-end-column="33" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/sqlalchemy/sql/selectable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="2170" column="8" selection-start-line="2170" selection-start-column="8" selection-end-line="2170" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="599" column="32" selection-start-line="599" selection-start-column="32" selection-end-line="599" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/order_driver_car.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
