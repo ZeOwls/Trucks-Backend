@@ -342,6 +342,7 @@ class NewOrder(Resource):
             for car_type in available_type:
                 car = OrderCarsTypes(order_id=order.id, cars_num=data.get(car_type) or 0, car_type=car_type)
                 db.session.add(car)
+            db.session.commit()
             # # TODO REmove this todaay
             # """ For Test Only """
             # # ------------------
