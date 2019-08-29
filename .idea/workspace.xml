@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adminDashboard/base/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/base/routes.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -207,8 +206,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/api/controller/truck.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1864">
-                  <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+                <state relative-caret-position="-45">
+                  <caret line="156" column="79" lean-forward="true" selection-start-line="156" selection-start-column="79" selection-end-line="156" selection-end-column="79" />
                   <folding>
                     <element signature="e#0#64#0" expanded="true" />
                   </folding>
@@ -963,8 +962,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/api/controller/truck.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1864">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+        <state relative-caret-position="-45">
+          <caret line="156" column="79" lean-forward="true" selection-start-line="156" selection-start-column="79" selection-end-line="156" selection-end-column="79" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>

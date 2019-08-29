@@ -177,7 +177,7 @@ class UpdateOrderStatus(Resource):
             all_cars = OrderCarsAndDrivers.query.filter_by(order_id=car.current_order_id).all()
             order = Order.query.get(car.current_order_id)
             # check if all cars needed is assigned or not
-            if order.num_of_cars > len(all_cars):  # admin not assigned all cars
+            if order.num_of_cars == len(all_cars):  # admin not assigned all cars
                 final_status = min([x.status for x in all_cars])
                 if final_status > order.status:
                     order.status = final_status
