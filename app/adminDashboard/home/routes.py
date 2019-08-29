@@ -29,7 +29,7 @@ def index():
     lat = 30.049232
     lng = 31.232027
 
-    if len(locations):
+    if len(locations) and locations[0]['latitude']:
         lat = locations[0]['latitude']
         lng = locations[0]['longitude']
 
