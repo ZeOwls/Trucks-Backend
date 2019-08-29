@@ -26,9 +26,14 @@ def index():
             'longitude': car.location_longitude
         }
         for car in cars]  # long list of coordinates
+    lat = 30.049232
+    lng = 31.232027
+    if len(locations):
+        lat = locations[0]['latitude']
+        lng = locations[0]['longitude']
     map = Map(
-        lat=locations[0]['latitude'] if len(locations) else 30.049232,
-        lng=locations[0]['longitude'] if len(locations) else 31.232027,
+        lat=lat,
+        lng=lng,
         identifier="view-side",
         zoom=10,
         style="height:500px;width:100%;margin:0;",
