@@ -55,7 +55,7 @@
     var free_drivers = $("#free_drivers").DataTable({
         ajax: {
             type: 'get',
-            url: '/admin/FreeDrivers',
+            url: '/admin/FreeDrivers'+"{{data[car_id]}}",
             dataSrc: 'driver_list'
         },
         columns: [

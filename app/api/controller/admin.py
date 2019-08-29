@@ -762,11 +762,13 @@ class NewDriver(Resource):
         return redirect(url_for('driver_blueprint.index'))
 
 
-@admin_app.route('/FreeDrivers')
+@admin_app.route('/FreeDrivers<car_id>')
 class FreeDrivers(Resource):
     @login_required
-    def get(self):
-        drivers = Driver.query.filter_by(current_order_id=None).filter_by(driver_status=1).all()
+    def get(self,car_id):
+        car = Car.query.get(car_id)
+        company_id = car._owner
+        drivers = Driver.query.filter_by(current_order_id=None).filter_by(company_id=company_id).filter_by(driver_status=1).all()
         data = {
             'driver_list': [driver.serialize() for driver in drivers]
         }
