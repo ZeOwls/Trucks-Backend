@@ -28,9 +28,11 @@ def index():
         for car in cars]  # long list of coordinates
     lat = 30.049232
     lng = 31.232027
+
     if len(locations):
         lat = locations[0]['latitude']
         lng = locations[0]['longitude']
+
     map = Map(
         lat=lat,
         lng=lng,
@@ -38,9 +40,9 @@ def index():
         zoom=10,
         style="height:500px;width:100%;margin:0;",
         markers=[(loc['latitude'], loc['longitude']) for loc in locations if loc['latitude'] and loc['longitude']],
-        fit_markers_to_bounds=True
+        fit_markers_to_bounds=True if len(locations) else False
     )
-
+    print(map.center)
     data = {}
     factory_num = Factory.query.filter(Factory.delegate_opj.has(account_status=1)).count()
     companies_num = Company.query.filter(Company.user_object.has(account_status=1)).count()

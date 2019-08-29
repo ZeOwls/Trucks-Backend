@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="" />
+    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/adminDashboard/home/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/home/routes.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +58,7 @@
           <entry key="js" value="5526" />
           <entry key="json" value="8" />
           <entry key="pt" value="9" />
-          <entry key="py" value="35121" />
+          <entry key="py" value="35200" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
@@ -68,7 +71,7 @@
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="5523" />
           <entry key="PLAIN_TEXT" value="111" />
-          <entry key="Python" value="35120" />
+          <entry key="Python" value="35199" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -84,7 +87,7 @@
           <entry key="json" value="2" />
           <entry key="log" value="1" />
           <entry key="pt" value="1" />
-          <entry key="py" value="423" />
+          <entry key="py" value="425" />
           <entry key="rnc" value="1" />
           <entry key="txt" value="5" />
         </counts>
@@ -98,7 +101,7 @@
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="24" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="418" />
+          <entry key="Python" value="420" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -148,14 +151,14 @@
     <favorites_list name="." />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.73660713">
+    <splitter split-orientation="horizontal" split-proportion="0.40880102">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="74">
-                  <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
+                <state relative-caret-position="308">
+                  <caret line="857" column="59" lean-forward="true" selection-start-line="857" selection-start-column="59" selection-end-line="857" selection-end-column="59" />
                 </state>
               </provider>
             </entry>
@@ -194,18 +197,6 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="233">
-                  <caret line="304" column="36" selection-start-line="304" selection-start-column="36" selection-end-line="304" selection-end-column="36" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/controller/truck.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="289">
@@ -226,11 +217,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-354">
-                  <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+                <state relative-caret-position="241">
+                  <caret line="80" column="23" lean-forward="true" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -256,6 +247,18 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1088">
                   <caret line="64" column="120" selection-start-line="64" selection-start-column="114" selection-end-line="64" selection-end-column="120" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="410">
+                  <caret line="348" column="29" selection-start-line="348" selection-start-column="29" selection-end-line="348" selection-end-column="29" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -293,8 +296,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="11475">
-                  <caret line="709" selection-start-line="709" selection-end-line="709" />
+                <state relative-caret-position="323">
+                  <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#4906#21642#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -302,11 +308,20 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/routes.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+                <state relative-caret-position="204">
+                  <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/flask_googlemaps/__init__.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="472">
+                  <caret line="54" selection-start-line="53" selection-end-line="54" />
                 </state>
               </provider>
             </entry>
@@ -326,7 +341,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>DeleteOr</find>
-      <find>NewO</find>
       <find>DeleteOrder</find>
       <find>Assig</find>
       <find>factory_list</find>
@@ -352,9 +366,10 @@
       <find>list</find>
       <find>orderCarsAndDrivers</find>
       <find>fre</find>
-      <find>NewOr</find>
       <find>una</find>
       <find>current_order_id</find>
+      <find>NewO</find>
+      <find>NewOr</find>
     </findStrings>
     <replaceStrings>
       <replace>default</replace>
@@ -419,12 +434,12 @@
         <option value="$PROJECT_DIR$/app/api/model/user.py" />
         <option value="$PROJECT_DIR$/app/config.py" />
         <option value="$PROJECT_DIR$/app/api/model/driver.py" />
-        <option value="$PROJECT_DIR$/app/api/controller/factory.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/home/company_routs.py" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/home/routes.py" />
         <option value="$PROJECT_DIR$/app/api/controller/truck.py" />
         <option value="$PROJECT_DIR$/app/api/controller/admin.py" />
         <option value="$PROJECT_DIR$/app/api/model/order_driver_car.py" />
+        <option value="$PROJECT_DIR$/app/api/controller/factory.py" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/home/routes.py" />
       </list>
     </option>
   </component>
@@ -613,7 +628,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.1641791" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
       <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -627,7 +642,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.16845493" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.38412017" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -672,13 +687,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/factory/templates/NewFactory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="29" column="154" selection-start-line="29" selection-start-column="125" selection-end-line="29" selection-end-column="154" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -939,34 +947,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="211" lean-forward="true" selection-start-line="211" selection-end-line="211" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/api/model/driver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="18" column="20" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11475">
-          <caret line="709" selection-start-line="709" selection-end-line="709" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -987,22 +971,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="80" column="23" lean-forward="true" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="857" column="59" lean-forward="true" selection-start-line="857" selection-start-column="59" selection-end-line="857" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="304" column="36" selection-start-line="304" selection-start-column="36" selection-end-line="304" selection-end-column="36" />
+        <state relative-caret-position="410">
+          <caret line="348" column="29" selection-start-line="348" selection-start-column="29" selection-end-line="348" selection-end-column="29" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/flask_googlemaps/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-354">
-          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+        <state relative-caret-position="472">
+          <caret line="54" selection-start-line="53" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#4906#21642#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
