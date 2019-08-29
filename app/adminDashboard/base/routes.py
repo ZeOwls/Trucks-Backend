@@ -233,6 +233,13 @@ def shutdown():
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
+    if request.is_xhr:
+        response_obj = {
+                    'status': 'failed',
+                    'message': 'unauthorized, please log in first'
+        }
+        return response_obj, 403
+
     return render_template('errors/page_403.html'), 403
 
 
