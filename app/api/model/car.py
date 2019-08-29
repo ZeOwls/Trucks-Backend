@@ -54,8 +54,8 @@ class Car(db.Model):
 
     @status.setter
     def status(self, state):
-        if str(state.lower()) in available_status:
-            self._status = available_status.index(str(state.lower()))
+        if state.lower() in available_status:
+            self._status = available_status.index(state.lower())
         else:
             raise ValueError(
                 f"Status can't be {state}, available status is {available_status}")

@@ -198,7 +198,7 @@ class UpdateOrderStatus(Resource):
                                                                message_title=message_title,
                                                                message_body=message_body, data_message=message_data)
             if new_status == 5:
-                car.status = 'free',
+                car.status = 'free'
                 car.current_order_id = 0
                 order_car_driver.driver_opj.current_order_id = None
 
