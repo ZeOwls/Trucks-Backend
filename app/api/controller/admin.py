@@ -196,16 +196,13 @@ class AssignCarToOrder(Resource):
             'factory_name': order.factory_object.name,
             'notf_type': "new_order",
             "order_id": order.id,
-            "pickup_location": {
-                'lat': order.from_latitude,
-                'lng': order.from_longitude,
-                'str': order.pickup_location
-            },
-            'dropoff_location': {
-                'lat': order.to_latitude,
-                'lng': order.to_longitude,
-                'str': order.dropoff_location
-            }
+            'pickup_location_lat': order.from_latitude,
+            'pickup_location_lng': order.from_longitude,
+            'pickup_location_str': order.pickup_location,
+            'dropoff_location_lat': order.to_latitude,
+            'dropoff_location_lng': order.to_longitude,
+            'dropoff_location_str': order.dropoff_location
+
         }
         result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
                                                    message_body=message_body, data_message=message_data)
