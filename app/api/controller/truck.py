@@ -176,15 +176,6 @@ class UpdateOrderStatus(Resource):
             # get all cars that assigned to same order, we check all cars status before we update order status
             all_cars = OrderCarsAndDrivers.query.filter_by(order_id=car.current_order_id).all()
             order = Order.query.get(car.current_order_id)
-            # if len(all_cars) == 1:
-            #     order.status = new_status
-            #     db.session.commit()
-            #     response_obj = {
-            #         'status': 'success',
-            #         'message': f"order status updated successfully from {orders_status[current_status]} to"
-            #                    f" {orders_status[new_status]}"
-            #     }
-            #     return response_obj, 200
             final_status = min([x.status for x in all_cars])
             if final_status > order.status:
                 order.status = final_status
@@ -206,6 +197,7 @@ class UpdateOrderStatus(Resource):
             if new_status == 5:
                 car.status = 'free',
                 car.current_order_id = 0
+                order_car_driver.driver_opj.current_order_id = None
 
             # set cars free if order is finished
             # if order.status == 5:

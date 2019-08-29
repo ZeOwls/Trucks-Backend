@@ -103,7 +103,7 @@ class DeleteOrder(Resource):
             for row in carsAndDrivers:
                 car = row.car_opj
                 driver = row.driver_opj
-                driver.current_order_id = 0  # make driver free
+                driver.current_order_id = None  # make driver free
                 car.current_order_id = 0
                 car._status = 0  # free
             db.session.delete(order)
@@ -225,7 +225,7 @@ class UnassignedCarFromOrder(Resource):
         db.session.delete(row)
         car._status = 0
         car.current_order_id = 0
-        driver_opj.current_order_id = 0
+        driver_opj.current_order_id = None
         order = Order.query.get(row.order_id)
         num_of_assigned_cars = OrderCarsAndDrivers.query.filter_by(order_id=row.order_id).count()
         if order.num_of_cars > num_of_assigned_cars:
@@ -778,7 +778,7 @@ class DeleteDriver(Resource):
     @login_required
     def get(self, id):
         driver = Driver.query.get(id)
-        if driver.current_order_id != 0:
+        if driver.current_order_id:
             response_obj = {
                 "status": "failed",
                 "message": "Driver assigned to current order, can't be deleted right now"
