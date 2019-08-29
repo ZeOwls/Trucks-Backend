@@ -18,7 +18,8 @@ class OrderCarsAndDrivers(db.Model):
     driver_opj = db.relationship(Driver)
     # from 1 to 5 where 0 == new order and 5 == done
     status = db.Column(db.Integer, nullable=False, default=1)
-    company_id = db.Column(db.Integer,nullable=False)
+    company_id = db.Column(db.Integer, nullable=False)
+
     def serialize(self):
         # from .order import Order
         # order = Order.query.get(id = self.order_id)
@@ -28,10 +29,10 @@ class OrderCarsAndDrivers(db.Model):
                 'car_type': self.car_opj.car_type,
                 'driver_id': self.driver_id,
                 'driver_name': self.driver_opj.name,
-                'driver_phonenumber': self.driver_opj.phone
+                'driver_phonenumber': self.driver_opj.phone,
+                'car_capacity': self.car_opj.capacity
                 }
 
     @property
     def string_status(self):
         return orders_status[self.status]
-
