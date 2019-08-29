@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/controller/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/controller/admin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,11 +53,11 @@
           <entry key="dummy" value="31" />
           <entry key="env" value="83" />
           <entry key="gitignore" value="27" />
-          <entry key="html" value="9699" />
+          <entry key="html" value="9700" />
           <entry key="js" value="5526" />
           <entry key="json" value="8" />
           <entry key="pt" value="9" />
-          <entry key="py" value="35257" />
+          <entry key="py" value="35344" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
@@ -68,11 +66,11 @@
           <entry key=".env file" value="82" />
           <entry key="CSS" value="4" />
           <entry key="Chameleon" value="9" />
-          <entry key="HTML" value="9702" />
+          <entry key="HTML" value="9703" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="5523" />
           <entry key="PLAIN_TEXT" value="111" />
-          <entry key="Python" value="35256" />
+          <entry key="Python" value="35343" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -83,12 +81,12 @@
           <entry key="env" value="4" />
           <entry key="firebaserc" value="1" />
           <entry key="gitignore" value="4" />
-          <entry key="html" value="177" />
-          <entry key="js" value="24" />
+          <entry key="html" value="178" />
+          <entry key="js" value="25" />
           <entry key="json" value="2" />
           <entry key="log" value="1" />
           <entry key="pt" value="1" />
-          <entry key="py" value="434" />
+          <entry key="py" value="436" />
           <entry key="rnc" value="1" />
           <entry key="txt" value="5" />
         </counts>
@@ -98,11 +96,11 @@
           <entry key=".env file" value="3" />
           <entry key="CSS" value="1" />
           <entry key="Chameleon" value="1" />
-          <entry key="HTML" value="177" />
+          <entry key="HTML" value="178" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="24" />
+          <entry key="JavaScript" value="25" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="429" />
+          <entry key="Python" value="431" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -152,14 +150,26 @@
     <favorites_list name="." />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7953092">
+    <splitter split-orientation="horizontal" split-proportion="0.37686568">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="422">
-                  <caret line="764" column="30" selection-start-line="764" selection-start-column="30" selection-end-line="764" selection-end-column="30" />
+                <state relative-caret-position="-20">
+                  <caret line="756" column="78" selection-start-line="756" selection-start-column="78" selection-end-line="756" selection-end-column="78" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/api/model/car.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+                  <folding>
+                    <element signature="e#0#11#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -167,18 +177,13 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+                <state relative-caret-position="221">
+                  <caret line="55" column="15" lean-forward="true" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/company_routes.py">
-              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -248,17 +253,25 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60418">
-                  <caret line="3554" column="13" selection-start-line="3554" selection-start-column="13" selection-end-line="3554" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/NewCar.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1088">
-                  <caret line="64" column="120" selection-start-line="64" selection-start-column="114" selection-end-line="64" selection-end-column="120" />
+                <state relative-caret-position="-1787">
+                  <caret line="3480" column="42" lean-forward="true" selection-start-line="3480" selection-start-column="42" selection-end-line="3480" selection-end-column="42" />
+                  <folding>
+                    <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                    <element signature="e#77#84#1" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -271,15 +284,6 @@
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1462">
-                  <caret line="86" selection-start-line="86" selection-end-line="87" />
                 </state>
               </provider>
             </entry>
@@ -329,13 +333,34 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/order_details.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-3621">
+                <state relative-caret-position="-1088">
+                  <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/routes.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <folding>
+                    <element signature="e#0#47#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/company_drivers.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="250">
+                  <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -370,7 +395,6 @@
       <find>CompanyList</find>
       <find>CompanyProfile</find>
       <find>DriverProfile</find>
-      <find>company_driver_list</find>
       <find>DriversList</find>
       <find>NewDriver</find>
       <find>NewDr</find>
@@ -392,6 +416,7 @@
       <find>NewO</find>
       <find>company_blueprint</find>
       <find>Free</find>
+      <find>company_driver_list</find>
       <find>AssignCarToOrder</find>
     </findStrings>
     <replaceStrings>
@@ -568,6 +593,21 @@
               <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="back-end" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="driver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="driver" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -593,7 +633,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="adm&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;update&#9;null&#9;null&#10;assign&#9;null&#9;null&#10;CompanyOr&#9;null&#9;null&#10;admi&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;mana&#9;null&#9;null&#10;User&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py" />
+    <property name="SearchEverywhereHistoryKey" value="cust&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/adminDashboard/base/static/build/js/custom.js&#10;adm&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;update&#9;null&#9;null&#10;assign&#9;null&#9;null&#10;CompanyOr&#9;null&#9;null&#10;admi&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;mana&#9;null&#9;null&#10;User&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -651,7 +691,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" weight="0.18656716" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.18656716" />
       <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
       <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -665,7 +705,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.17811158" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.31866953" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -710,18 +750,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/templates/company_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/company_cars.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="50" column="40" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/firebase-debug.log" />
     <entry file="file://$PROJECT_DIR$/.firebaserc" />
     <entry file="file://$PROJECT_DIR$/firebase.json" />
@@ -823,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60418">
-          <caret line="3554" column="13" selection-start-line="3554" selection-start-column="13" selection-end-line="3554" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/NewCar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
@@ -901,16 +922,6 @@
           <caret line="205" column="46" lean-forward="true" selection-start-line="205" selection-start-column="46" selection-end-line="205" selection-end-column="46" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/car.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1030,26 +1041,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/car.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/company_drivers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1787">
+          <caret line="3480" column="42" lean-forward="true" selection-start-line="3480" selection-start-column="42" selection-end-line="3480" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+            <element signature="e#77#84#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/order_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3621">
+        <state relative-caret-position="-1088">
+          <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="764" column="30" selection-start-line="764" selection-start-column="30" selection-end-line="764" selection-end-column="30" />
+        <state relative-caret-position="-20">
+          <caret line="756" column="78" selection-start-line="756" selection-start-column="78" selection-end-line="756" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="221">
+          <caret line="55" column="15" lean-forward="true" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="15" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
