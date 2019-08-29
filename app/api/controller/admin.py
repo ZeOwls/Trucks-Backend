@@ -766,7 +766,7 @@ class NewDriver(Resource):
 class FreeDrivers(Resource):
     @login_required
     def get(self):
-        drivers = Driver.query.filter_by(current_order_id=0).filter_by(driver_status=1).all()
+        drivers = Driver.query.filter_by(current_order_id=None).filter_by(driver_status=1).all()
         data = {
             'driver_list': [driver.serialize() for driver in drivers]
         }
