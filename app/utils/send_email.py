@@ -23,7 +23,7 @@ def pass_mail(password,receiver_email,name):
         subject = "Hello from trucks company"
         # body = f"Hello {name},\n\nWelcome to trucks company,here is your password: {password}.\nkeep it safe and be sure to remember it"
         body = "يا هلا يا هلا "
-        msg = f"Subject: {subject}\n\n{body}"
+        msg = f"Subject: {subject}\n\n{body}".encode('utf8')
         smtp.sendmail(email_user, receiver_email, msg)
 
 
