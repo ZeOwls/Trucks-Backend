@@ -19,7 +19,7 @@ def pass_mail(password,receiver_email,name):
         smtp.starttls()
         smtp.ehlo()
         smtp.login(email_user, email_pss)
-        name = str(name)
+        name = str(name.encode())
         print(name)
         subject = "Hello from trucks company"
         body = f"Hello {name},\n\nWelcome to trucks company,here is your password: {password}.\nkeep it safe and be sure to remember it"
