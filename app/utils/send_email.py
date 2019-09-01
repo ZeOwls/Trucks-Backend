@@ -22,9 +22,12 @@ def pass_mail(password,receiver_email,name):
         subject = "Hello from trucks company"
         body = f"Hello {name},\n\nWelcome to trucks company,here is your password: {password}.\nkeep it safe and be sure to remember it"
         # body = "يا هلا يا هلا "
-        msg = f"Subject: {subject}\n\n{body}".encode('UTF-8')
-        msg = MIMEText(msg, _charset="UTF-8")
-        smtp.sendmail(email_user, receiver_email, msg.as_string())
+        # msg = f"Subject: {subject}\n\n{body}".encode('UTF-8')
+        message = MIMEMultipart()
+        message["Subject"] = subject
+        message.attach(MIMEText(body, _charset="UTF-8"))
+        # msg = MIMEText(msg, _charset="UTF-8")
+        smtp.sendmail(email_user, receiver_email, message.as_string())
 
 
 def file_mail(filename, name):
