@@ -186,17 +186,17 @@ class UpdateOrderStatus(Resource):
                     db.session.add(order_history)
                     # TODO remove token
                     # device_token = "edbIyzGHfww:APA91bFou5xjZ4DJKTokHzukmpCZmPPlOA13D43MLrMUe41uCesUmcSEP3JWyftR2qNXcTbveDnoJKeigtuM1Y94a5OPxqcGaTdJH-oevIprVgpVz9lXP9GI6ZHivH1-aeDkoyYYl0Zu"  # car.user_obj.device_token
-                    device_token = order.factory_object.delegate_opj.device_token
-                    message_title = "Order Status Update"
-                    message_body = "Your Order status has been updated,click for details!"
-                    message_data = {
-                        'order_id': order.id,
-                        'notf_type': "order_status_update",
-
-                    }
-                    result = notf_service.notify_single_device(registration_id=device_token,
-                                                               message_title=message_title,
-                                                               message_body=message_body, data_message=message_data)
+                    # device_token = order.factory_object.delegate_opj.device_token
+                    # message_title = "Order Status Update"
+                    # message_body = "Your Order status has been updated,click for details!"
+                    # message_data = {
+                    #     'order_id': order.id,
+                    #     'notf_type': "order_status_update",
+                    #
+                    # }
+                    # result = notf_service.notify_single_device(registration_id=device_token,
+                    #                                            message_title=message_title,
+                    #                                            message_body=message_body, data_message=message_data)
             if new_status == 5:
                 car.status = 'free'
                 car.current_order_id = 0

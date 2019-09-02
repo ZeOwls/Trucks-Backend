@@ -189,23 +189,23 @@ class AssignCarToOrder(Resource):
         # Send notification to truck device
         # TODO remove token
         # device_token = "edbIyzGHfww:APA91bFou5xjZ4DJKTokHzukmpCZmPPlOA13D43MLrMUe41uCesUmcSEP3JWyftR2qNXcTbveDnoJKeigtuM1Y94a5OPxqcGaTdJH-oevIprVgpVz9lXP9GI6ZHivH1-aeDkoyYYl0Zu"  # car.user_obj.device_token
-        device_token = car.user_obj.device_token
-        message_title = "New Order"
-        message_body = "You have new order, click to view details!"
-        message_data = {
-            'factory_name': order.factory_object.name,
-            'notf_type': "new_order",
-            "order_id": order.id,
-            'pickup_location_lat': order.from_latitude,
-            'pickup_location_lng': order.from_longitude,
-            'pickup_location_str': order.pickup_location,
-            'dropoff_location_lat': order.to_latitude,
-            'dropoff_location_lng': order.to_longitude,
-            'dropoff_location_str': order.dropoff_location
-
-        }
-        result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
-                                                   message_body=message_body, data_message=message_data)
+        # device_token = car.user_obj.device_token
+        # message_title = "New Order"
+        # message_body = "You have new order, click to view details!"
+        # message_data = {
+        #     'factory_name': order.factory_object.name,
+        #     'notf_type': "new_order",
+        #     "order_id": order.id,
+        #     'pickup_location_lat': order.from_latitude,
+        #     'pickup_location_lng': order.from_longitude,
+        #     'pickup_location_str': order.pickup_location,
+        #     'dropoff_location_lat': order.to_latitude,
+        #     'dropoff_location_lng': order.to_longitude,
+        #     'dropoff_location_str': order.dropoff_location
+        #
+        # }
+        # result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
+        #                                            message_body=message_body, data_message=message_data)
 
         return 'Car assigned successfully', 200
 
