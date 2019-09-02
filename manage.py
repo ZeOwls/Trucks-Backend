@@ -30,24 +30,24 @@ def run(port=5000):
 @manager.command
 def insertData():
     # insert users
-    from app.api.model.user import User
-    print("start inserting users")
-    users = [{'username': 'factory', 'email': 'factory@test.com', 'password': 'factory', 'role': 2,'phone':123},
-             {'username': 'company', 'email': 'company@test.com', 'password': 'company', 'role': 1,'phone':1235}, ]
-    for user in users:
-        user = User(username=user['username'],email=user['email'],password=user['password'],role=user['role']
-                    ,phone=user['phone'],account_status=1)
-        db.session.add(user)
-        db.session.commit()
-    users = User.query.all()
-    print("inserting users ==> Done")
-    print('users is :',users)
+    # from app.api.model.user import User
+    # print("start inserting users")
+    # users = [{'username': 'factory', 'email': 'factory@test.com', 'password': 'factory', 'role': 2,'phone':123},
+    #          {'username': 'company', 'email': 'company@test.com', 'password': 'company', 'role': 1,'phone':1235}, ]
+    # for user in users:
+    #     user = User(username=user['username'],email=user['email'],password=user['password'],role=user['role']
+    #                 ,phone=user['phone'],account_status=1)
+    #     db.session.add(user)
+    #     db.session.commit()
+    # users = User.query.all()
+    # print("inserting users ==> Done")
+    # print('users is :',users)
 
     ####################################################
     # insert factory
     print("start inserting Factory")
     name = 'الحديد والصلب'
-    delegate = 2
+    delegate = 1
     address = '5 شارع البحر'
     hotline = "01255"
     from app.api.model.factory import Factory
@@ -63,7 +63,7 @@ def insertData():
     from app.api.model.com import Company
 
     try:
-        comp = Company(name='النصر', account=3,address='شارع النحاس')
+        comp = Company(name='النصر', account=2,address='شارع النحاس')
         db.session.add(comp)
         db.session.commit()
     except Exception as e:
@@ -124,9 +124,9 @@ def insertData():
     # db.session.commit()
     ###################################3
     # add admin account
-    admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin",account_status=1)
-    db.session.add(admin)
-    db.session.commit()
+    # admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin",account_status=1)
+    # db.session.add(admin)
+    # db.session.commit()
     # import pandas as pd
     # factories = Factory.query.all()
     # f_list = [{
