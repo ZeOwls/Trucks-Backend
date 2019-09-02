@@ -19,6 +19,7 @@ blueprint = Blueprint('api', __name__)
 api = Api(blueprint,
           title="Api for Trucks",
           version='1.0',
+          doc='/API'
           )
 
 
