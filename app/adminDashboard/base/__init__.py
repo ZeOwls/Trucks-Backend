@@ -1,22 +1,4 @@
-from flask import Blueprint, redirect, url_for
-
-# for customer test
-test = Blueprint(
-    'test',
-    __name__,
-    url_prefix='/',
-    template_folder='templates',
-    static_folder='static'
-)
-
-
-@test.route('/')
-def base():
-    redirect(url_for('base_blueprint.route_default')
-             )
-
-
-# END == > for customer test
+from flask import Blueprint
 
 blueprint = Blueprint(
     'base_blueprint',
