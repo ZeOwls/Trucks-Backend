@@ -8,11 +8,19 @@ from .controller.admin import admin_app as admin
 
 blueprint = Blueprint('api', __name__)
 
+# for dev
+# api = Api(blueprint,
+#           title="Api for Trucks",
+#           version='1.0',
+#           doc='/'
+#           )
+
+# for customer test
 api = Api(blueprint,
-          title="Api for Trankat",
+          title="Api for Trucks",
           version='1.0',
-          doc='/'
           )
+
 
 # add name spaces
 api.add_namespace(factory, '/factory')

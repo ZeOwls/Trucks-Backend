@@ -202,11 +202,6 @@ class UpdateOrderStatus(Resource):
                 car.current_order_id = 0
                 order_car_driver.driver_opj.current_order_id = None
 
-            # set cars free if order is finished
-            # if order.status == 5:
-            #     for car in all_cars:
-            #         car.status = 'free'
-            #         car.current_order_id = 0
             db.session.commit()
             response_obj = {
                 'status': 'success',

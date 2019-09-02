@@ -30,48 +30,48 @@ def run(port=5000):
 @manager.command
 def insertData():
     # insert users
-    from app.api.model.user import User
-    print("start inserting users")
-    users = [{'username': 'factory', 'email': 'factory@test.com', 'password': 'factory', 'role': 2,'phone':123},
-             {'username': 'company', 'email': 'company@test.com', 'password': 'company', 'role': 1,'phone':1235}, ]
-    for user in users:
-        user = User(username=user['username'],email=user['email'],password=user['password'],role=user['role']
-                    ,phone=user['phone'])
-        db.session.add(user)
-        db.session.commit()
-    users = User.query.all()
-    print("inserting users ==> Done")
-    print('users is :',users)
+    # from app.api.model.user import User
+    # print("start inserting users")
+    # users = [{'username': 'factory', 'email': 'factory@test.com', 'password': 'factory', 'role': 2,'phone':123},
+    #          {'username': 'company', 'email': 'company@test.com', 'password': 'company', 'role': 1,'phone':1235}, ]
+    # for user in users:
+    #     user = User(username=user['username'],email=user['email'],password=user['password'],role=user['role']
+    #                 ,phone=user['phone'])
+    #     db.session.add(user)
+    #     db.session.commit()
+    # users = User.query.all()
+    # print("inserting users ==> Done")
+    # print('users is :',users)
 
     ####################################################
     # insert factory
-    print("start inserting Factory")
-    name = 'الحديد والصلب'
-    delegate = 2
-    address = '5 شارع البحر'
-    hotline = "01255"
-    from app.api.model.factory import Factory
-    fac = Factory(name=name,delegate=delegate,address=address,hotline=hotline)
-    db.session.add(fac)
-    db.session.commit()
-    facts = Factory.query.all()
-    print("inserting factory ==> Done")
-    print("factories is :", facts)
-    ###################################################
-    # insert company
-    print("start inserting Company")
-    from app.api.model.com import Company
-
-    try:
-        comp = Company(name='النصر', account=3,address='شارع النحاس')
-        db.session.add(comp)
-        db.session.commit()
-    except Exception as e:
-        # traceback.print_exc()
-        print("Exceptions is :", e)
-    comps = Company.query.all()
-    print("inserting company ==> Done")
-    print("companies is : ", comps)
+    # print("start inserting Factory")
+    # name = 'الحديد والصلب'
+    # delegate = 2
+    # address = '5 شارع البحر'
+    # hotline = "01255"
+    # from app.api.model.factory import Factory
+    # fac = Factory(name=name,delegate=delegate,address=address,hotline=hotline)
+    # db.session.add(fac)
+    # db.session.commit()
+    # facts = Factory.query.all()
+    # print("inserting factory ==> Done")
+    # print("factories is :", facts)
+    # ###################################################
+    # # insert company
+    # print("start inserting Company")
+    # from app.api.model.com import Company
+    #
+    # try:
+    #     comp = Company(name='النصر', account=3,address='شارع النحاس')
+    #     db.session.add(comp)
+    #     db.session.commit()
+    # except Exception as e:
+    #     # traceback.print_exc()
+    #     print("Exceptions is :", e)
+    # comps = Company.query.all()
+    # print("inserting company ==> Done")
+    # print("companies is : ", comps)
 
     #############################################
     # insert cars to company
@@ -140,7 +140,7 @@ def insertData():
     # df = pd.DataFrame.from_dict(f_list)
     # df.to_csv('file1.csv')
     ######################################
-    # pass
+    pass
 
 
 if __name__ == "__main__":
