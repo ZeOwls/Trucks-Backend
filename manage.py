@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 import os
 
 from flask_script import Manager
@@ -28,43 +31,47 @@ def run(port=5000):
 def insertData():
     # insert users
     from app.api.model.user import User
-    # users = [{'username': 'factory', 'email': 'factory@test.com', 'password': 'factory', 'role': 2,'phone':123},
-    #          {'username': 'admin', 'email': 'admin@test.com', 'password': 'admin', 'role': 3,'phone':1234},
-    #          {'username': 'company', 'email': 'company@test.com', 'password': 'company', 'role': 1,'phone':1235}, ]
-    # for user in users:
-    #     user = User(username=user['username'],email=user['email'],password=user['password'],role=user['role']
-    #                 ,phone=user['phone'])
-    #     db.session.add(user)
-    #     db.session.commit()
-    # users = User.query.all()
-    # print('users is :',users)
+    print("start inserting users")
+    users = [{'username': 'factory', 'email': 'factory@test.com', 'password': 'factory', 'role': 2,'phone':123},
+             {'username': 'company', 'email': 'company@test.com', 'password': 'company', 'role': 1,'phone':1235}, ]
+    for user in users:
+        user = User(username=user['username'],email=user['email'],password=user['password'],role=user['role']
+                    ,phone=user['phone'])
+        db.session.add(user)
+        db.session.commit()
+    users = User.query.all()
+    print("inserting users ==> Done")
+    print('users is :',users)
 
     ####################################################
     # insert factory
-    # name = '7ded and solb'
-    # delegate = 1
-    # address = '5 shar3 nassar'
-    # hotline = "01255"
-    # from app.api.model.factory import Factory
-    # fac = Factory(name=name,delegate=delegate,address=address,hotline=hotline)
-    # db.session.add(fac)
-    # db.session.commit()
-    # facts = Factory.query.all()
-    # print(facts)
+    print("start inserting Factory")
+    name = 'الحديد والصلب'
+    delegate = 2
+    address = '5 شارع البحر'
+    hotline = "01255"
+    from app.api.model.factory import Factory
+    fac = Factory(name=name,delegate=delegate,address=address,hotline=hotline)
+    db.session.add(fac)
+    db.session.commit()
+    facts = Factory.query.all()
+    print("inserting factory ==> Done")
+    print("factories is :", facts)
     ###################################################
-
     # insert company
+    print("start inserting Company")
     from app.api.model.com import Company
-    #
-    # try:
-    #     comp = Company(name='new company', account=3,address='5 wall st')
-    #     db.session.add(comp)
-    #     db.session.commit()
-    # except Exception as e:
-    #     # traceback.print_exc()
-    #     print("Exceptions is :", e)
-    # comps = Company.query.all()
-    # print(comps)
+
+    try:
+        comp = Company(name='النصر', account=3,address='شارع النحاس')
+        db.session.add(comp)
+        db.session.commit()
+    except Exception as e:
+        # traceback.print_exc()
+        print("Exceptions is :", e)
+    comps = Company.query.all()
+    print("inserting company ==> Done")
+    print("companies is : ", comps)
 
     #############################################
     # insert cars to company
@@ -117,9 +124,9 @@ def insertData():
     # db.session.commit()
     ###################################3
     # add admin account
-    admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin")
-    db.session.add(admin)
-    db.session.commit()
+    # admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin")
+    # db.session.add(admin)
+    # db.session.commit()
     # import pandas as pd
     # factories = Factory.query.all()
     # f_list = [{
@@ -132,7 +139,7 @@ def insertData():
     # } for factory in factories]
     # df = pd.DataFrame.from_dict(f_list)
     # df.to_csv('file1.csv')
-
+    ######################################
     # pass
 
 
