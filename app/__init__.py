@@ -41,7 +41,8 @@ from app.adminDashboard.home.factory_routs import factory_blueprint
 from app.adminDashboard.base.routes import factory_blueprint as orders_factory
 from app.adminDashboard.order.routes import factory_blueprint as new_order_factory
 
-
+# *************** test ******************
+from app.adminDashboard.base.routes import root
 # TODO what to do with this and dashboard !!
 # @login_manager.unauthorized_handler
 # def unauthorized():
@@ -63,6 +64,10 @@ def creat_app(config_name):
     bcrypt.init_app(app)
     rq.init_app(app)
     # register blueprints
+
+    # test
+    app.register_blueprint(root)
+
 
     # Admin Dashboard blueprints
     app.register_blueprint(api_bl)

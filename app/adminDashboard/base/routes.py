@@ -10,7 +10,7 @@ from flask_login import (
 )
 
 from app import db, login_manager
-from app.adminDashboard.base import blueprint, factory_blueprint
+from app.adminDashboard.base import blueprint, factory_blueprint, root
 from app.adminDashboard.base.forms import LoginForm, CreateAccountForm
 from app.api.model.com import Company
 from app.api.model.factory import Factory
@@ -21,6 +21,11 @@ from . import company_blueprint
 
 # locale.setlocale(locale.LC_ALL, "en_EG.utf8")
 from app.utils.login import admin_required
+
+
+@root.route('/')
+def root():
+    return redirect(url_for('base_blueprint.login'))
 
 
 @blueprint.route('/')
@@ -157,10 +162,13 @@ def FactoryOrdersList(message=""):
     }
     return render_template('factory_details.html', data=data), 200
 
+
 @factory_blueprint.route('/NewOrder')
 @factory_required
 def new_order():
     return render_template('NewOrder.html'), 200
+
+
 # -------------------- Company Endpoints ---------------------
 
 
@@ -235,8 +243,8 @@ def shutdown():
 def unauthorized_handler():
     if request.is_xhr:
         response_obj = {
-                    'status': 'failed',
-                    'message': 'unauthorized, please log in first'
+            'status': 'failed',
+            'message': 'unauthorized, please log in first'
         }
         return response_obj, 403
 

@@ -16,7 +16,7 @@ from app.api.model.driver import Driver
 from app.utils.login import admin_required
 
 
-@blueprint.route('/Home')
+@blueprint.route('/')
 @admin_required
 def index():
     cars = Car.query.all()
@@ -29,6 +29,8 @@ def index():
     lat = 30.049232
     lng = 31.232027
 
+    test_marks = [(loc['latitude'], loc['longitude']) for loc in locations if loc['latitude'] and loc['longitude']]
+    print(test_marks)
     if len(locations) and locations[0]['latitude']:
         lat = locations[0]['latitude']
         lng = locations[0]['longitude']
@@ -42,6 +44,7 @@ def index():
         markers=[(loc['latitude'], loc['longitude']) for loc in locations if loc['latitude'] and loc['longitude']],
         fit_markers_to_bounds=True if len(locations) else False
     )
+    print("we ara heeeeeeeeeeeeere ", lat, lng)
     print(map.center)
     data = {}
     factory_num = Factory.query.filter(Factory.delegate_opj.has(account_status=1)).count()

@@ -1,5 +1,12 @@
 from flask import Blueprint
 
+root = Blueprint(
+    'root_blueprint',
+    __name__,
+    url_prefix='/',
+    template_folder='templates',
+    static_folder='static'
+)
 blueprint = Blueprint(
     'base_blueprint',
     __name__,
