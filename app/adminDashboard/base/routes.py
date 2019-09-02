@@ -24,8 +24,8 @@ from app.utils.login import admin_required
 
 
 @root.route('/')
-def root():
-    return redirect(url_for('base_blueprint.login'))
+def root_index():
+    return redirect(url_for('base_blueprint.route_default'))
 
 
 @blueprint.route('/')
