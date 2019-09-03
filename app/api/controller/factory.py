@@ -7,7 +7,7 @@ from flask_login import login_required, login_user, logout_user, current_user
 from app.api.model.driver import Driver
 from app.api.model.order_driver_car import OrderCarsAndDrivers
 from app.api.model.user import User
-from app import db
+from app import db, notf_service
 from app.api.model.factory import Factory
 from app.api.model.order import Order, OrderCarsTypes
 from app.api.model.car import available_type, Car
@@ -201,9 +201,6 @@ class SignUp(Resource):
 @fac_app.route('/NewFactory')
 class NewFactory(Resource):
     def post(self):
-        print(request.headers)
-        print(request.form)
-        print(request.files)
         data = request.form
         factory_name = data["factory_name"]
         username = data["logistic_name"]

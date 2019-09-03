@@ -75,6 +75,7 @@
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
 <script>
+    console.log("in the start of notification configuration");
     // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyAr4HwW7ISVnZf_3xP7FZuZ1X9Fs_J_HbA",
@@ -90,9 +91,10 @@
     const messaging = firebase.messaging();
     messaging.usePublicVapidKey("BJHM6vKieUMAbzajsptnVvEfLdY6IEf9IoVnsu4v8WD0BeIadfEkazA9QhfDv0KOMjgBxin5B3AUEObueowCp18");
     console.log("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}");
+    console.log("we ara before register server worker");
     navigator.serviceWorker.register("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}")
         .then((registration) => {
-            console.log("we are heeeeeeeeeereeeeeee");
+            console.log("we are in register server worker");
             messaging.useServiceWorker(registration);
 
             messaging.requestPermission()
@@ -112,32 +114,33 @@
         $.ajax({
       type: 'POST',
       url: "/admin/UpdateAdminDeviceToken",
-      data: {"device_token" : token},
+      data: JSON.stringify({"device_token" : token}),
+      contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function(resultData) { alert("Save Complete") }
 
-        });
+        });}
 
-    // [START refresh_token]
-      // Callback fired if Instance ID token is updated.
-      messaging.onTokenRefresh(() => {
-        messaging.getToken().then((refreshedToken) => {
-          console.log('Token refreshed.');
-          console.log(refreshedToken);
-          // Indicate that the new Instance ID token has not yet been sent to the
-          // app server.
-          // setTokenSentToServer(false);
-          // Send Instance ID token to app server.
-          // sendTokenToServer(refreshedToken);
-          // [START_EXCLUDE]
-          // Display new Instance ID token and clear UI of all previous messages.
-          // resetUI();
-          // [END_EXCLU DE]
-        }).catch((err) => {
-          console.log('Unable to retrieve refreshed token ', err);
-          showToken('Unable to retrieve refreshed token ', err);
-        });
-      });
+    // // [START refresh_token]
+    //   // Callback fired if Instance ID token is updated.
+    //   messaging.onTokenRefresh(() => {
+    //     messaging.getToken().then((refreshedToken) => {
+    //       console.log('Token refreshed.');
+    //       console.log(refreshedToken);
+    //       // Indicate that the new Instance ID token has not yet been sent to the
+    //       // app server.
+    //       // setTokenSentToServer(false);
+    //       // Send Instance ID token to app server.
+    //       // sendTokenToServer(refreshedToken);
+    //       // [START_EXCLUDE]
+    //       // Display new Instance ID token and clear UI of all previous messages.
+    //       // resetUI();
+    //       // [END_EXCLU DE]
+    //     }).catch((err) => {
+    //       console.log('Unable to retrieve refreshed token ', err);
+    //       showToken('Unable to retrieve refreshed token ', err);
+    //     });
+    //   });
       // [END refresh_token]
     messaging.onMessage((payload) => {
       console.log("we ara in message");

@@ -869,6 +869,29 @@ class NewOrder(Resource):
                 car = OrderCarsTypes(order_id=order.id, cars_num=data.get(car_type) or 0, car_type=car_type)
                 db.session.add(car)
             db.session.commit()
+            admin_users = User.query.filter_by(role=3).all()
+            print("admin users is :", admin_users)
+            for admin in admin_users:
+                if admin.device_token:
+                    device_token = admin.device_token
+                    message_title = "New Order"
+                    message_body = "There are new order!"
+                    message_data = {
+                        'factory_name': order.factory_object.name,
+                        'notf_type': "new_order",
+                        "order_id": order.id,
+                        'pickup_location_lat': order.from_latitude,
+                        'pickup_location_lng': order.from_longitude,
+                        'pickup_location_str': order.pickup_location,
+                        'dropoff_location_lat': order.to_latitude,
+                        'dropoff_location_lng': order.to_longitude,
+                        'dropoff_location_str': order.dropoff_location
+
+                    }
+                    result = notf_service.notify_single_device(registration_id=device_token,
+                                                               message_title=message_title,
+                                                               message_body=message_body, data_message=message_data)
+                    print(result)
             if current_user.isAdmin:
                 return redirect(url_for('orders_blueprint.index'))
             else:
@@ -891,11 +914,12 @@ class ExportOrders(Resource):
         return 200
 
 
-@admin_app.route('UpdateAdminDeviceToken')
+@admin_app.route('/UpdateAdminDeviceToken')
 class UpdateAdminDeviceToken(Resource):
     def post(self):
         try:
             data = request.json
+            print(data)
             device_token = data['device_token']
             current_user.device_token = device_token
             db.session.commit()

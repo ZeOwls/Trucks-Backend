@@ -62,7 +62,7 @@ def login(message=""):
         email = request.form['email']
         password = request.form['password']
         user = User.query.filter_by(email=email).first()
-        if user and user.check_password(password) and user.isAdmin:
+        if user and user.check_password(password):
             login_user(user)
             return redirect(url_for('base_blueprint.route_default'))
         return render_template('errors/page_403.html')
