@@ -21,27 +21,24 @@ def pass_mail(password,receiver_email,name):
         smtp.login(email_user, email_pss)
         subject = "Hello from trucks company"
         body = f"Hello {name},\n\nWelcome to trucks company,here is your password: {password}.\nkeep it safe and be sure to remember it"
-        # body = "يا هلا يا هلا "
-        # msg = f"Subject: {subject}\n\n{body}".encode('UTF-8')
         message = MIMEMultipart()
         message["Subject"] = subject
         message.attach(MIMEText(body, _charset="UTF-8"))
-        # msg = MIMEText(msg, _charset="UTF-8")
         smtp.sendmail(email_user, receiver_email, message.as_string())
 
 
 def file_mail(filename, name):
     # TODO uncomment that line in production
-    receiver_email = 'a.nassar@zeowls.com'  # current_user.email
+    receiver_email = current_user.email
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.ehlo()
         smtp.starttls()
         smtp.ehlo()
         smtp.login(email_user, email_pss)
         message = MIMEMultipart()
-        # receiver_email = "mahmoud14zamalek@gmail.com"
+        receiver_email = "mahmoud14zamalek@gmail.com"
         message["From"] = email_user
-        message["To"] = receiver_email  # current_user.email
+        message["To"] = receiver_email
         subject = f"Trucks | {name} Data file"
         body = f"Hello From trucks,\nWe attached {name} Data file as you request it before\n\n\nregards."
         message["Subject"] = subject

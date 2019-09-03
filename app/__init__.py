@@ -89,7 +89,7 @@ def creat_app(config_name):
     app.register_blueprint(orders_factory)
     app.register_blueprint(new_order_factory)
 
-    r = redis.from_url(os.getenv('REDIS_URL'))
+    r = redis.from_url(os.getenv('REDIS_URL', 'redis://localhost:6379'))
 
     return app, r
 

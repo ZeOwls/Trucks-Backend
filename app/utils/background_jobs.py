@@ -16,7 +16,9 @@ from .send_email import file_mail
 def export_factories():
     from app import app
     with app.app_context():
+        print("before factories")
         factories = Factory.query.filter(Factory.delegate_opj.has(account_status=1)).all()
+        print(factories)
         f_list = [{
             'ID': factory.id,
             'Name': factory.name,
