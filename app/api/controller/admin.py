@@ -760,11 +760,12 @@ class NewDriver(Resource):
 @admin_app.route('/FreeDrivers<car_id>')
 class FreeDrivers(Resource):
     @login_required
-    def get(self,car_id):
+    def get(self, car_id):
         print(car_id)
         car = Car.query.get(car_id)
         company_id = car._owner
-        drivers = Driver.query.filter_by(current_order_id=None).filter_by(company_id=company_id).filter_by(driver_status=1).all()
+        drivers = Driver.query.filter_by(current_order_id=None).filter_by(company_id=company_id).filter_by(
+            driver_status=1).all()
         data = {
             'driver_list': [driver.serialize() for driver in drivers]
         }
@@ -888,3 +889,17 @@ class ExportOrders(Resource):
     def get(self):
         job = export_orders.queue()
         return 200
+
+
+@admin_app.route('UpdateAdminDeviceToken')
+class UpdateAdminDeviceToken(Resource):
+    def post(self):
+        try:
+            data = request.json
+            device_token = data['device_token']
+            current_user.device_token = device_token
+            db.session.commit()
+            return 200
+        except Exception as e:
+            print("Exception in update admin device token: ", e)
+            return 500

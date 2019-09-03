@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/api/model/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/model/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controller/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/controller/admin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,26 +53,26 @@
           <entry key="Procfile" value="47" />
           <entry key="css" value="4" />
           <entry key="dummy" value="31" />
-          <entry key="env" value="123" />
+          <entry key="env" value="124" />
           <entry key="gitignore" value="27" />
-          <entry key="html" value="9737" />
+          <entry key="html" value="9852" />
           <entry key="js" value="5526" />
           <entry key="json" value="8" />
           <entry key="pt" value="9" />
-          <entry key="py" value="36607" />
+          <entry key="py" value="36881" />
           <entry key="txt" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key=".env file" value="122" />
+          <entry key=".env file" value="123" />
           <entry key="CSS" value="4" />
           <entry key="Chameleon" value="9" />
-          <entry key="HTML" value="9740" />
+          <entry key="HTML" value="9855" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="5523" />
           <entry key="PLAIN_TEXT" value="119" />
-          <entry key="Python" value="36606" />
+          <entry key="Python" value="36880" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -78,29 +80,29 @@
           <entry key="Procfile" value="4" />
           <entry key="css" value="1" />
           <entry key="csv" value="2" />
-          <entry key="env" value="5" />
+          <entry key="env" value="6" />
           <entry key="firebaserc" value="1" />
           <entry key="gitignore" value="4" />
-          <entry key="html" value="179" />
+          <entry key="html" value="180" />
           <entry key="js" value="25" />
           <entry key="json" value="2" />
           <entry key="log" value="1" />
           <entry key="pt" value="1" />
-          <entry key="py" value="469" />
+          <entry key="py" value="470" />
           <entry key="rnc" value="1" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="4" />
+          <entry key=".env file" value="5" />
           <entry key="CSS" value="1" />
           <entry key="Chameleon" value="1" />
-          <entry key="HTML" value="179" />
+          <entry key="HTML" value="180" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="25" />
           <entry key="PLAIN_TEXT" value="25" />
-          <entry key="Python" value="464" />
+          <entry key="Python" value="465" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -150,7 +152,7 @@
     <favorites_list name="." />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5247339">
+    <splitter split-orientation="horizontal" split-proportion="0.48187634">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -161,6 +163,15 @@
                   <folding>
                     <marker date="1567507810280" expanded="true" signature="675:680" ph="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.env">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
                 </state>
               </provider>
             </entry>
@@ -177,11 +188,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/controller/com.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="287">
-                  <caret line="490" column="21" lean-forward="true" selection-start-line="490" selection-start-column="21" selection-end-line="490" selection-end-column="21" />
+                <state relative-caret-position="831">
+                  <caret line="216" column="47" selection-start-line="216" selection-start-column="47" selection-end-line="216" selection-end-column="47" />
                 </state>
               </provider>
             </entry>
@@ -189,8 +200,20 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1717">
-                  <caret line="196" column="42" selection-start-line="196" selection-start-column="42" selection-end-line="196" selection-end-column="42" />
+                <state relative-caret-position="1864">
+                  <caret line="892" lean-forward="true" selection-start-line="892" selection-end-line="892" />
+                  <folding>
+                    <marker date="1567510381146" expanded="true" signature="32245:32258" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/api/model/user.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="15" column="16" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="16" />
                 </state>
               </provider>
             </entry>
@@ -248,8 +271,25 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="59160">
-                  <caret line="3480" column="42" selection-start-line="3480" selection-start-column="42" selection-end-line="3480" selection-end-column="42" />
+                <state relative-caret-position="391">
+                  <caret line="3490" column="36" lean-forward="true" selection-start-line="3490" selection-start-column="36" selection-end-line="3490" selection-end-column="36" />
+                  <folding>
+                    <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                    <element signature="e#77#84#1" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -257,8 +297,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="208">
-                  <caret line="269" column="43" selection-start-line="269" selection-start-column="43" selection-end-line="269" selection-end-column="43" />
+                <state relative-caret-position="344">
+                  <caret line="52" column="76" lean-forward="true" selection-start-line="52" selection-start-column="76" selection-end-line="52" selection-end-column="76" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -266,14 +306,23 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="208">
-                  <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+                <state relative-caret-position="1092">
+                  <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="403">
+                  <caret line="110" column="38" lean-forward="true" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
                 </state>
               </provider>
             </entry>
@@ -331,8 +380,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>PendingCompanyList</find>
-      <find>CompanyList</find>
       <find>CompanyProfile</find>
       <find>DriverProfile</find>
       <find>DriversList</find>
@@ -361,6 +408,8 @@
       <find>pen</find>
       <find>assignca</find>
       <find>assign</find>
+      <find>post</find>
+      <find>&quot;post&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>default</replace>
@@ -408,14 +457,12 @@
         <option value="$PROJECT_DIR$/firebase-messaging-sw.js" />
         <option value="$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/static/build/js/firebase-messaging-sw.js" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html" />
         <option value="$PROJECT_DIR$/app/api/model/user.py" />
         <option value="$PROJECT_DIR$/app/api/model/driver.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/home/company_routs.py" />
         <option value="$PROJECT_DIR$/app/api/controller/factory.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html" />
         <option value="$PROJECT_DIR$/app/api/model/car.py" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/config.py" />
         <option value="$PROJECT_DIR$/app/utils/send_email.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
@@ -423,14 +470,16 @@
         <option value="$PROJECT_DIR$/app/adminDashboard/base/__init__.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/routes.py" />
-        <option value="$PROJECT_DIR$/app/api/controller/admin.py" />
         <option value="$PROJECT_DIR$/app/api/model/order_driver_car.py" />
         <option value="$PROJECT_DIR$/app/api/controller/truck.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/site_template/sidebar.html" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/app/api/__init__.py" />
-        <option value="$PROJECT_DIR$/app/api/model/order.py" />
         <option value="$PROJECT_DIR$/app/api/controller/com.py" />
+        <option value="$PROJECT_DIR$/app/api/model/order.py" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html" />
+        <option value="$PROJECT_DIR$/app/api/controller/admin.py" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -529,7 +578,23 @@
               <item name="back-end" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
@@ -559,7 +624,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="tru&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/truck.py&#10;admin&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;Acc&#9;null&#9;null&#10;cust&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/adminDashboard/base/static/build/js/custom.js&#10;adm&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;update&#9;null&#9;null&#10;assign&#9;null&#9;null&#10;CompanyOr&#9;null&#9;null&#10;admi&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;mana&#9;null&#9;null&#10;User&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py" />
+    <property name="SearchEverywhereHistoryKey" value="order&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/order.py&#10;user&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py&#10;tru&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/truck.py&#10;admin&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;Acc&#9;null&#9;null&#10;cust&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/adminDashboard/base/static/build/js/custom.js&#10;adm&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;update&#9;null&#9;null&#10;assign&#9;null&#9;null&#10;CompanyOr&#9;null&#9;null&#10;admi&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;mana&#9;null&#9;null&#10;User&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -615,9 +680,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.14872068" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" weight="0.21641791" />
       <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
       <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -631,7 +695,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.27896994" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.22854078" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -747,24 +811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/NewCar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
           <caret line="64" column="120" selection-start-line="64" selection-start-column="114" selection-end-line="64" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="86" selection-start-line="86" selection-end-line="87" />
         </state>
       </provider>
     </entry>
@@ -887,13 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="72" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -945,13 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59160">
-          <caret line="3480" column="42" selection-start-line="3480" selection-start-column="42" selection-end-line="3480" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/routes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
@@ -967,13 +1003,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="196" column="42" selection-start-line="196" selection-start-column="42" selection-end-line="196" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1011,26 +1040,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
-          <folding>
-            <marker date="1567507810280" expanded="true" signature="675:680" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="269" column="43" selection-start-line="269" selection-start-column="43" selection-end-line="269" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/api/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1041,20 +1050,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/com.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="831">
+          <caret line="216" column="47" selection-start-line="216" selection-start-column="47" selection-end-line="216" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="52" column="76" lean-forward="true" selection-start-line="52" selection-start-column="76" selection-end-line="52" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="3490" column="36" lean-forward="true" selection-start-line="3490" selection-start-column="36" selection-end-line="3490" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+            <element signature="e#77#84#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+        <state relative-caret-position="1092">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/com.py">
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="490" column="21" lean-forward="true" selection-start-line="490" selection-start-column="21" selection-end-line="490" selection-end-column="21" />
+        <state relative-caret-position="403">
+          <caret line="110" column="38" lean-forward="true" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1864">
+          <caret line="892" lean-forward="true" selection-start-line="892" selection-end-line="892" />
+          <folding>
+            <marker date="1567510381146" expanded="true" signature="32245:32258" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
+          <folding>
+            <marker date="1567507810280" expanded="true" signature="675:680" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="61" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
         </state>
       </provider>
     </entry>

@@ -101,10 +101,20 @@
                 })
                 .then(function (token) {
                     console.log(token)
+                    sendTokenToServer(token)
                 })
                 .catch(function (err) {
                     console.log(err)
                 });
+
+        });
+    function sendTokenToServer(token){
+        $.ajax({
+      type: 'POST',
+      url: "/admin/UpdateAdminDeviceToken",
+      data: {"device_token" : token},
+      dataType: "json",
+      success: function(resultData) { alert("Save Complete") }
 
         });
 
