@@ -25,6 +25,7 @@ class OrderCarsAndDrivers(db.Model):
         # order = Order.query.get(id = self.order_id)
         return {'car_id': self.car_id,
                 'status': orders_status[self.status],
+                'status_id':self.status,
                 'car_plate_number': self.car_opj.number,
                 'car_type': self.car_opj.car_type,
                 'driver_id': self.driver_id,
