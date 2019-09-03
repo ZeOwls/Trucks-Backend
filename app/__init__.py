@@ -5,7 +5,7 @@ from flask_login import LoginManager
 from flask_cors import CORS
 from flask_googlemaps import GoogleMaps
 import os
-import redis
+from redis import Redis
 from rq import Queue
 from flask_rq2 import RQ
 from pyfcm import FCMNotification
@@ -89,7 +89,7 @@ def creat_app(config_name):
     app.register_blueprint(orders_factory)
     app.register_blueprint(new_order_factory)
 
-    r = redis.from_url(os.getenv('REDIS_URL', 'redis://h:p6556138a9e088c6472ee205953659fb42e5aab9bc0c39bde82e4c8164114f7a0@ec2-3-221-70-198.compute-1.amazonaws.com:15049'))
+    r = Redis(os.getenv('REDIS_URL', 'redis://localhost:6379'))
 
     return app, r
 

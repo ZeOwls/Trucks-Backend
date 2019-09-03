@@ -14,7 +14,7 @@ class DevConfig(Config):
     #     os.path.join(basedir, 'dev_trankat.db')
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    REDIS_URL = os.getenv('REDIS_URL', 'redis://h:p6556138a9e088c6472ee205953659fb42e5aab9bc0c39bde82e4c8164114f7a0@ec2-3-221-70-198.compute-1.amazonaws.com:15049')
+    REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379')
 
 
 class ProductionConfig(Config):
