@@ -14,11 +14,12 @@ class DevConfig(Config):
     #     os.path.join(basedir, 'dev_trankat.db')
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379')
 
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + \
-        os.path.join(basedir, 'pro_trankat.db')
+                              os.path.join(basedir, 'pro_trankat.db')
     # os.path.join(basedir, 'main_watering_sys_db.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

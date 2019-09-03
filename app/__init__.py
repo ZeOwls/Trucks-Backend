@@ -17,9 +17,8 @@ bcrypt = Bcrypt()
 login_manager = LoginManager()
 cors = CORS()
 rq = RQ()
-r = redis.Redis()
-q = Queue(connection=r)
-notf_service = FCMNotification(api_key="AAAAWME4vPI:APA91bE6voNAtuajKkUKfuIc9_HYN2oW2x8g8guVdUa6tuG1_CtGzL5vdKQZphTk9axqfEuQMvi9_QdwgnEHA5IVhmphhThiO4Z4Yob6gTONR6APFeFdewWVtrR0q9LYVFoz3EIQXHiY")
+notf_service = FCMNotification(
+    api_key="AAAAWME4vPI:APA91bE6voNAtuajKkUKfuIc9_HYN2oW2x8g8guVdUa6tuG1_CtGzL5vdKQZphTk9axqfEuQMvi9_QdwgnEHA5IVhmphhThiO4Z4Yob6gTONR6APFeFdewWVtrR0q9LYVFoz3EIQXHiY")
 
 # ************ Admin Dashboard blueprint **********
 from app.api import blueprint as api_bl
@@ -43,6 +42,8 @@ from app.adminDashboard.order.routes import factory_blueprint as new_order_facto
 
 # *************** test ******************
 from app.adminDashboard.base.routes import root
+
+
 # TODO what to do with this and dashboard !!
 # @login_manager.unauthorized_handler
 # def unauthorized():
@@ -68,7 +69,6 @@ def creat_app(config_name):
     # test
     app.register_blueprint(root)
 
-
     # Admin Dashboard blueprints
     app.register_blueprint(api_bl)
     app.register_blueprint(base_admin)
@@ -89,7 +89,10 @@ def creat_app(config_name):
     app.register_blueprint(orders_factory)
     app.register_blueprint(new_order_factory)
 
-    return app
+    r = redis.from_url(app.config["REDIS_URL"])
+
+    return app, r
 
 
-app = creat_app(os.getenv('TRANKAT') or 'dev')
+app, r = creat_app(os.getenv('TRANKAT') or 'dev')
+q = Queue(connection=r)
