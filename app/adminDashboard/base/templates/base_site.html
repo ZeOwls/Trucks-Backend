@@ -87,39 +87,39 @@
        appId: "1:381198843122:web:6170940620fc77f5"
     };
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const messaging = firebase.messaging();
-    messaging.usePublicVapidKey("BJHM6vKieUMAbzajsptnVvEfLdY6IEf9IoVnsu4v8WD0BeIadfEkazA9QhfDv0KOMjgBxin5B3AUEObueowCp18");
-    console.log("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}");
-    console.log("we ara before register server worker");
-    navigator.serviceWorker.register("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}")
-        .then((registration) => {
-            console.log("we are in register server worker");
-            messaging.useServiceWorker(registration);
-
-            messaging.requestPermission()
-                .then(function () {
-                    return messaging.getToken();
-                })
-                .then(function (token) {
-                    console.log(token)
-                    sendTokenToServer(token)
-                })
-                .catch(function (err) {
-                    console.log(err)
-                });
-
-        });
-    function sendTokenToServer(token){
-        $.ajax({
-      type: 'POST',
-      url: "/admin/UpdateAdminDeviceToken",
-      data: JSON.stringify({"device_token" : token}),
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      success: function(resultData) { alert("Save Complete") }
-
-        });}
+    // firebase.initializeApp(firebaseConfig);
+    // const messaging = firebase.messaging();
+    // messaging.usePublicVapidKey("BJHM6vKieUMAbzajsptnVvEfLdY6IEf9IoVnsu4v8WD0BeIadfEkazA9QhfDv0KOMjgBxin5B3AUEObueowCp18");
+    // console.log("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}");
+    // console.log("we ara before register server worker");
+    // navigator.serviceWorker.register("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}")
+    //     .then((registration) => {
+    //         console.log("we are in register server worker");
+    //         messaging.useServiceWorker(registration);
+    //
+    //         messaging.requestPermission()
+    //             .then(function () {
+    //                 return messaging.getToken();
+    //             })
+    //             .then(function (token) {
+    //                 console.log(token)
+    //                 sendTokenToServer(token)
+    //             })
+    //             .catch(function (err) {
+    //                 console.log(err)
+    //             });
+    //
+    //     });
+    // function sendTokenToServer(token){
+    //     $.ajax({
+    //   type: 'POST',
+    //   url: "/admin/UpdateAdminDeviceToken",
+    //   data: JSON.stringify({"device_token" : token}),
+    //   contentType: "application/json; charset=utf-8",
+    //   dataType: "json",
+    //   success: function(resultData) { alert("Save Complete") }
+    //
+    //     });}
 
     // // [START refresh_token]
     //   // Callback fired if Instance ID token is updated.
@@ -142,15 +142,19 @@
     //     });
     //   });
       // [END refresh_token]
-    messaging.onMessage((payload) => {
-      console.log("we ara in message");
-      console.log('Message received. ', payload);
+    // messaging.onMessage((payload) => {
+    //   console.log("we ara in message");
+    //   console.log('Message received. ', payload);
+    //   PNotify.notice({
+    //   title: 'Regular Notice',
+    //   text: 'Check me out! I\'m a notice.'
+    //   });
       // PNotify.info({
       //     title: 'New Thing',
       //     text: 'Just to let you know, something happened.'
       // });
       // // ...
-    });
+    // });
 
 
     // If you would like to customize notifications that are received in the
