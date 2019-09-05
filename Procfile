@@ -1,2 +1,2 @@
 web: gunicorn app:app
-worker: rq worker
+worker: rq worker -c app.config
