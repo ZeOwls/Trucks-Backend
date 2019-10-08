@@ -124,9 +124,9 @@ def insertData():
     # db.session.commit()
     ###################################3
     # add admin account
-    # admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin",account_status=1)
-    # db.session.add(admin)
-    # db.session.commit()
+    admin = User(username='Admin',email="admin@test.com",phone="01200",role=3,password="admin",account_status=1)
+    db.session.add(admin)
+    db.session.commit()
     # import pandas as pd
     # factories = Factory.query.all()
     # f_list = [{
