@@ -342,7 +342,7 @@ class NewFactory(Resource):
         email = data["email"]
         factory_hotline = data["factory_hotline"]
         delegate_phone = data["delegate_phone"]
-        password = "factory"
+        password = User.generate_pass()
         img = request.files['factory_logo']
         role = 2
         user = User.query.filter_by(email=email).first()
@@ -503,7 +503,7 @@ class CompanyCarsList(Resource):
     @login_required
     def get(self, id):
         try:
-            cars = Car.query.filter_by(_owner=id).all()
+            cars = Car.query.filter_by(_owner=id).filter(Car.user_obj.has(account_status=1)).all()
             response_obj = {
                 'status': 'success',
                 'cars_list': [car.serialize() for car in cars]
@@ -526,7 +526,7 @@ class NewCompany(Resource):
         company_name = data.get('company_name')
         username = company_name  # data.get('username')
         email = data.get('email')
-        password = 'company'  # data.get('password')
+        password = User.generate_pass()  # data.get('password')
         address = data.get('address')
         phone = data.get('company_phone')
         img = request.files['company_logo']
@@ -870,7 +870,6 @@ class NewOrder(Resource):
                 db.session.add(car)
             db.session.commit()
             admin_users = User.query.filter_by(role=3).all()
-            print("admin users is :", admin_users)
             for admin in admin_users:
                 if admin.device_token:
                     device_token = admin.device_token
@@ -888,10 +887,10 @@ class NewOrder(Resource):
                         'dropoff_location_str': order.dropoff_location
 
                     }
+                    click_action = f"/AdminDashboard/OrderDetailsPage{order.id}"
                     result = notf_service.notify_single_device(registration_id=device_token,
-                                                               message_title=message_title,
+                                                               message_title=message_title, click_action=click_action,
                                                                message_body=message_body, data_message=message_data)
-                    print(result)
             if current_user.isAdmin:
                 return redirect(url_for('orders_blueprint.index'))
             else:

@@ -2266,35 +2266,84 @@ function init_validator() {
 };
 
 /* PNotify */
+function showNotif(payload) {
+    if (payload.notificationtitle==="New Order"){
+        text = payload.notification.body + "\nfrom factory: " + payload.data.factory_name+"\n<a href="+payload.notification.click_action+">Click Here for more Info</a>"
+
+    }
+    else
+    {
+        text =payload.notification.body + "\n<a href="+payload.notification.click_action+">Click Here for more Info</a>"
+    }
+    notf = new PNotify({
+        title: payload.notification.title,
+        text: text,
+        type: "notice",
+
+    });
+
+}
 
 function init_PNotify() {
 
     if (typeof (PNotify) === 'undefined') {
+
         return;
     }
     console.log('init_PNotify');
+    // // PNotify.prototype.options.styling = "bootstrap3";
+    // // PNotify.prototype.options.styling = "jqueryui";
+    // notf = new PNotify({
+    //     title: "PNotify",
+    //     type: "notice",
+    //     text: "<a href='/AdminDashboard/factory/'>Click Here</\a>",
+    //     nonblock: {
+    //         nonblock: false,
+    //         nonblock_opacity: .2
+    //     },
+    //     confirm: {
+    //         confirm: true,
+    //         buttons: [{
+    //             text: "Ok", addClass: "", promptTrigger: true, click: function (notice, value) {
+    //                 notice.remove();
+    //                 notice.get().trigger("pnotify.confirm", [notice, value]);
+    //             }
+    //         }, {
+    //             text: "Cancel", addClass: "", click: function (notice) {
+    //                 notice.remove();
+    //                 notice.get().trigger("pnotify.cancel", notice);
+    //             }
+    //         }],
+    //     },
+    //     click: function (e) {
+    //         console.log('clicked !!')
+    //     },
+    //     addclass: 'dark',
+    //     styling: 'bootstrap3',
+    //     hide: true,
+    //     before_close: function (PNotify) {
+    //         PNotify.update({
+    //             title: PNotify.options.title + " - Enjoy your Stay",
+    //             before_close: null
+    //         });
+    //
+    //         PNotify.queueRemove();
+    //
+    //         return false;
+    //     }
+    //   });
 
-    new PNotify({
-        title: "PNotify",
-        type: "info",
-        text: "Welcome. Try hovering over me. You can click things behind me, because I'm non-blocking.",
-        nonblock: {
-            nonblock: true
-        },
-        addclass: 'dark',
-        styling: 'bootstrap3',
-        hide: false,
-        before_close: function (PNotify) {
-            PNotify.update({
-                title: PNotify.options.title + " - Enjoy your Stay",
-                before_close: null
-            });
-
-            PNotify.queueRemove();
-
-            return false;
-        }
-    });
+    // notf.click(function(e){
+    //     //     console.log('clicked')
+    //     // });
+    // notf.refs.elem.style.cursor = 'pointer';
+    // notf.on('click', function (e) {
+    //     console.log("you clicked");
+    //     if ($(e.target).is('.ui-pnotify-closer *, .ui-pnotify-sticker *')) {
+    //         return;
+    //     }
+    //     // window.location.replace(payload.notification.click_action);
+    // });
 
 };
 
@@ -3217,7 +3266,7 @@ function init_DataTables() {
             {
                 title: 'LOGO',
                 render: function (data, type, row) {
-                    return '<img src='+row.logo+' class="img-responsive">'
+                    return '<img style="max-width:100px;max-height:100px;" src=' + row.logo + ' class="img-responsive">'
                 }
             },
             {
@@ -3262,7 +3311,7 @@ function init_DataTables() {
             {
                 title: 'LOGO',
                 render: function (data, type, row) {
-                    return '<img src='+row.logo+' class="img-responsive">'
+                    return '<img style="max-width:100px;max-height:100px;" src=' + row.logo + ' class="img-responsive" >'
                 }
             },
             {
@@ -3304,7 +3353,7 @@ function init_DataTables() {
             {
                 title: 'LOGO',
                 render: function (data, type, row) {
-                    return '<img src='+row.logo+' class="img-responsive">'
+                    return '<img style="max-width:100px;max-height:100px;" src=' + row.logo + ' class="img-responsive" >'
                 }
             },
             {
@@ -3344,7 +3393,7 @@ function init_DataTables() {
             {
                 title: 'LOGO',
                 render: function (data, type, row) {
-                    return '<img src='+row.logo+' class="img-responsive">'
+                    return '<img  style="max-width:100px;max-height:100px;" src=' + row.logo + ' class="img-responsive">'
                 }
             },
             {
@@ -3403,10 +3452,10 @@ function init_DataTables() {
                 data: 'phone'
             },
             {
-                title:'License Image',
-                render: function(data,type,row){
-                    return '<img src='+row.license_img+' class="img-responsive">'
-                    }
+                title: 'License Image',
+                render: function (data, type, row) {
+                    return '<img style="max-width:100px;max-height:100px;" src=' + row.license_img + ' class="img-responsive">'
+                }
             },
             {
                 title: 'Orders Count',
@@ -3475,50 +3524,50 @@ function init_DataTables() {
         responsive: true
     });
     var company_drivers_table = $("#company_driver_list").DataTable({
-                ajax: {
-                    type: 'get',
-                    url: '/company/DriversList',
-                    dataSrc: 'driver_list'
-                },
-                columns: [
+        ajax: {
+            type: 'get',
+            url: '/company/DriversList',
+            dataSrc: 'driver_list'
+        },
+        columns: [
 
-                    {
-                        title: "ID",
-                        data: "driver_id"
-                    },
-                    {
-                        title: "Name",
-                        data: 'name'
-                    },
-                    {
-                        title: "Company Title",
-                        data: "company_name"
-                    },
-                    {
-                        title: "Phone",
-                        data: 'phone'
-                    },
-                    {
-                    title:'License Image',
-                    render: function(data,type,row){
-                        return '<img src='+row.license_img+' class="img-responsive">'
-                        }
-                    },
-                    {
-                        title: 'Orders Count',
-                        data: 'num_of_orders'
-                    },
-                    {
-                        title: "",
-                        render: function (data, type, row) {
-                            return '<div style="text-align: center"><a class="btn btn-info btn-sm"' +
-                                'href="/AdminDashboard/DriverDetailsPage' + row.driver_id + '">View</a>' +
-                                '<button class="btn btn-danger btn-sm" onclick="delete_driver(this,' + row.driver_id + ',' + "table_name = 'company_drivers_table'" + ')" >Delete</button></div>'
-                        }
-                    }
-                ],
-                responsive: true
-            });
+            {
+                title: "ID",
+                data: "driver_id"
+            },
+            {
+                title: "Name",
+                data: 'name'
+            },
+            {
+                title: "Company Title",
+                data: "company_name"
+            },
+            {
+                title: "Phone",
+                data: 'phone'
+            },
+            {
+                title: 'License Image',
+                render: function (data, type, row) {
+                    return '<img style="max-width:100px;max-height:100px;" src=' + row.license_img + ' class="img-responsive">'
+                }
+            },
+            {
+                title: 'Orders Count',
+                data: 'num_of_orders'
+            },
+            {
+                title: "",
+                render: function (data, type, row) {
+                    return '<div style="text-align: center"><a class="btn btn-info btn-sm"' +
+                        'href="/AdminDashboard/DriverDetailsPage' + row.driver_id + '">View</a>' +
+                        '<button class="btn btn-danger btn-sm" onclick="delete_driver(this,' + row.driver_id + ',' + "table_name = 'company_drivers_table'" + ')" >Delete</button></div>'
+                }
+            }
+        ],
+        responsive: true
+    });
     var company_cars_list = $('#companyCarsList').DataTable({
         ajax: {
             type: 'GET',
@@ -3529,33 +3578,33 @@ function init_DataTables() {
         columns: [
 
             {
-                title:"ID",
-                data:"car_id"
+                title: "ID",
+                data: "car_id"
             },
             {
-                title:"car plate NO.",
-                data:'car_plate_number'
+                title: "car plate NO.",
+                data: 'car_plate_number'
             },
             {
-                title:"Type",
-                data:'car_type'
+                title: "Type",
+                data: 'car_type'
             },
             {
-                title:"Status",
-                data:'car_status'
+                title: "Status",
+                data: 'car_status'
             },
             {
-                title:"Capacity",
-                data:'car_capacity'
+                title: "Capacity",
+                data: 'car_capacity'
             },
             {
-                title:"Color",
-                data:'car_color'
+                title: "Color",
+                data: 'car_color'
             },
             {
-                title:'Doc.',
-                render: function(data,type,row){
-                    return '<img src='+row.doc_img+' class="img-responsive">'
+                title: 'Doc.',
+                render: function (data, type, row) {
+                    return '<img style="max-width:100px;max-height:100px;" src=' + row.doc_img + ' class="img-responsive">'
                 }
             },
             {
@@ -3657,7 +3706,7 @@ function init_DataTables() {
         }
 
     };
-    delete_car = function (self,car_id) {
+    delete_car = function (self, car_id) {
         var conf = confirm("You want to DELETE car!");
         if (conf) {
             row = company_cars_list.row(self.closest('tr'));

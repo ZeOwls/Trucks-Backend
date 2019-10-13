@@ -14,7 +14,10 @@
     <title>Trucks! | {% block title %}{% endblock %}</title>
 
     {% block stylesheets %}
-    <!--<link href="{{ url_for('static', filename='build/js/pnotify/dist/PNotifyBrightTheme.css') }}" rel="stylesheet" type="text/css" />-->
+        <link href="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.brighttheme.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet" type="text/css" />
+    <!---->
+    <link href="{{ url_for('static', filename='build/js/pnotify/dist/PNotifyBrightTheme.css') }}" rel="stylesheet" type="text/css" />
     <!-- Bootstrap -->
     <link href="{{ url_for('static', filename='vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -87,82 +90,48 @@
        appId: "1:381198843122:web:6170940620fc77f5"
     };
     // Initialize Firebase
-    // firebase.initializeApp(firebaseConfig);
-    // const messaging = firebase.messaging();
-    // messaging.usePublicVapidKey("BJHM6vKieUMAbzajsptnVvEfLdY6IEf9IoVnsu4v8WD0BeIadfEkazA9QhfDv0KOMjgBxin5B3AUEObueowCp18");
-    // console.log("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}");
-    // console.log("we ara before register server worker");
-    // navigator.serviceWorker.register("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}")
-    //     .then((registration) => {
-    //         console.log("we are in register server worker");
-    //         messaging.useServiceWorker(registration);
-    //
-    //         messaging.requestPermission()
-    //             .then(function () {
-    //                 return messaging.getToken();
-    //             })
-    //             .then(function (token) {
-    //                 console.log(token)
-    //                 sendTokenToServer(token)
-    //             })
-    //             .catch(function (err) {
-    //                 console.log(err)
-    //             });
-    //
-    //     });
-    // function sendTokenToServer(token){
-    //     $.ajax({
-    //   type: 'POST',
-    //   url: "/admin/UpdateAdminDeviceToken",
-    //   data: JSON.stringify({"device_token" : token}),
-    //   contentType: "application/json; charset=utf-8",
-    //   dataType: "json",
-    //   success: function(resultData) { alert("Save Complete") }
-    //
-    //     });}
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+    messaging.usePublicVapidKey("BJHM6vKieUMAbzajsptnVvEfLdY6IEf9IoVnsu4v8WD0BeIadfEkazA9QhfDv0KOMjgBxin5B3AUEObueowCp18");
+    console.log("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}");
+    console.log("we ara before register server worker");
+    navigator.serviceWorker.register("{{url_for('static',filename='build/js/firebase-messaging-sw.js')}}")
+        .then((registration) => {
+            console.log("we are in register server worker");
+            messaging.useServiceWorker(registration);
 
-    // // [START refresh_token]
-    //   // Callback fired if Instance ID token is updated.
-    //   messaging.onTokenRefresh(() => {
-    //     messaging.getToken().then((refreshedToken) => {
-    //       console.log('Token refreshed.');
-    //       console.log(refreshedToken);
-    //       // Indicate that the new Instance ID token has not yet been sent to the
-    //       // app server.
-    //       // setTokenSentToServer(false);
-    //       // Send Instance ID token to app server.
-    //       // sendTokenToServer(refreshedToken);
-    //       // [START_EXCLUDE]
-    //       // Display new Instance ID token and clear UI of all previous messages.
-    //       // resetUI();
-    //       // [END_EXCLU DE]
-    //     }).catch((err) => {
-    //       console.log('Unable to retrieve refreshed token ', err);
-    //       showToken('Unable to retrieve refreshed token ', err);
-    //     });
-    //   });
-      // [END refresh_token]
-    // messaging.onMessage((payload) => {
-    //   console.log("we ara in message");
-    //   console.log('Message received. ', payload);
-    //   PNotify.notice({
-    //   title: 'Regular Notice',
-    //   text: 'Check me out! I\'m a notice.'
-    //   });
-      // PNotify.info({
-      //     title: 'New Thing',
-      //     text: 'Just to let you know, something happened.'
-      // });
-      // // ...
-    // });
+            messaging.requestPermission()
+                .then(function () {
+                    return messaging.getToken();
+                })
+                .then(function (token) {
+                    if ("{{current_user.device_token}}"!=token)
+                    {
+                        sendTokenToServer(token);
+                    }
 
+                })
+                .catch(function (err) {
+                    console.log(err)
+                });
 
-    // If you would like to customize notifications that are received in the
-    // background (Web app is closed or not in browser focus) then you should
-    // implement this optional method.
-    // [START background_handler]
+        });
+    function sendTokenToServer(token){
+        $.ajax({
+      type: 'POST',
+      url: "/admin/UpdateAdminDeviceToken",
+      data: JSON.stringify({"device_token" : token}),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      // success: function(resultData) { alert("Save Complete") }
 
-// [END background_handler]
+        });}
+
+    messaging.onMessage((payload) => {
+      showNotif(payload)
+
+    });
+
 
 </script>
 
@@ -199,6 +168,7 @@
 <script src="{{ url_for('static', filename='vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js') }}"></script>
 <!-- starrr -->
 <script src="{{ url_for('static', filename='vendors/starrr/dist/starrr.js') }}"></script>
+<script src="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.js') }}"></script>
 {% endblock %}
 <!-- Custom Theme Scripts -->
 <script src="{{ url_for('static', filename='build/js/custom.js') }}"></script>

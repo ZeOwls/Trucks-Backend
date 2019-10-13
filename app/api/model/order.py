@@ -38,7 +38,7 @@ class Order(db.Model):
     def small_serialize(self):
         return {'order_number': self.id,
                 'order_status': orders_status[self.status],
-                'status_id':self.status,
+                'status_id': self.status,
                 'order_date': time.mktime(self.ordered_at.timetuple()),
                 'string_date': self.ordered_at.strftime("%A, %d. %B %Y %I:%M %p"),
                 'cars_number': self.num_of_cars
@@ -52,7 +52,7 @@ class Order(db.Model):
         assigned_trucks = OrderCarsAndDrivers.query.filter_by(order_id=self.id).count()
         return {'order_number': self.id,
                 'order_status': orders_status[self.status],
-                'status_id':self.status,
+                'status_id': self.status,
                 'order_date': time.mktime(self.ordered_at.timetuple()),
                 'string_date': self.ordered_at.strftime("%A, %d. %B %Y %I:%M %p"),
                 'from': {'latitude': self.from_latitude, 'longitude': self.from_longitude,
@@ -69,7 +69,7 @@ class Order(db.Model):
     def serialize_for_company(self):
         return {'order_number': self.id,
                 'order_status': orders_status[self.status],
-                'status_id':self.status,
+                'status_id': self.status,
                 'string_date': self.ordered_at.strftime("%A, %d. %B %Y %I:%M %p"),
                 'from': {'latitude': self.from_latitude, 'longitude': self.from_longitude,
                          'address': self.pickup_location},

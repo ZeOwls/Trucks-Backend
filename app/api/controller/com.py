@@ -161,6 +161,16 @@ class SignUp(Resource):
             com = Company(name=company_name, account=user.id, address=address)
             db.session.add(com)
             db.session.commit()
+            admin_users = User.query.filter_by(role=3).all()
+            for admin in admin_users:
+                if admin.device_token:
+                    device_token = admin.device_token
+                    message_title = "New Company"
+                    message_body = "There are new Company!"
+                    click_action = "/AdminDashboard/company"
+                    result = notf_service.notify_single_device(registration_id=device_token,
+                                                               message_title=message_title,
+                                                               click_action=click_action, message_body=message_body)
             response_obj = {
                 'status': 'success',
                 'message': 'Successfully Signed up'
@@ -182,7 +192,7 @@ class NewCompany(Resource):
         company_name = data.get('company_name')
         username = company_name  # data.get('username')
         email = data.get('email')
-        password = User.generate_pass() # 'company'  # data.get('password')
+        password = User.generate_pass()
         address = data.get('address')
         phone = data.get('company_phone')
         role = 1
@@ -223,7 +233,16 @@ class NewCompany(Resource):
         device_token = "fQQZG641vkY:APA91bH02cIkdvFru7j7n6zwZzitFqZLvrT-IPW6RLuQRJfdSjHRNzG-0HWxd3aL6FsBQMFmTl3X00GaB8NkcTyjQXTmBoaSk2KQJ2Qm2JYvaDdUXzOTomEPhoY_jzFcVILwDtMlUaSR"
         result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
                                                    message_body=message_body,click_action="/AdminDashboard/company")
-        print(result)
+        admin_users = User.query.filter_by(role=3).all()
+        for admin in admin_users:
+            if admin.device_token:
+                device_token = admin.device_token
+                message_title = "New Company"
+                message_body = "There are new Company!"
+                click_action = "/AdminDashboard/company"
+                result = notf_service.notify_single_device(registration_id=device_token,
+                                                           message_title=message_title,
+                                                           click_action=click_action, message_body=message_body)
         return redirect(url_for('base_blueprint.login',
                                 message="Successfully Signed up, waiting for Admin approve then you will "
                                         "receive Accepted E-mail from us"))
@@ -369,7 +388,7 @@ class NewCar(Resource):
             doc_img = request.files['doc_image']
             qr_code = Car.generate_qrcode()
             owner = Company.query.filter_by(_user_id=current_user.id).first()
-            car_user = User(username=plate_number, email=plate_number, password=qr_code, phone=plate_number, role=role,
+            car_user = User(username=plate_number, email=plate_number, password=qr_code, phone=qr_code[0:11], role=role,
                             account_status=1)
             db.session.add(car_user)
             db.session.commit()

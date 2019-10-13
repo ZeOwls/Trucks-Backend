@@ -127,7 +127,7 @@ class SignUp(Resource):
             factory_name = data.get('factory_name')
             username = data.get('username')
             email = data.get('email')
-            password = User.generate_pass() #'factory'
+            password = User.generate_pass()  # 'factory'
             address = data.get('address')
             factory_hotline = data.get('factory_hotline')
             delegate_phone = data.get('delegate_phone')
@@ -184,6 +184,16 @@ class SignUp(Resource):
             fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
             db.session.add(fac)
             db.session.commit()
+            admin_users = User.query.filter_by(role=3).all()
+            for admin in admin_users:
+                if admin.device_token:
+                    device_token = admin.device_token
+                    message_title = "New Factory"
+                    message_body = "There are new Factory!"
+                    click_action = "/AdminDashboard/factory"
+                    result = notf_service.notify_single_device(registration_id=device_token,
+                                                               message_title=message_title,
+                                                               click_action=click_action, message_body=message_body)
             response_obj = {
                 'status': 'success',
                 'message': 'Successfully Signed up'
@@ -208,7 +218,7 @@ class NewFactory(Resource):
         email = data["email"]
         factory_hotline = data["factory_hotline"]
         delegate_phone = data["delegate_phone"]
-        password = "factory"
+        password = User.generate_pass()
         role = 2
         img = request.files['factory_logo']
         user = User.query.filter_by(email=email).first()
@@ -241,11 +251,19 @@ class NewFactory(Resource):
             return redirect(
                 url_for('base_blueprint.SignupFactory', error="factory with entered hot line already exist!"))
         _, file_extension = os.path.splitext(img.filename)
-        url = upload_file_to_s3(img, file_name=factory_name+file_extension,folder='factory_logo')
+        url = upload_file_to_s3(img, file_name=factory_name + file_extension, folder='factory_logo')
         fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline, logo=url)
         db.session.add(fac)
         db.session.commit()
-        print(url)
+        admin_users = User.query.filter_by(role=3).all()
+        for admin in admin_users:
+            if admin.device_token:
+                device_token = admin.device_token
+                message_title = "New Factory"
+                message_body = "There are new Factory!"
+                click_action = "/AdminDashboard/factory"
+                result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
+                                                           click_action=click_action, message_body=message_body)
         return redirect(url_for('base_blueprint.login',
                                 message="Successfully Signed up, waiting for Admin approve then you will "
                                         "receive Accepted E-mail from us"))
@@ -358,7 +376,28 @@ class NewOrder(Resource):
             # db.session.commit()
             ###### End Of Test Part
             #####################
+            admin_users = User.query.filter_by(role=3).all()
+            for admin in admin_users:
+                if admin.device_token:
+                    device_token = admin.device_token
+                    message_title = "New Order"
+                    message_body = "There are new order!"
+                    message_data = {
+                        'factory_name': order.factory_object.name,
+                        'notf_type': "new_order",
+                        "order_id": order.id,
+                        'pickup_location_lat': order.from_latitude,
+                        'pickup_location_lng': order.from_longitude,
+                        'pickup_location_str': order.pickup_location,
+                        'dropoff_location_lat': order.to_latitude,
+                        'dropoff_location_lng': order.to_longitude,
+                        'dropoff_location_str': order.dropoff_location
 
+                    }
+                    click_action = f"/AdminDashboard/OrderDetailsPage{order.id}"
+                    result = notf_service.notify_single_device(registration_id=device_token,
+                                                               message_title=message_title, click_action=click_action,
+                                                               message_body=message_body, data_message=message_data)
             response_obj = {
                 'status': 'success',
                 'message': 'Successfully crate new order',
