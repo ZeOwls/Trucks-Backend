@@ -123,8 +123,8 @@
 
 {% block javascripts %}
 {{ super() }}
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E&callback=initMap"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E&callback=initMap2"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E&callback=initMap&language=ar&region=EG"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E&callback=initMap2&language=ar&region=EG"></script>
 
 <script>
 if ("{{error}}"){
@@ -224,7 +224,7 @@ function markerLocation(){
     //Add lat and lng values to a field that we can save.
     document.getElementById('from_lat').value = currentLocation.lat(); //latitude
     document.getElementById('from_lng').value = currentLocation.lng(); //longitude
-    fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+document.getElementById('from_lat').value +','+document.getElementById('from_lng').value+'&key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E')
+    fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+document.getElementById('from_lat').value +','+document.getElementById('from_lng').value+'&key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E&language=ar')
        .then(response => response.json())
        .then(res => {
                console.log(res.results[0].formatted_address);
@@ -239,7 +239,7 @@ function markerLocation2(){
     //Add lat and lng values to a field that we can save.
     document.getElementById('to_lat').value = currentLocation.lat(); //latitude
     document.getElementById('to_lng').value = currentLocation.lng(); //longitude
-    fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+document.getElementById('to_lat').value +','+document.getElementById('to_lng').value+'&key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E')
+    fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+document.getElementById('to_lat').value +','+document.getElementById('to_lng').value+'&key=AIzaSyBp1G6tb0v3JzSfcPtmKGwLI018Q-DL41E&language=ar')
        .then(response => response.json())
        .then(res => {
                console.log(res.results[0].formatted_address);

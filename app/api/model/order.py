@@ -1,6 +1,7 @@
 from app import db
 from datetime import datetime
 import time
+import locale
 from flask_login import current_user
 
 from .factory import Factory
@@ -11,6 +12,8 @@ from .order_driver_car import OrderCarsAndDrivers
 
 orders_status = ['طلب جديد', 'جاري الوصول لإستلام الشحنة', 'جاري إستلام الشحنة', 'جاري توصيل الشحنة', 'تم الوصول للهدف',
                  'تم توصيل الشحنة بنجاح']
+
+locale.setlocale(locale.LC_ALL, "ar")
 
 
 class Order(db.Model):
