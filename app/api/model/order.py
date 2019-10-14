@@ -13,7 +13,7 @@ from .order_driver_car import OrderCarsAndDrivers
 orders_status = ['طلب جديد', 'جاري الوصول لإستلام الشحنة', 'جاري إستلام الشحنة', 'جاري توصيل الشحنة', 'تم الوصول للهدف',
                  'تم توصيل الشحنة بنجاح']
 
-locale.setlocale(locale.LC_ALL, "ar.utf-8")
+locale.setlocale(locale.LC_ALL, "ar_EG.utf8")
 
 
 class Order(db.Model):
