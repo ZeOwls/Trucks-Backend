@@ -5,7 +5,7 @@
 {% block stylesheets %}
 {{ super() }}
 
-
+  <script src="https://kit.fontawesome.com/360fc66779.js" crossorigin="anonymous"></script>
   <link href="{{ url_for('static', filename='vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ url_for('static', filename='vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
@@ -152,9 +152,10 @@
       <div id="map-to" style="width:100%;height:480px"></div>
   </div>
 </div>
-<input id="pac-input-from" class="controls" type="text" placeholder="Search Box">
-<input id="pac-input-to" class="controls" type="text" placeholder="Search Box">
-
+<input style="margin-top: 20px" id="pac-input-from" class="controls" type="text" placeholder="Search Box">
+<input style="margin-top: 20px" id="pac-input-to" class="controls" type="text" placeholder="Search Box">
+<button onclick="my_location_from()" id = "my_location_from" style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;border-radius: 2px;margin: 11px;padding: 0;background-color: #ffffff;width: 40px;height: 40px" class="btn text-center"><i style="color:#0f0f0f;font-size: 25px" class="fas fa-search-location"></i></button>
+<button onclick="my_location_to()" id = "my_location_to" style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;border-radius: 2px;margin: 11px;padding: 0;background-color: #ffffff;width: 40px;height: 40px" class="btn text-center"><i style="color:#0f0f0f;font-size: 25px" class="fas fa-search-location"></i></button>
 
 </div>
 {% endblock content %}
@@ -191,56 +192,13 @@ function initMap() {
     //Create the map object.
     map = new google.maps.Map(document.getElementById('map-from'), options);
 
-    //---------------  User Location  part start here -------------------
 
-        // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-
-        if(marker === false){
-            //Create the marker.
-            marker = new google.maps.Marker({
-                position: pos,
-                map: map,
-                draggable: true //make it draggable
-            });
-            //Listen for drag events!
-            google.maps.event.addListener(marker, 'dragend', function(event){
-                markerLocation();
-            });
-        } else{
-            //Marker has already been added, so just change its location.
-            marker.setPosition(pos);
-        }
-        //Get the marker's location.
-        markerLocation();
-      }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-      });
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-
-
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(browserHasGeolocation ?
-          'Error: The Geolocation service failed.' :
-          'Error: Your browser doesn\'t support geolocation.');
-      infoWindow.open(map);
-  }
-    // -------------------- User Location part End Here -------------
 
     var input = document.getElementById('pac-input-from');
     var searchBox = new google.maps.places.SearchBox(input);
-
+    var my_location = document.getElementById("my_location_from");
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
+    map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(my_location);
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
@@ -336,8 +294,10 @@ function initMap2() {
     //Create the map object.
     map2 = new google.maps.Map(document.getElementById('map-to'), options);
     var input2 = document.getElementById('pac-input-to');
+    var my_location2 = document.getElementById("my_location_to");
     var searchBox2 = new google.maps.places.SearchBox(input2);
     map2.controls[google.maps.ControlPosition.TOP_LEFT].push(input2);
+    map2.controls[google.maps.ControlPosition.RIGHT_CENTER].push(my_location2);
 
     // Bias the SearchBox results towards current map's viewport.
     map2.addListener('bounds_changed', function() {
@@ -423,8 +383,11 @@ function initMap2() {
 //This function will get the marker's current location and then add the lat/long
 //values to our textfields so that we can save the location.
 function markerLocation(){
+
     //Get location.
     var currentLocation = marker.getPosition();
+    // make selected pos is center of map
+    map.setCenter(currentLocation);
     //Add lat and lng values to a field that we can save.
     document.getElementById('from_lat').value = currentLocation.lat(); //latitude
     document.getElementById('from_lng').value = currentLocation.lng(); //longitude
@@ -434,11 +397,13 @@ function markerLocation(){
                document.getElementById('pickup_location').value = res.results[0].formatted_address;
                    })
        .catch(error => {
-           alert('GeoCoding Failed');})
+           alert('Detect your location Failed');})
 }
 function markerLocation2(){
     //Get location.
     var currentLocation = marker2.getPosition();
+    // make selected pos is center of map
+    map2.setCenter(currentLocation);
     //Add lat and lng values to a field that we can save.
     document.getElementById('to_lat').value = currentLocation.lat(); //latitude
     document.getElementById('to_lng').value = currentLocation.lng(); //longitude
@@ -451,7 +416,86 @@ function markerLocation2(){
            alert('GeoCoding Failed');})
 }
 
+//---------------  User Location  part start here -------------------
+function my_location_from() {
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
 
+        if(marker === false){
+            //Create the marker.
+            marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                draggable: true //make it draggable
+            });
+            //Listen for drag events!
+            google.maps.event.addListener(marker, 'dragend', function(event){
+                markerLocation();
+            });
+        } else{
+            //Marker has already been added, so just change its location.
+            marker.setPosition(pos);
+        }
+        //Get the marker's location.
+        markerLocation();
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+}
+
+function my_location_to() {
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        if(marker2 === false){
+            //Create the marker.
+            marker2 = new google.maps.Marker({
+                position: pos,
+                map: map2,
+                draggable: true //make it draggable
+            });
+            //Listen for drag events!
+            google.maps.event.addListener(marker2, 'dragend', function(event){
+                markerLocation2();
+            });
+        } else{
+            //Marker has already been added, so just change its location.
+            marker2.setPosition(pos);
+        }
+        //Get the marker's location.
+        markerLocation2();
+      }, function() {
+        handleLocationError(true, infoWindow, map2.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map2.getCenter());
+    }
+}
+
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
+}
+// -------------------- User Location part End Here -------------
 //Load the map when the page has finished loading.
 google.maps.event.addDomListener(window, 'load', initMap);
 google.maps.event.addDomListener(window, 'load', initMap2)
