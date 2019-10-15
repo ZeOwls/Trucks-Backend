@@ -122,6 +122,7 @@ class SignUp(Resource):
     @fac_app.expect(signup_model)
     def post(self):
         data = request.json
+        print("New Factory request:", request)
         try:
             # img = request.files['factory_logo']
             factory_name = data.get('factory_name')

@@ -2,8 +2,170 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/adminDashboard/order/templates/NewOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/order/templates/NewOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controller/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/controller/factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/PNotifyBrightTheme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotify.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyAnimate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyAnimate.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyButtons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyButtons.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyCallbacks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyCallbacks.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyCompat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyCompat.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyConfirm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyConfirm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyDesktop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyDesktop.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyHistory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyHistory.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyMobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyMobile.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyNonBlock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyNonBlock.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyReference.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyReference.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyStyleMaterial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/es/PNotifyStyleMaterial.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotify.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyAnimate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyAnimate.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyButtons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyButtons.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyCallbacks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyCallbacks.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyCompat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyCompat.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyConfirm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyConfirm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyDesktop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyDesktop.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyHistory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyHistory.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyMobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyMobile.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyNonBlock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyNonBlock.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyReference.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyReference.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyStyleMaterial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/iife/PNotifyStyleMaterial.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotify.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyAnimate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyAnimate.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyButtons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyButtons.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyCallbacks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyCallbacks.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyCompat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyCompat.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyConfirm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyConfirm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyDesktop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyDesktop.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyHistory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyHistory.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyMobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyMobile.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyNonBlock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyNonBlock.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyReference.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyReference.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyStyleMaterial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/dist/umd/PNotifyStyleMaterial.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotify.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyAnimate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyAnimate.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyButtons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyButtons.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyCallbacks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyCallbacks.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyCompat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyConfirm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyConfirm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyDesktop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyDesktop.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyHistory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyHistory.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyMobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyMobile.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyNonBlock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyNonBlock.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyReference.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyReference.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyStyleMaterial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/es/PNotifyStyleMaterial.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotify.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyAnimate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyAnimate.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyButtons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyButtons.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyCallbacks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyCallbacks.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyCompat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyCompat.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyConfirm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyConfirm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyDesktop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyDesktop.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyHistory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyHistory.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyMobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyMobile.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyNonBlock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyNonBlock.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyReference.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyReference.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyStyleMaterial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/iife/PNotifyStyleMaterial.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotify.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyAnimate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyAnimate.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyButtons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyButtons.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyCallbacks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyCallbacks.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyCompat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyCompat.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyConfirm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyConfirm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyDesktop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyDesktop.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyHistory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyHistory.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyMobile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyMobile.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyNonBlock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyNonBlock.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyReference.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyReference.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyStyleMaterial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/lib/umd/PNotifyStyleMaterial.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/make.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotify.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyAnimate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyBrightTheme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyButtons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyCallbacks.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyCompat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyConfirm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyDesktop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyHistory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyMobile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyNonBlock.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyReference.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/pnotify/src/PNotifyStyleMaterial.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,10 +194,12 @@
     <session id="1704781100">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="46" />
+          <entry key="project.closed" value="53" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="6" />
+          <entry key="project.open.time.10" value="10" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.4" value="1" />
@@ -43,22 +207,22 @@
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="7" />
           <entry key="project.open.time.8" value="14" />
-          <entry key="project.open.time.9" value="7" />
-          <entry key="project.opened" value="49" />
+          <entry key="project.open.time.9" value="8" />
+          <entry key="project.opened" value="56" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Procfile" value="63" />
+          <entry key="Procfile" value="81" />
           <entry key="css" value="4" />
           <entry key="dummy" value="31" />
           <entry key="env" value="125" />
           <entry key="gitignore" value="27" />
-          <entry key="html" value="10016" />
-          <entry key="js" value="5526" />
+          <entry key="html" value="10638" />
+          <entry key="js" value="6176" />
           <entry key="json" value="8" />
           <entry key="pt" value="9" />
-          <entry key="py" value="37219" />
+          <entry key="py" value="37479" />
           <entry key="txt" value="12" />
         </counts>
       </usages-collector>
@@ -67,41 +231,44 @@
           <entry key=".env file" value="124" />
           <entry key="CSS" value="4" />
           <entry key="Chameleon" value="9" />
-          <entry key="HTML" value="10019" />
+          <entry key="HTML" value="10641" />
           <entry key="JSON" value="8" />
-          <entry key="JavaScript" value="5523" />
-          <entry key="PLAIN_TEXT" value="135" />
-          <entry key="Python" value="37218" />
+          <entry key="JavaScript" value="6173" />
+          <entry key="PLAIN_TEXT" value="153" />
+          <entry key="Python" value="37478" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Procfile" value="5" />
+          <entry key="Procfile" value="6" />
           <entry key="css" value="1" />
           <entry key="csv" value="2" />
-          <entry key="env" value="6" />
+          <entry key="env" value="7" />
           <entry key="firebaserc" value="1" />
           <entry key="gitignore" value="4" />
-          <entry key="html" value="182" />
-          <entry key="js" value="26" />
+          <entry key="html" value="198" />
+          <entry key="js" value="34" />
           <entry key="json" value="2" />
+          <entry key="locales" value="1" />
           <entry key="log" value="1" />
+          <entry key="md" value="3" />
           <entry key="pt" value="1" />
-          <entry key="py" value="479" />
+          <entry key="py" value="500" />
           <entry key="rnc" value="1" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="5" />
+          <entry key=".env file" value="6" />
           <entry key="CSS" value="1" />
           <entry key="Chameleon" value="1" />
-          <entry key="HTML" value="182" />
+          <entry key="HTML" value="198" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="26" />
-          <entry key="PLAIN_TEXT" value="26" />
-          <entry key="Python" value="474" />
+          <entry key="JavaScript" value="34" />
+          <entry key="Markdown" value="3" />
+          <entry key="PLAIN_TEXT" value="28" />
+          <entry key="Python" value="495" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -151,69 +318,14 @@
     <favorites_list name="." />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6098081">
+    <splitter split-orientation="horizontal" split-proportion="0.19354838">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.env">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="541">
-                  <caret line="97" column="7" lean-forward="true" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
-                  <folding>
-                    <element signature="e#0#40#0" expanded="true" />
-                    <marker date="1567520568474" expanded="true" signature="3394:3399" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/rq/queue.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="123">
-                  <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/config.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/utils/background_jobs.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1394">
-                  <caret line="82" column="14" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
-                  <folding>
-                    <element signature="e#0#19#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/utils/send_email.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="37" selection-start-line="37" selection-end-line="37" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="2125">
+                  <caret line="125" column="48" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
                 </state>
               </provider>
             </entry>
@@ -221,21 +333,44 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/model/user.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+                <state relative-caret-position="204">
+                  <caret line="15" column="16" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="16" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/routes.py">
+            <entry file="file://$PROJECT_DIR$/app/api/model/car.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="50">
-                  <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                    <marker date="1567516332243" expanded="true" signature="750:814" ph="..." />
-                  </folding>
+                <state relative-caret-position="357">
+                  <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/templates/company_index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="324">
+                  <caret line="154" column="27" lean-forward="true" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/factory/templates/factory_index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="731">
+                  <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/company_details.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1870">
+                  <caret line="110" column="48" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="48" />
                 </state>
               </provider>
             </entry>
@@ -245,26 +380,27 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/order/templates/NewOrder.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="3490" column="36" lean-forward="true" selection-start-line="3490" selection-start-column="36" selection-end-line="3490" selection-end-column="36" />
+                <state relative-caret-position="361">
+                  <caret line="241" column="67" lean-forward="true" selection-start-line="241" selection-start-column="67" selection-end-line="241" selection-end-column="67" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/utils/upload_images.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-102" />
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/api/model/factory.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
                   <folding>
-                    <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
-                    <element signature="e#77#84#1" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="e#0#18#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -273,11 +409,35 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="62">
-                  <caret line="352" selection-start-line="352" selection-end-line="352" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="188">
+                  <caret line="125" column="12" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/order_details.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3196">
+                  <caret line="188" column="33" selection-start-line="188" selection-start-column="25" selection-end-line="188" selection-end-column="33" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/vendors/pnotify/dist/pnotify.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" column="23" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/car_profile.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1921">
+                  <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -285,8 +445,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="359">
-                  <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+                <state relative-caret-position="306">
+                  <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -295,67 +455,19 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="118" column="23" lean-forward="true" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-595">
-                  <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/firebase-messaging-sw.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/api/controller/com.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="327">
-                  <caret line="317" column="37" selection-start-line="317" selection-start-column="37" selection-end-line="317" selection-end-column="37" />
+                <state relative-caret-position="2941">
+                  <caret line="193" column="33" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/api/model/order_driver_car.py">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/NewCar.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/site_template/sidebar.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-629">
-                  <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/routes.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="799">
+                  <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -374,36 +486,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>NewDriver</find>
-      <find>NewDr</find>
-      <find>NewCar</find>
-      <find>FreeCars</find>
-      <find>companyCarsList</find>
-      <find>notf_service</find>
-      <find>acce</find>
-      <find>accep</find>
-      <find>NewOrde</find>
-      <find>assig</find>
-      <find>qr_code</find>
-      <find>list</find>
-      <find>orderCarsAndDrivers</find>
-      <find>fre</find>
-      <find>una</find>
-      <find>current_order_id</find>
-      <find>NewOr</find>
-      <find>NewO</find>
-      <find>Free</find>
-      <find>company_driver_list</find>
-      <find>company_blueprint</find>
-      <find>AssignCarToOrder</find>
-      <find>pen</find>
-      <find>assignca</find>
       <find>assign</find>
       <find>post</find>
       <find>&quot;post&quot;</find>
       <find>assignc</find>
       <find>redis</find>
       <find>Neworde</find>
+      <find>NewOr</find>
+      <find>config</find>
+      <find>order</find>
+      <find>import</find>
+      <find>pnot</find>
+      <find>Delete</find>
+      <find>pno</find>
+      <find>pnotify</find>
+      <find>testPnotify</find>
+      <find>pnoify</find>
+      <find>click</find>
+      <find>.notice</find>
+      <find>PNotify</find>
+      <find>Pending orders</find>
+      <find>NewF</find>
+      <find>NewC</find>
+      <find>NewCa</find>
+      <find>FreeCars</find>
+      <find>pending_factory_list</find>
+      <find>Save Com</find>
+      <find>CompanyCarsList</find>
+      <find>NewCompany</find>
+      <find>company_list</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>default</replace>
@@ -423,13 +535,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/adminDashboard/driver/templates/company_drivers.html" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/home/templates/company_home.html" />
-        <option value="$PROJECT_DIR$/../app/adminDashboard/home/company_routs.py" />
-        <option value="$PROJECT_DIR$/../app/adminDashboard/home/templates/company_home.html" />
-        <option value="$PROJECT_DIR$/../app/__init__.py" />
-        <option value="$PROJECT_DIR$/../app/api/controller/admin.py" />
-        <option value="$PROJECT_DIR$/../app/utils/background_jobs.py" />
         <option value="$PROJECT_DIR$/../app/api/controller/truck.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/login/signup_factory.html" />
         <option value="$PROJECT_DIR$/app/api/model/factory.py" />
@@ -438,16 +543,12 @@
         <option value="$PROJECT_DIR$/app/adminDashboard/factory/templates/NewFactory.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/login/signup_company.html" />
         <option value="$PROJECT_DIR$/app/api/model/com.py" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/company_details.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/company/templates/NewCompany.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/driver_details.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/driver/templates/NewDriver.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/order_details.html" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/car/templates/NewCar.html" />
         <option value="$PROJECT_DIR$/firebase.json" />
         <option value="$PROJECT_DIR$/firebase-messaging-sw.js" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/static/build/js/firebase-messaging-sw.js" />
         <option value="$PROJECT_DIR$/app/api/model/user.py" />
         <option value="$PROJECT_DIR$/app/api/model/driver.py" />
@@ -459,21 +560,32 @@
         <option value="$PROJECT_DIR$/app/adminDashboard/base/__init__.py" />
         <option value="$PROJECT_DIR$/app/api/model/order_driver_car.py" />
         <option value="$PROJECT_DIR$/app/api/controller/truck.py" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/site_template/sidebar.html" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/app/api/__init__.py" />
-        <option value="$PROJECT_DIR$/app/api/controller/com.py" />
-        <option value="$PROJECT_DIR$/app/api/model/order.py" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/routes.py" />
-        <option value="$PROJECT_DIR$/app/api/controller/factory.py" />
-        <option value="$PROJECT_DIR$/app/api/controller/admin.py" />
-        <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/app/utils/background_jobs.py" />
         <option value="$PROJECT_DIR$/app/utils/send_email.py" />
-        <option value="$PROJECT_DIR$/app/config.py" />
         <option value="$PROJECT_DIR$/app/__init__.py" />
+        <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/app/config.py" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/site_template/sidebar.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/static/vendors/pnotify/dist/pnotify.js" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/site_template/top_navigation.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/factory/templates/factory_index.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/car/templates/NewCar.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/car_profile.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/company_details.html" />
+        <option value="$PROJECT_DIR$/app/api/controller/admin.py" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/company/templates/company_index.html" />
+        <option value="$PROJECT_DIR$/app/api/controller/com.py" />
+        <option value="$PROJECT_DIR$/app/api/model/order.py" />
+        <option value="$PROJECT_DIR$/app/api/model/.locales" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/order/templates/NewOrder.html" />
+        <option value="$PROJECT_DIR$/app/api/controller/factory.py" />
       </list>
     </option>
   </component>
@@ -485,7 +597,6 @@
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
-      <path value="$PROJECT_DIR$/app/adminDashboard/base/static/build/js/pnotify/package.json" />
       <path value="$PROJECT_DIR$/app/adminDashboard/base/static/vendors/Chart.js/package.json" />
       <path value="$PROJECT_DIR$/app/adminDashboard/base/static/vendors/DateJS/package.json" />
       <path value="$PROJECT_DIR$/app/adminDashboard/base/static/vendors/Flot/package.json" />
@@ -511,7 +622,6 @@
       <path value="$PROJECT_DIR$/app/adminDashboard/base/static/vendors/starrr/package.json" />
       <path value="$PROJECT_DIR$/app/adminDashboard/base/static/vendors/switchery/package.json" />
       <path value="$PROJECT_DIR$/app/adminDashboard/base/static/vendors/transitionize/package.json" />
-      <path value="$PROJECT_DIR$/node_modules/pnotify/package.json" />
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -543,6 +653,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -565,36 +676,6 @@
               <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="back-end" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -602,24 +683,17 @@
               <item name="back-end" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="admin&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;order&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/order.py&#10;user&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py&#10;tru&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/truck.py&#10;Acc&#9;null&#9;null&#10;cust&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/adminDashboard/base/static/build/js/custom.js&#10;adm&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;update&#9;null&#9;null&#10;assign&#9;null&#9;null&#10;CompanyOr&#9;null&#9;null&#10;admi&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;mana&#9;null&#9;null&#10;User&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py" />
+    <property name="SearchEverywhereHistoryKey" value="user&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py&#10;cust&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/adminDashboard/base/static/build/js/custom.js&#10;base&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/adminDashboard/base/templates/base_site.html&#10;com&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/com.py&#10;admin&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/adminDashboard/home/templates/admin_index.html&#10;fac&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/factory.py&#10;order&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/order.py&#10;tru&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/truck.py&#10;Acc&#9;null&#9;null&#10;adm&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;update&#9;null&#9;null&#10;assign&#9;null&#9;null&#10;CompanyOr&#9;null&#9;null&#10;admi&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/controller/admin.py&#10;mana&#9;null&#9;null&#10;User&#9;FILE&#9;file://F:/Work/ZeOwls/Trankat/back-end/app/api/model/user.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -677,7 +751,30 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.21641791" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.19029851" />
+      <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
+      <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32939914" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.097639486" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.31545064" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" weight="0.1924307" />
       <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
       <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -691,30 +788,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.24678111" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987013" weight="0.1652452" />
-      <window_info id="Structure" order="1" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
-      <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32939914" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32939914" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.19849785" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.31759655" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -762,121 +836,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/NewCar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="120" selection-start-line="64" selection-start-column="114" selection-end-line="64" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/company_routs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/sqlalchemy/sql/selectable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="2170" column="8" selection-start-line="2170" selection-start-column="8" selection-end-line="2170" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/flask_googlemaps/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="54" selection-start-line="53" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/order/routes.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/order/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/company_routes.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/forms.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/company_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="142" column="38" selection-start-line="142" selection-start-column="25" selection-end-line="142" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/driver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/routes.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/company_drivers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1331">
-          <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/routes.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/order_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="227" lean-forward="true" selection-start-line="227" selection-end-line="227" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/car.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/flask_migrate/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4732">
-          <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/flask/blueprints.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
@@ -898,161 +857,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/order_driver_car.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/api/controller/truck.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
           <caret line="187" selection-start-line="187" selection-end-line="187" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/site_template/sidebar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/com.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="317" column="37" selection-start-line="317" selection-start-column="37" selection-end-line="317" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="3490" column="36" lean-forward="true" selection-start-line="3490" selection-start-column="36" selection-end-line="3490" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
-            <element signature="e#77#84#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
-          <folding>
-            <marker date="1567507810280" expanded="true" signature="675:680" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/firebase-messaging-sw.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="118" column="23" lean-forward="true" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/model/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1567516332243" expanded="true" signature="750:814" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="352" selection-start-line="352" selection-end-line="352" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/utils/send_email.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1060,26 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="893" column="33" selection-start-line="893" selection-start-column="33" selection-end-line="893" selection-end-column="33" />
-          <folding>
-            <marker date="1567516556622" expanded="true" signature="33567:33580" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1091,13 +879,7 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/redis/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/flask_rq2/app.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1106,45 +888,297 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/redis/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9860">
+          <caret line="604" column="8" selection-start-line="604" selection-start-column="8" selection-end-line="604" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/rq/queue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/utils/send_email.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/order_driver_car.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/pyfcm/fcm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/vendors/pnotify/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="2476">
+            <caret line="269" column="28" lean-forward="true" selection-start-line="269" selection-start-column="28" selection-end-line="269" selection-end-column="28" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/home/templates/admin_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="605" column="38" selection-start-line="605" selection-start-column="25" selection-end-line="605" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/factory/routes.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/fixed/fixed_sidebar.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/fixed/fixed_footer.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/utils/background_jobs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" column="14" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/site_template/sidebar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/site_template/top_navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="55" lean-forward="true" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/firebase-messaging-sw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config.py">
+    <entry file="file://$PROJECT_DIR$/app/api/controller/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        <state relative-caret-position="8024">
+          <caret line="495" column="9" selection-start-line="495" selection-start-column="9" selection-end-line="495" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="97" column="7" lean-forward="true" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
+        <state relative-caret-position="561">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/datetime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="765" column="8" selection-start-line="765" selection-start-column="8" selection-end-line="765" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/.locales" />
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/base_site.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="125" column="48" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/car.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/factory/templates/factory_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/company_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="110" column="48" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55250">
+          <caret line="3385" column="53" selection-start-line="3385" selection-start-column="53" selection-end-line="3385" selection-end-column="53" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
-            <marker date="1567520568474" expanded="true" signature="3394:3399" ph="..." />
+            <element signature="e#88816#90072#0" />
+            <element signature="e#90135#91661#0" />
+            <element signature="e#91720#93109#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/rq/queue.py">
+    <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        <state relative-caret-position="1955">
+          <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/order_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3196">
+          <caret line="188" column="33" selection-start-line="188" selection-start-column="25" selection-end-line="188" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/vendors/pnotify/dist/pnotify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/car_profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1921">
+          <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/com.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2941">
+          <caret line="193" column="33" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/NewCar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/templates/company_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="154" column="27" lean-forward="true" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/order/templates/NewOrder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="241" column="67" lean-forward="true" selection-start-line="241" selection-start-column="67" selection-end-line="241" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/utils/upload_images.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/model/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="125" column="12" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
         </state>
       </provider>
     </entry>
