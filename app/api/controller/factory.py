@@ -3,7 +3,9 @@ import os
 from flask import request, redirect, url_for
 from flask_restplus import Namespace, Resource, fields
 from flask_login import login_required, login_user, logout_user, current_user
+from werkzeug.datastructures import FileStorage
 
+from app.api import api
 from app.api.model.driver import Driver
 from app.api.model.order_driver_car import OrderCarsAndDrivers
 from app.api.model.user import User
@@ -119,12 +121,21 @@ class Logout(Resource):
 
 @fac_app.route('/SignUp')
 class SignUp(Resource):
-    @fac_app.expect(signup_model)
+    parser = api.parser()
+    parser.add_argument("factory_logo", location='files', help='Factory Image', type=FileStorage)
+    parser.add_argument("factory_name", location='form', help='Factory Name', type=str)
+    parser.add_argument("username", location='form', help='Logistic Name', type=str)
+    parser.add_argument("email", location='form', help='Factory mail', type=str)
+    parser.add_argument("address", location='form', help='Factory Address', type=str)
+    parser.add_argument("factory_hotline", location='form', help='Factory Hot-line', type=str)
+    parser.add_argument("delegate_phone", location='form', help='Logistic Phone', type=str)
+
+    @fac_app.expect(parser)
     def post(self):
-        data = request.json
-        print("New Factory request:", request)
+        data = request.form
+        print(data)
         try:
-            # img = request.files['factory_logo']
+            img = request.files['factory_logo']
             factory_name = data.get('factory_name')
             username = data.get('username')
             email = data.get('email')
@@ -178,11 +189,11 @@ class SignUp(Resource):
                     'message': 'factory with entered hot line already exist!'
                 }
                 return response_obj, 409
-            # _, file_extension = os.path.splitext(img.filename)
-            # url = upload_file_to_s3(img, file_name=factory_name + file_extension, folder='factory_logo')
+            _, file_extension = os.path.splitext(img.filename)
+            url = upload_file_to_s3(img, file_name=factory_name + file_extension, folder='factory_logo')
 
-            # fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline,logo=url)
-            fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
+            fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline,logo=url)
+            # fac = Factory(name=factory_name, delegate=user.id, address=address, hotline=factory_hotline)
             db.session.add(fac)
             db.session.commit()
             admin_users = User.query.filter_by(role=3).all()

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="" />
+    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/adminDashboard/driver/templates/driver_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/driver/templates/driver_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controller/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/controller/factory.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +57,11 @@
           <entry key="dummy" value="31" />
           <entry key="env" value="125" />
           <entry key="gitignore" value="27" />
-          <entry key="html" value="11244" />
+          <entry key="html" value="11246" />
           <entry key="js" value="6176" />
           <entry key="json" value="8" />
           <entry key="pt" value="9" />
-          <entry key="py" value="37479" />
+          <entry key="py" value="37728" />
           <entry key="txt" value="12" />
         </counts>
       </usages-collector>
@@ -66,11 +70,11 @@
           <entry key=".env file" value="124" />
           <entry key="CSS" value="4" />
           <entry key="Chameleon" value="9" />
-          <entry key="HTML" value="11247" />
+          <entry key="HTML" value="11249" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="6173" />
           <entry key="PLAIN_TEXT" value="153" />
-          <entry key="Python" value="37478" />
+          <entry key="Python" value="37727" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -81,14 +85,14 @@
           <entry key="env" value="7" />
           <entry key="firebaserc" value="1" />
           <entry key="gitignore" value="4" />
-          <entry key="html" value="200" />
+          <entry key="html" value="201" />
           <entry key="js" value="35" />
           <entry key="json" value="2" />
           <entry key="locales" value="1" />
           <entry key="log" value="1" />
           <entry key="md" value="3" />
           <entry key="pt" value="1" />
-          <entry key="py" value="500" />
+          <entry key="py" value="503" />
           <entry key="rnc" value="1" />
           <entry key="txt" value="7" />
         </counts>
@@ -98,12 +102,12 @@
           <entry key=".env file" value="6" />
           <entry key="CSS" value="1" />
           <entry key="Chameleon" value="1" />
-          <entry key="HTML" value="200" />
+          <entry key="HTML" value="201" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="35" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="28" />
-          <entry key="Python" value="495" />
+          <entry key="Python" value="498" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -153,7 +157,7 @@
     <favorites_list name="." />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43120474">
+    <splitter split-orientation="horizontal" split-proportion="0.1">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -195,8 +199,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/factory_details.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2193">
+                <state relative-caret-position="-1292">
+                  <caret line="122" column="74" selection-start-line="122" selection-start-column="74" selection-end-line="122" selection-end-column="74" />
                   <folding>
+                    <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
@@ -243,10 +249,21 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/driver_details.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1479" />
+                <state relative-caret-position="340">
+                  <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/driver_index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="459">
+                  <caret line="39" selection-start-line="39" selection-end-line="39" />
+                </state>
               </provider>
             </entry>
           </file>
@@ -270,52 +287,42 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="239">
-                  <caret line="125" column="12" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/vendors/pnotify/dist/pnotify.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="23" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="23" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/car_profile.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1921">
-                  <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/api/model/order.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
+                <state relative-caret-position="277">
+                  <caret line="140" column="37" lean-forward="true" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
                   <folding>
-                    <element signature="e#0#18#0" expanded="true" />
+                    <element signature="e#0#9#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/api/controller/com.py">
+            <entry file="file://$PROJECT_DIR$/app/api/__init__.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2941">
-                  <caret line="193" column="33" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
+                <state relative-caret-position="408">
+                  <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+                  <folding>
+                    <element signature="e#0#27#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/__init__.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="901">
+                  <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/api/controller/__init__.py">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -341,7 +348,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>assign</find>
       <find>post</find>
       <find>&quot;post&quot;</find>
       <find>assignc</find>
@@ -371,6 +377,7 @@
       <find>NewCompany</find>
       <find>company_list</find>
       <find>console</find>
+      <find>fac_app</find>
     </findStrings>
     <replaceStrings>
       <replace>default</replace>
@@ -390,16 +397,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../app/api/controller/truck.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/login/signup_factory.html" />
         <option value="$PROJECT_DIR$/app/api/model/factory.py" />
         <option value="$PROJECT_DIR$/app/utils/upload_images.py" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/factory_details.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/factory/templates/NewFactory.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/login/signup_company.html" />
         <option value="$PROJECT_DIR$/app/api/model/com.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/company/templates/NewCompany.html" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/driver_details.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/driver/templates/NewDriver.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/order_details.html" />
         <option value="$PROJECT_DIR$/firebase.json" />
@@ -416,7 +420,6 @@
         <option value="$PROJECT_DIR$/app/api/model/order_driver_car.py" />
         <option value="$PROJECT_DIR$/app/api/controller/truck.py" />
         <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/app/api/__init__.py" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/routes.py" />
         <option value="$PROJECT_DIR$/app/utils/background_jobs.py" />
@@ -439,8 +442,12 @@
         <option value="$PROJECT_DIR$/app/api/controller/com.py" />
         <option value="$PROJECT_DIR$/app/api/model/order.py" />
         <option value="$PROJECT_DIR$/app/api/model/.locales" />
-        <option value="$PROJECT_DIR$/app/api/controller/factory.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/order/templates/NewOrder.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/factory_details.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/driver_details.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/driver/templates/driver_index.html" />
+        <option value="$PROJECT_DIR$/app/api/__init__.py" />
+        <option value="$PROJECT_DIR$/app/api/controller/factory.py" />
       </list>
     </option>
   </component>
@@ -538,14 +545,6 @@
               <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="back-end" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="adminDashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="back-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -631,10 +630,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.19029851" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.19029851" />
       <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
       <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -648,7 +646,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.31545064" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.35729614" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" x="0" y="0" width="434" height="866" id="Documentation" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -720,27 +718,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/api/controller/truck.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="187" selection-start-line="187" selection-end-line="187" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/redis/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/redis/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -783,13 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -893,6 +863,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8024">
           <caret line="495" column="9" selection-start-line="495" selection-start-column="9" selection-end-line="495" selection-end-column="9" />
+          <folding>
+            <marker date="1570990500180" expanded="true" signature="33655:33668" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1019,13 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="125" column="12" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/vendors/echarts/src/coord/View.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1055,11 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/driver_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1479" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/company/templates/company_index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -1069,10 +1030,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/factory_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2193">
+        <state relative-caret-position="-1292">
+          <caret line="122" column="74" selection-start-line="122" selection-start-column="74" selection-end-line="122" selection-end-column="74" />
           <folding>
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/driver_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/driver_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controller/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="140" column="37" lean-forward="true" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
