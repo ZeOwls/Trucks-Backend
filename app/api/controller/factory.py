@@ -133,7 +133,6 @@ class SignUp(Resource):
     @fac_app.expect(parser)
     def post(self):
         data = request.form
-        print(data)
         try:
             img = request.files['factory_logo']
             factory_name = data.get('factory_name')
