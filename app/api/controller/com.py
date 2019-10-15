@@ -161,10 +161,10 @@ class SignUp(Resource):
                 }
                 return response_obj, 409
 
-            # _, file_extension = os.path.splitext(img.filename)
-            # url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
-            # com = Company(name=company_name, account=user.id, address=address, logo=url)
-            com = Company(name=company_name, account=user.id, address=address)
+            _, file_extension = os.path.splitext(img.filename)
+            url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
+            com = Company(name=company_name, account=user.id, address=address, logo=url)
+            # com = Company(name=company_name, account=user.id, address=address)
             db.session.add(com)
             db.session.commit()
             admin_users = User.query.filter_by(role=3).all()
