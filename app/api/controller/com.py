@@ -113,7 +113,7 @@ class SignUp(Resource):
             username = company_name  # data.get('username')
             email = data.get('email')
             # TODO generate password, and send mail
-            password = User.generate_pass() # 'company'  # data.get('password')
+            password = User.generate_pass()  # 'company'  # data.get('password')
             address = data.get('address')
             phone = data.get('phone')
             # img = request.files['company_logo']
@@ -198,7 +198,7 @@ class NewCompany(Resource):
         phone = data.get('company_phone')
         role = 1
         user = User.query.filter_by(email=email).first()
-        img = request.files['company_logo']
+        # img = request.files['company_logo']
         if user:
             return redirect(
                 url_for('base_blueprint.SignupCompany', error="FAILED: user with entered E-mail already exist!"))
@@ -224,16 +224,16 @@ class NewCompany(Resource):
         if com:
             return redirect(
                 url_for('base_blueprint.SignupCompany', error="FAILED: company with entered address already exist!"))
-        _, file_extension = os.path.splitext(img.filename)
-        url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
-        com = Company(name=company_name, account=user.id, address=address, logo=url)
+        # _, file_extension = os.path.splitext(img.filename)
+        # url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
+        com = Company(name=company_name, account=user.id, address=address)
         db.session.add(com)
         db.session.commit()
         message_title = "New Company"
         message_body = "There are New company signed up, check pending companies!"
         device_token = "fQQZG641vkY:APA91bH02cIkdvFru7j7n6zwZzitFqZLvrT-IPW6RLuQRJfdSjHRNzG-0HWxd3aL6FsBQMFmTl3X00GaB8NkcTyjQXTmBoaSk2KQJ2Qm2JYvaDdUXzOTomEPhoY_jzFcVILwDtMlUaSR"
         result = notf_service.notify_single_device(registration_id=device_token, message_title=message_title,
-                                                   message_body=message_body,click_action="/AdminDashboard/company")
+                                                   message_body=message_body, click_action="/AdminDashboard/company")
         admin_users = User.query.filter_by(role=3).all()
         for admin in admin_users:
             if admin.device_token:
@@ -384,6 +384,10 @@ class NewCar(Resource):
                 return redirect(url_for('cars_blueprint_company.route_error',
                                         error="Car with entered plate number is already exist"))
             car_type = int(data['car_type'])
+            if car_type == 1:
+                maktura_plate_number = data["maktura_plate_number"]
+            else:
+                maktura_plate_number = plate_number
             car_capacity = data['car_capacity']
             car_color = data['car_color']
             doc_img = request.files['doc_image']
@@ -396,9 +400,11 @@ class NewCar(Resource):
             _, file_extension = os.path.splitext(doc_img.filename)
             url = upload_file_to_s3(doc_img, file_name=plate_number + file_extension, folder='cars_doc')
             new_car = Car(user_id=car_user.id, number=plate_number, owner=owner.id, qr_code=qr_code, _type=car_type,
-                          capacity=car_capacity, color=car_color, doc_img=url)
+                          capacity=car_capacity, color=car_color, doc_img=url,
+                          maktura_plate_number=maktura_plate_number)
             db.session.add(new_car)
             db.session.commit()
+            print(new_car.serialize())
             return redirect(url_for('cars_blueprint_company.company_cars'))
         except Exception as e:
             print("Exception in NewCar: ", e)

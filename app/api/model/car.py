@@ -8,6 +8,7 @@ from app import db
 # NOTE : we mapped status to it's index when we store it in database
 from app.api.model.com import Company
 from app.api.model.user import User
+
 available_status = ['free', 'busy']
 
 # if we want to add new type we just add it in this list
@@ -32,10 +33,12 @@ class Car(db.Model):
     qr_code = db.Column(db.String, unique=True, nullable=False)
     _status = db.Column(db.Integer, nullable=False, default=0)  # 0 == free , 1 == busy
     _type = db.Column(db.Integer, nullable=False)  # 0 == trilla , 1 == maktura
-    orders = db.relationship('OrderCarsAndDrivers', backref='car',  cascade="all,delete")
-    current_order_id = db.Column(db.Integer,default=0)
-    color = db.Column(db.String(100),nullable=False)
-    doc_img = db.Column(db.String,nullable=False)
+    orders = db.relationship('OrderCarsAndDrivers', backref='car', cascade="all,delete")
+    current_order_id = db.Column(db.Integer, default=0)
+    color = db.Column(db.String(100), nullable=False)
+    doc_img = db.Column(db.String, nullable=False)
+    maktura_plate_number = db.Column(db.String, unique=True)
+
     @property
     def owner(self):
         return self.owner_object
@@ -74,7 +77,8 @@ class Car(db.Model):
                 f"{typ} not avilable car type, Avilable types is :{available_type}")
 
     def __repr__(self):
-        return f"Car NO.:{self.number}, type: {self.car_type}, locatios is :{(self.location_latitude,self.location_longitude)}" \
+        return f"Car NO.:{self.number}, type: {self.car_type},"\
+               f"locatios is :{(self.location_latitude,self.location_longitude)}" \
                f" status:{available_status[self._status]},'Owner INFO:{self.owner_object}"
 
     @staticmethod
@@ -87,17 +91,18 @@ class Car(db.Model):
         return {
             'car_id': self.id,
             'car_plate_number': self.number,
+            "maktura_plate_number": self.maktura_plate_number if self.maktura_plate_number != self.number else "----",
             'car_type': available_type[self._type],
             'location': {
                 'location_latitude': self.location_latitude,
                 'location_longitude': self.location_longitude
             },
             'car_status': self.status,
-            'Current_order_id:': self.current_order_id if self.current_order_id !=0 else "Car is free right now",
-            'company':self.owner_object.name,
+            'Current_order_id:': self.current_order_id if self.current_order_id != 0 else "Car is free right now",
+            'company': self.owner_object.name,
             'car_capacity': self.capacity,
             'car_color': self.color,
-            'company_code':self.owner_object.id,
+            'company_code': self.owner_object.id,
             'company_phone': self.owner_object.user_object.phone,
             'doc_img': self.doc_img
         }

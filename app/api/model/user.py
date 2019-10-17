@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     phone = db.Column(db.String(11), unique=True, nullable=False)
     # roles is == > 1 = cars company , 2 = factory , 3 = admin, 4 = Truck
     role = db.Column(db.Integer, nullable=False, default=1)
-    device_token = db.Column(db.String, unique=True)
+    device_token = db.Column(db.String)
     account_status = db.Column(db.Integer, nullable=False,
                                default=0)  # 0 = pending admin approve, 1 - Active, -1 = Deleted
     hased_password = db.Column(db.String, nullable=False)
