@@ -10,7 +10,6 @@ from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 
 from app import db, notf_service
-from app.api import api
 from app.api.model.driver import Driver
 from app.utils.login import company_required
 from app.utils.background_jobs import export_cars, import_cars
@@ -29,10 +28,10 @@ auth_model = com_app.model('authentication and authorization', {
 })
 
 signup_model = com_app.model('Company sign up', {
-    'company_name': fields.String(required=True, description='Company Name'),
+    'company_name': fields.String(required=True, description='Factory Name'),
     # 'username': fields.String(required=True, description='Factory Name'),
-    'address': fields.String(required=True, description='Company address'),
-    'email': fields.String(required=True, description='Company Mail'),
+    'address': fields.String(required=True, description='Factory address'),
+    'email': fields.String(required=True, description='Factory Name'),
     # 'password': fields.String(required=True, description='Factory Name'),
     'phone': fields.String(required=True, description='delegate Phone number')
 
@@ -105,23 +104,19 @@ class Logout(Resource):
 
 @com_app.route('/SignUp')
 class SignUp(Resource):
-    parser = api.parser()
-    parser.add_argument("company_logo", location='files', help='Company Image', type=FileStorage)
-    parser.add_argument("company_name", location='files', help='Company Name', type=FileStorage)
-    parser.add_argument("phone", location='form', help='Company Phone', type=str)
-    parser.add_argument("email", location='form', help='Company mail', type=str)
-    parser.add_argument("address", location='form', help='Company Address', type=str)
-    @com_app.expect(parser)
+    @com_app.expect(signup_model)
     def post(self):
-        data = request.form
+        data = request.json
+        print(data)
         try:
-            company_name = data['company_name']
-            username = company_name
-            email = data['email']
+            company_name = data.get('company_name')
+            username = company_name  # data.get('username')
+            email = data.get('email')
+            # TODO generate password, and send mail
             password = User.generate_pass() # 'company'  # data.get('password')
-            address = data['address']
-            phone = data['phone']
-            img = request.files['company_logo']
+            address = data.get('address')
+            phone = data.get('phone')
+            # img = request.files['company_logo']
             role = 1
             user = User.query.filter_by(email=email).first()
             if user:
@@ -161,10 +156,10 @@ class SignUp(Resource):
                 }
                 return response_obj, 409
 
-            _, file_extension = os.path.splitext(img.filename)
-            url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
-            com = Company(name=company_name, account=user.id, address=address, logo=url)
-            # com = Company(name=company_name, account=user.id, address=address)
+            # _, file_extension = os.path.splitext(img.filename)
+            # url = upload_file_to_s3(img, file_name=company_name + file_extension, folder='company_logo')
+            # com = Company(name=company_name, account=user.id, address=address, logo=url)
+            com = Company(name=company_name, account=user.id, address=address)
             db.session.add(com)
             db.session.commit()
             admin_users = User.query.filter_by(role=3).all()

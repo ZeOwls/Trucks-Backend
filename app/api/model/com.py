@@ -12,7 +12,7 @@ class Company(db.Model):
     user_object = db.relationship(User)
     cars = db.relationship('Car', backref='company',  cascade="all,delete")
     drivers = db.relationship('Driver',backref='company', cascade="all,delete")
-    logo = db.Column(db.String,nullable=False,default="/static/images/factory.png")
+    logo = db.Column(db.String,nullable=False,default="/static/images/company.png")
     @property
     def account(self):
         return self.user_object
