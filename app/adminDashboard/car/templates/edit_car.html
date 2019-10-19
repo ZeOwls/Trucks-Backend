@@ -27,48 +27,57 @@
             </div>
             <div class="x_content">
               <br />
-              <form id="newCar" data-parsley-validate class="form-horizontal form-label-left" action="/company/NewCar" enctype="multipart/form-data" method="post">
+              <form id="newCar" data-parsley-validate class="form-horizontal form-label-left" action="/company/EditCar{{data['car_id']}}" enctype="multipart/form-data" method="post">
 
 
 
                 <div class="form-group">
                   <label for="plate_number" class="control-label col-md-3 col-sm-3 col-xs-12">Plate Number <span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="plate_number" required="required" class="form-control col-md-7 col-xs-12" type="text" name="plate_number">
+                    <input id="plate_number" value = "{{data['plate_number']}}" required="required" class="form-control col-md-7 col-xs-12" type="text" name="plate_number">
                   </div>
                 </div>
-                <div  style="display:none" id="maktura_plate_number_container" class="form-group">
+                  {% if data["type"] == 1 %}
+                    <div id="maktura_plate_number_container" class="form-group">
+                 {% else %}
+                  <div  style="display:none" id="maktura_plate_number_container" class="form-group">
+                  {% endif %}
                   <label for="maktura_plate_number" class="control-label col-md-3 col-sm-3 col-xs-12">Maktura Plate Number <span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="maktura_plate_number" value="-1" required="required" class="form-control col-md-7 col-xs-12" type="text" name="maktura_plate_number">
+                    <input id="maktura_plate_number" value = "{{data['maktura_plate_number']}}" required="required" class="form-control col-md-7 col-xs-12" type="text" name="maktura_plate_number">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="car_type">Type <span class="required">*</span>
                   </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <select id="car_type" class="form-control col-md-7 col-xs-12" name="car_type">
-                    <option value="0">تريلا</option>
-                    <option value="1">مقطورة</option>
+                    <select id="car_type"  class="form-control col-md-7 col-xs-12" name="car_type">
+                    {% if data["type"] == 0 %}
+                        <option value="0" selected>تريلا</option>
+                        <option value="1">مقطورة</option>
+                    {% else %}
+                        <option value="0" >تريلا</option>
+                        <option value="1" selected>مقطورة</option>
+                    {% endif %}
                   </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="car_capacity" class="control-label col-md-3 col-sm-3 col-xs-12">Capacity <span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="car_capacity" required="required" class="form-control col-md-7 col-xs-12" type="number" name="car_capacity">
+                    <input id="car_capacity" required="required" value = "{{data['capacity']}}"  class="form-control col-md-7 col-xs-12" type="number" name="car_capacity">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="car_color" class="control-label col-md-3 col-sm-3 col-xs-12">Color <span class="required">*</span></label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="car_color" required="required" class="form-control col-md-7 col-xs-12" type="tel" name="car_color">
+                    <input id="car_color" required="required"  value = "{{data['color']}}" class="form-control col-md-7 col-xs-12" type="tel" name="car_color">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="doc_image" class="control-label col-md-3 col-sm-3 col-xs-12">Doc. Image<span class="required">*</span></label>
+                  <label for="doc_image" class="control-label col-md-3 col-sm-3 col-xs-12">Doc. Image</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input id="doc_image" required="required" class="form-control col-md-7 col-xs-12" type="file" accept="image/jpeg, image/png" name="doc_image">
+                    <input id="doc_image" class="form-control col-md-7 col-xs-12" type="file" accept="image/jpeg, image/png" name="doc_image">
                   </div>
                 </div>
                 <div class="ln_solid"></div>
@@ -101,11 +110,12 @@ document.getElementById("car_type").addEventListener("change", display_maktura);
 function display_maktura(){
     type = document.getElementById("car_type").value;
     if (type ==="1"){
-    document.getElementById("maktura_plate_number").value = "";
-    document.getElementById("maktura_plate_number_container").style.display = "block";
+        if ("{{data['type']}}" == "0"){
+            document.getElementById("maktura_plate_number").value = "";
+        }
+        document.getElementById("maktura_plate_number_container").style.display = "block";
 }
 else{
-    document.getElementById("maktura_plate_number").value = "-1";
     document.getElementById("maktura_plate_number_container").style.display = "none";
     }
 }

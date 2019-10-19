@@ -415,11 +415,47 @@ class NewCar(Resource):
                                     error="Some thing Wrong happened, please try again later"))
 
 
+@com_app.route("/EditCar<car_id>")
+class EditCar(Resource):
+    @login_required
+    def post(self, car_id):
+        data = request.form
+        car = Car.query.get(car_id)
+        car.number = data['plate_number']
+        car.color = data['car_color']
+        car.capacity = data['car_capacity']
+        car._type = int(data['car_type'])
+        if int(data['car_type']) == 1:
+            maktura_plate_number = data["maktura_plate_number"]
+        else:
+            maktura_plate_number = data['plate_number']
+        car.maktura_plate_number = maktura_plate_number
+        doc_img = request.files['doc_image'] or None
+        if doc_img:
+            _, file_extension = os.path.splitext(doc_img.filename)
+            url = upload_file_to_s3(doc_img, file_name=car.number + file_extension, folder='cars_doc')
+            car.doc_img = url
+        db.session.commit()
+        return redirect(url_for("base_blueprint.car_details", id=car_id))
+
+
 @com_app.route('/DriversList')
 class DriversList(Resource):
     @company_required
     def get(self):
         company_id = Company.query.filter_by(_user_id=current_user.id).first().id
+        drivers = Driver.query.filter_by(company_id=company_id).filter_by(driver_status=1).all()
+        data = {
+            'driver_list': [driver.serialize() for driver in drivers]
+        }
+        return data, 200
+
+
+@com_app.route('/CompanyDriversList<com_id>')
+class companyDriversList(Resource):
+    @login_required
+    def get(self, com_id):
+        company_id = com_id
         drivers = Driver.query.filter_by(company_id=company_id).filter_by(driver_status=1).all()
         data = {
             'driver_list': [driver.serialize() for driver in drivers]
@@ -487,7 +523,7 @@ class ImportCars(Resource):
 
 @com_app.route('/DeleteCar<id>')
 class DeleteCar(Resource):
-    @company_required
+    @login_required
     def get(self, id):
         car = Car.query.get(id)
         if car.current_order_id != 0:
@@ -502,7 +538,7 @@ class DeleteCar(Resource):
 
 @com_app.route('/CarProfile<id>')
 class CarProfile(Resource):
-    @company_required
+    @login_required
     def get(self, id):
         car = Car.query.get(id)
         response_obj = {
@@ -514,7 +550,7 @@ class CarProfile(Resource):
 
 @com_app.route('/CarProfileOrders<car_id>')
 class CarProfileOrders(Resource):
-    @company_required
+    @login_required
     def get(self, car_id):
         orders_id = [x.order_id for x in OrderCarsAndDrivers.query.filter_by(car_id=car_id).all()]
         orders = [Order.query.get(id) for id in orders_id]

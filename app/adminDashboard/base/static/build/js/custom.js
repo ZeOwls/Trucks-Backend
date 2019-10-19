@@ -3615,7 +3615,8 @@ function init_DataTables() {
                 render: function (data, type, row) {
                     return '<div style="text-align: center"><a class="btn btn-info btn-sm"' +
                         'href="/AdminDashboard/CarProfile' + row.car_id + '">View</a>' +
-                        '<button class="btn btn-danger btn-sm" onclick="delete_car(this,' + row.car_id + ')" >Delete</button></div>'
+                        '<button class="btn btn-danger btn-sm" onclick="delete_car(this,' + row.car_id + ')" >Delete</button>'+
+                        '<a class="btn btn-primary btn-sm" href="/CompanyDashboard/cars/EditCar'+row.car_id+'" >Edit</a></div>'
                 }
             }
         ]

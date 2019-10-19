@@ -65,6 +65,25 @@
         </div>
 
     </div>
+
+     <!--Company Drivers list -->
+    <div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Company Drivers list</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                        <table id="companyDriversList_Admin" class="table " >
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
     {% endif %}
     <!--Company orders info -->
     <div class="row">
@@ -170,7 +189,7 @@
             },
         ]
     });
-    var company_cars_list = $('#companyCarsList_Admin').DataTable({
+    var company_cars_list2 = $('#companyCarsList_Admin').DataTable({
         ajax: {
             type: 'GET',
             url: "/admin/CompanyCarsList{{data['company_id']}}",
@@ -203,12 +222,121 @@
                 title:"Color",
                 data:'car_color'
             },
+            {
+                title: "",
+                render: function (data, type, row) {
+                    return '<div style="text-align: center"><a class="btn btn-info btn-sm"' +
+                        'href="/AdminDashboard/CarProfile' + row.car_id + '">View</a>' +
+                        '<button class="btn btn-danger btn-sm" onclick="delete_car2(this,' + row.car_id + ')" >Delete</button>'+
+                        '<a class="btn btn-primary btn-sm" href="/CompanyDashboard/cars/EditCar'+row.car_id+'" >Edit</a></div>'
+                }
+            }
 
         ]
     });
+    var drivers = $("#companyDriversList_Admin").DataTable({
+        ajax: {
+            type: 'get',
+            url: "/company/CompanyDriversList{{data['company_id']}}",
+            dataSrc: 'driver_list'
+        },
+        columns: [
+
+            {
+                title: "ID",
+                data: "driver_id"
+            },
+            {
+                title: "Name",
+                data: 'name'
+            },
+            {
+                title: "Company Title",
+                data: "company_name"
+            },
+            {
+                title: "Phone",
+                data: 'phone'
+            },
+            {
+                title: 'License Image',
+                render: function (data, type, row) {
+                    return '<img style="max-width:100px;max-height:100px;" src=' + row.license_img + ' class="img-responsive">'
+                }
+            },
+            {
+                title: 'Orders Count',
+                data: 'num_of_orders'
+            },
+            {
+                title: "",
+                render: function (data, type, row) {
+                    return '<div style="text-align: center"><a class="btn btn-info btn-sm"' +
+                        'href="/AdminDashboard/DriverDetailsPage' + row.driver_id + '">View</a>' +
+                        '<button class="btn btn-danger btn-sm" onclick="delete_driver2(this,' + row.driver_id + ')" >Delete</button>'+
+                        '<a class="btn btn-primary btn-sm" href="/AdminDashboard/driver/EditDriver/'+row.driver_id+'" >Edit</a></div>'
+
+                }
+            }
+        ],
+        responsive: true
+    });
 
 
+delete_car2 = function (self, car_id) {
+        var conf = confirm("You want to DELETE car!");
+        if (conf) {
+            row = company_cars_list2.row(self.closest('tr'));
+            $.ajax({
+                url: "/company/DeleteCar" + car_id,
+                type: "get",
+                success: function (response) {
+                    console.log(response)
+                    row.remove().draw()
+                    alert("Car deleted");
 
+                },
+                error: function (err) {
+                    if (err.responseJSON.status === "failed") {
+                        alert(err.responseJSON.message)
+                    }
+                    else {
+                        alert("Error!")
+                    }
+
+                }
+            })
+        }
+
+    };
+delete_driver2 = function (self, driver_id) {
+        var table = drivers;
+
+        var conf = confirm("You want to DELETE Driver!");
+        if (conf) {
+            row = table.row(self.closest('tr'));
+            $.ajax({
+                url: "/admin/DeleteDriver" + driver_id,
+                type: "get",
+                success: function (response) {
+                    console.log(response)
+                    row.remove().draw()
+                    alert("Driver deleted");
+
+                },
+                error: function (err) {
+                    if (err.responseJSON.status === "failed") {
+                        alert(err.responseJSON.message)
+                    }
+                    else {
+                        alert("Error!")
+                    }
+
+                }
+            })
+        }
+
+    };
 
 </script>
 
