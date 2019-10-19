@@ -3466,7 +3466,8 @@ function init_DataTables() {
                 render: function (data, type, row) {
                     return '<div style="text-align: center"><a class="btn btn-info btn-sm"' +
                         'href="/AdminDashboard/DriverDetailsPage' + row.driver_id + '">View</a>' +
-                        '<button class="btn btn-danger btn-sm" onclick="delete_driver(this,' + row.driver_id + ')" >Delete</button></div>'
+                        '<button class="btn btn-danger btn-sm" onclick="delete_driver(this,' + row.driver_id + ')" >Delete</button>'+
+                        '<a class="btn btn-primary btn-sm" href="/AdminDashboard/driver/EditDriver/'+row.driver_id+'" >Edit</a></div>'
                 }
             }
         ],
@@ -3562,7 +3563,9 @@ function init_DataTables() {
                 render: function (data, type, row) {
                     return '<div style="text-align: center"><a class="btn btn-info btn-sm"' +
                         'href="/AdminDashboard/DriverDetailsPage' + row.driver_id + '">View</a>' +
-                        '<button class="btn btn-danger btn-sm" onclick="delete_driver(this,' + row.driver_id + ',' + "table_name = 'company_drivers_table'" + ')" >Delete</button></div>'
+                        '<button class="btn btn-danger btn-sm" onclick="delete_driver(this,' + row.driver_id + ',' + "table_name = 'company_drivers_table'" + ')" >Delete</button>'+
+                        '<a class="btn btn-danger btn-sm" href="/AdminDashboard/driver/EditDriver/'+row.driver_id+'" >Edit</a></div>'
+
                 }
             }
         ],

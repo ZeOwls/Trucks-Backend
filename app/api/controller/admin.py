@@ -757,6 +757,32 @@ class NewDriver(Resource):
         return redirect(url_for('driver_blueprint.index'))
 
 
+@admin_app.route("/EditDriver<driver_id>")
+class EditDriver(Resource):
+    @login_required
+    def post(self, driver_id):
+        driver = Driver.query.get(driver_id)
+        if current_user.isCompany and driver.company_obj._user_id != current_user.id:
+            return redirect(url_for("driver_blueprint_company.index"))
+        else:
+            data = request.form
+            driver_name = data["driver_name"]
+            phone = data["phone"]
+            license_number = data["license_number"]
+            license_type = data["license_type"]
+            img = request.files['license_image'] or None
+            driver.name = driver_name
+            driver.phone = phone
+            driver.license_number = license_number
+            driver.license_type = license_type
+            if img:
+                _, file_extension = os.path.splitext(img.filename)
+                url = upload_file_to_s3(img, file_name=driver_name + file_extension, folder='drivers_license')
+                driver.license_img = url
+            db.session.commit()
+        return redirect(url_for("base_blueprint.driver_details", id=driver_id))
+
+
 @admin_app.route('/FreeDrivers<car_id>')
 class FreeDrivers(Resource):
     @login_required
