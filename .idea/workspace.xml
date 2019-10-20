@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adminDashboard/car/routs.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/car/routs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adminDashboard/car/templates/edit_car.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/car/templates/edit_car.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adminDashboard/driver/templates/NewDriver.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/driver/templates/NewDriver.html" afterDir="false" />
-    </list>
+    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,7 @@
           <entry key="dummy" value="31" />
           <entry key="env" value="125" />
           <entry key="gitignore" value="27" />
-          <entry key="html" value="11993" />
+          <entry key="html" value="12006" />
           <entry key="js" value="6263" />
           <entry key="json" value="8" />
           <entry key="pt" value="9" />
@@ -71,7 +66,7 @@
           <entry key=".env file" value="124" />
           <entry key="CSS" value="4" />
           <entry key="Chameleon" value="9" />
-          <entry key="HTML" value="11997" />
+          <entry key="HTML" value="12010" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="6259" />
           <entry key="PLAIN_TEXT" value="153" />
@@ -176,7 +171,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/NewDriver.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="278">
@@ -188,17 +183,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/edit_car.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="451">
-                  <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+                <state relative-caret-position="391">
+                  <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/edit_driver.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="380">
-                  <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+                <state relative-caret-position="357">
+                  <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
                 </state>
               </provider>
             </entry>
@@ -441,10 +436,10 @@
         <option value="$PROJECT_DIR$/app/adminDashboard/base/routes.py" />
         <option value="$PROJECT_DIR$/app/api/controller/com.py" />
         <option value="$PROJECT_DIR$/app/adminDashboard/base/templates/company_details.html" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/driver/templates/edit_driver.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/car/routs.py" />
-        <option value="$PROJECT_DIR$/app/adminDashboard/car/templates/edit_car.html" />
         <option value="$PROJECT_DIR$/app/adminDashboard/driver/templates/NewDriver.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/car/templates/edit_car.html" />
+        <option value="$PROJECT_DIR$/app/adminDashboard/driver/templates/edit_driver.html" />
       </list>
     </option>
   </component>
@@ -688,9 +683,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.20895523" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" weight="0.14072494" />
       <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
       <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -704,7 +698,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.21566524" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.21566524" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1103,13 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/edit_driver.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/api/model/car.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1128,17 +1115,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/edit_car.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/NewDriver.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
           <caret line="50" column="92" selection-start-line="50" selection-start-column="92" selection-end-line="50" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/edit_car.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/edit_driver.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
         </state>
       </provider>
     </entry>
