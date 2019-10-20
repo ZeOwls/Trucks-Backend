@@ -95,7 +95,6 @@ numpy==1.17.0
 openpyxl==2.6.2
 pandas==0.25.0
 Pillow==6.2.0
-psycopg2==2.8.3
 pycparser==2.19
 pyfcm==1.4.7
 pyrsistent==0.15.2

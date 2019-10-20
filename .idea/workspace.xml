@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/base/templates/assign_car_to_order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/adminDashboard/base/templates/car_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/adminDashboard/base/templates/car_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/model/car.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/model/car.py" afterDir="false" />
-    </list>
+    <list default="true" id="a9ccb5ca-f028-4243-9de8-fa6e1fba7a9f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,7 @@
           <entry key="dummy" value="31" />
           <entry key="env" value="125" />
           <entry key="gitignore" value="27" />
-          <entry key="html" value="12048" />
+          <entry key="html" value="12059" />
           <entry key="js" value="6263" />
           <entry key="json" value="8" />
           <entry key="pt" value="9" />
@@ -71,7 +66,7 @@
           <entry key=".env file" value="124" />
           <entry key="CSS" value="4" />
           <entry key="Chameleon" value="9" />
-          <entry key="HTML" value="12052" />
+          <entry key="HTML" value="12063" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="6259" />
           <entry key="PLAIN_TEXT" value="153" />
@@ -95,7 +90,7 @@
           <entry key="pt" value="1" />
           <entry key="py" value="527" />
           <entry key="rnc" value="1" />
-          <entry key="txt" value="7" />
+          <entry key="txt" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -107,7 +102,7 @@
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="36" />
           <entry key="Markdown" value="3" />
-          <entry key="PLAIN_TEXT" value="28" />
+          <entry key="PLAIN_TEXT" value="29" />
           <entry key="Python" value="522" />
           <entry key="RNG Compact" value="1" />
         </counts>
@@ -222,15 +217,6 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/adminDashboard/car/templates/edit_car.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/driver/templates/edit_driver.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="289">
@@ -239,15 +225,24 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/car_profile.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="394">
-                  <caret line="126" column="14" lean-forward="true" selection-start-line="126" selection-start-column="14" selection-end-line="126" selection-end-column="14" />
+                <state relative-caret-position="547">
+                  <caret line="135" column="7" lean-forward="true" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
                   <folding>
                     <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/requirements.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
                 </state>
               </provider>
             </entry>
@@ -718,8 +713,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.14072494" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976" visible="true" weight="0.14072494" />
       <window_info id="Structure" order="1" sideWeight="0.5024" side_tool="true" weight="0.1130064" />
       <window_info id="Favorites" order="2" sideWeight="0.5012987" side_tool="true" weight="0.1652452" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -733,7 +729,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.31223175" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.21566524" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.21566524" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -806,13 +802,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/static/build/js/firebase-messaging-sw.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1182,12 +1171,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/adminDashboard/base/templates/car_profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="126" column="14" lean-forward="true" selection-start-line="126" selection-start-column="14" selection-end-line="126" selection-end-column="14" />
+        <state relative-caret-position="547">
+          <caret line="135" column="7" lean-forward="true" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
         </state>
       </provider>
     </entry>
