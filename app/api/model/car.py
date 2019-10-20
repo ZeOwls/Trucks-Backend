@@ -104,5 +104,6 @@ class Car(db.Model):
             'car_color': self.color,
             'company_code': self.owner_object.id,
             'company_phone': self.owner_object.user_object.phone,
-            'doc_img': self.doc_img
+            'doc_img': self.doc_img,
+            "qr_code": self.qr_code
         }

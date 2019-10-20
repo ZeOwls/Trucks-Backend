@@ -125,6 +125,12 @@
                     return '<img style="max-width:100px;max-height:100px;" src='+row.doc_img+' class="img-responsive">'
                 }
             },
+            {
+                title:'QR',
+                render: function(data,type,row){
+                    return '<img style="max-width:100px;max-height:100px;" src="{{qrcode('+row.qr_code+')}}" class="img-responsive">'
+                }
+            },
 
         ]
     });

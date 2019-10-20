@@ -9,7 +9,7 @@ from redis import Redis
 from rq import Queue
 from flask_rq2 import RQ
 from pyfcm import FCMNotification
-import pandas as pd
+from flask_qrcode import QRcode
 from .config import config_by_name
 
 db = SQLAlchemy()
@@ -44,14 +44,7 @@ from app.adminDashboard.order.routes import factory_blueprint as new_order_facto
 from app.adminDashboard.base.routes import root
 
 
-# TODO what to do with this and dashboard !!
-# @login_manager.unauthorized_handler
-# def unauthorized():
-#     response_obj = {
-#             'status': 'failed',
-#             'message': 'unauthorized, please log in first'
-#         }
-#     return response_obj
+
 
 
 def creat_app(config_name):
@@ -64,6 +57,7 @@ def creat_app(config_name):
     login_manager.init_app(app)
     bcrypt.init_app(app)
     rq.init_app(app)
+    QRcode(app)
     # register blueprints
 
     # test
