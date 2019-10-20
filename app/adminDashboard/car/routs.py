@@ -22,6 +22,7 @@ def route_template(template):
 @blueprint.route("/EditCar<car_id>")
 def edit_car(car_id):
     car = Car.query.get(car_id)
+    company_id = car._owner
     plate_number = car.number
     type = car._type
     capacity = car.capacity
@@ -33,11 +34,10 @@ def edit_car(car_id):
         "type": type,
         "capacity": capacity,
         "color": color,
-        "maktura_plate_number": maktura_plate_number
+        "maktura_plate_number": maktura_plate_number,
+        "company_id": company_id
     }
     return render_template("edit_car.html", data=data)
-
-
 
 
 @blueprint.route('error/<error>')

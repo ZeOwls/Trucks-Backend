@@ -1,6 +1,6 @@
 {% extends "base_site.html" %}
 
-{% block title %} Add New Car {% endblock title %}
+{% block title %} Edit Car {% endblock title %}
 
 {% block stylesheets %}
 {{ super() }}
@@ -21,7 +21,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>New Car   </h2>
+              <h2>Edit Car   </h2>
 
               <div class="clearfix"></div>
             </div>
@@ -83,7 +83,11 @@
                 <div class="ln_solid"></div>
                 <div class="form-group">
                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    {% if current_user.isAdmin %}
+                    <a class="btn btn-primary" href="/AdminDashboard/CompanyDetailsPage{{data['company_id']}}" type="button">Cancel</a>
+                    {% else %}
                     <a class="btn btn-primary" href="/CompanyDashboard/cars" type="button">Cancel</a>
+                    {% endif %}
                     <button class="btn btn-primary" type="reset">Reset</button>
                     <button type="submit" class="btn btn-success">Submit</button>
                   </div>
